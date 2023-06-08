@@ -1,7 +1,7 @@
 
 ---
 title: ""
-author: "John Appleseed"
+author: "Keuntae Park"
 date: 
 output: html_document
 ---
@@ -12,9 +12,9 @@ output: html_document
 
 <br><br><br><br><br><br>
 
-#### **John Appleseed**
-##### M.S. Candidate in Data Science | ABC University <img src="images/college_logo.png" style="width:35%;" align="right">
+#### **Keuntae Park**
+##### Media Coordinator | CHANEL <img src="images/Chanel_logo.png" style="width:22%;" align="right">
 
 📍 Seoul <br>
-📱 (123) 456 - 7890 <br>
-✉️ [jappleseed@abc.edu](mailto:jappleseed@abc.edu) <br>
+📱 (+82) 10 - 6394 - 0157 <br>
+✉️ [keuntaepark89@gmail.com](mailto:keuntaepark89@gmail.com) <br>

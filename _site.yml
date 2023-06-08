@@ -27,9 +27,9 @@ navbar:
     #- icon: ai-cv ai-lg
     #  href: files/sample_resume.pdf
     - icon: fab fa-github
-      href: http://github.com/
+      href: http://github.com/keuntaepark
     - icon: fab fa-linkedin-in
-      href: https://www.linkedin.com/
+      href: https://www.linkedin.com/in/keuntaepark
     #- icon: ai-google-scholar ai-lg
     #  href: https://scholar.google.com/
     #- icon: ai-researchgate ai-lg
