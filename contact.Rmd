@@ -17,4 +17,4 @@ output: html_document
 
 📍 Seoul <br>
 📱 (+82) 10 - 6394 - 0157 <br>
-✉️ [keuntaepark89@gmail.com](mailto:keuntaepark89@gmail.com) <br>
+✉️ [k.keuntae.park@gmail.com](mailto:k.keuntae.park@gmail.com) <br>
