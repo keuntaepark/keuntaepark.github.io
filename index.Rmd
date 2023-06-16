@@ -9,23 +9,24 @@ output: html_document
 <br>
 
 <p align="center">
-<img src="images/profile_pic.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+<img src="images/profile_pic.jpg" style="width:50%; border:0px solid; margin-right: 20px" align="center">
 </p>
 <br>
 
 🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.* 
 <br><br><br>
-👋🏽 Hello, my name is Keuntae Park.
+👋🏽 Hi, it is Keuntae Park.
 
-🎓 Preparing to be grad with a M.S. in Data Science at ABC University. (May 2022)
+🎓 Bachelor's degree in Advertising/Public Relations, Hongik University (2019)
+   Pursuing Master's in Business/Data Analytics (MSBA)
 
 🌇 New York City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
 
-📚 Previously content marketer, my primary objective was to enhance the usability and competitiveness of an online exhibition showroom for a well-known electronics brand's HVAC division. Through data analysis using GA, UI enhancements, and streamlining page loading speed, I accomplished a remarkable 300% surge in daily user growth and expanded sales.
+📚 Previously as content marketer, my primary objective was to enhance the usability and competitiveness of an online exhibition showroom for a well-known electronics brand's HVAC division. Through data analysis using GA, UI enhancements, and streamlining page loading speed, I accomplished a remarkable 300% surge in daily user growth and expanded sales.
 
 In my recent position as a media coordinator at CHANEL, my main responsibility was to drive campaign success through the strategic use of media data analysis.
 
-💻 I aspire to leverage decision science techniques in marketing and product development to create remarkable customer experiences and forge meaningful brand connections. By harnessing data-driven insights, I aim to drive strategic decision-making and leave a lasting impact on the customer journey.
+💻 I aim to blend decision science, data insights, and meticulous attention to detail to curate a thoughtful, warm customer experience. Through fostering meaningful brand connections, strategic decision-making, and leaving a lasting impact, I cultivate genuine customer engagement.
 
 🏔In my free time, I find peace and rejuvenation by immersing myself in the practice of yoga and embracing the invigorating runs surrounded by the nature.
 
