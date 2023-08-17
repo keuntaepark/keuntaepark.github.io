@@ -11,7 +11,7 @@ navbar:
       href: tutorials.html
     - text: "Stat/ML"
       menu: 
-      - text: "Predicting House Prices in Iowa"
+      - text: "Online Retail Customer Segmentation"
         href: stat1.html
     - text: "DB/SQL"
       menu: 

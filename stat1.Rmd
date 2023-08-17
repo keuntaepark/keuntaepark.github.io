@@ -14,15 +14,11 @@ output:
 
 <br><br><br>
 
-## **Predicting House Prices in Iowa**
+## **Customer Segmentation Using Online Retail Dataset**
 
 ![](https://img.shields.io/badge/Using-Python-blue)
-![](https://img.shields.io/badge/-LASSO-red)
-![](https://img.shields.io/badge/-XGBoost-success)
+![](https://img.shields.io/badge/KMeans%20-red)
 
-<br>
-
-🚨**THIS IS A FICTIONAL PROJECT MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.**
 
 <br><br><br>
 
@@ -47,15 +43,15 @@ To predict the final price of each home using 79 explanatory variables describin
 
 ### 3. Methodology & Summary
 
-  + LASSO regressions showed the best performance with a cross validation RMSE-score of 0.1121. Although there is a lot of multicollinearity among the variables, LASSO regression include feature selection; it does not select a substantial number of the available variables in its model, as it is supposed to do.
-  + The XGBoost model also performs very well with a cross validation RMSE of 0.1162.
-  + As those two algorithms are very different, averaging predictions is likely to improve the predictions. As the Lasso cross validated RMSE is better than XGBoost's CV score, I decided to weight the Lasso results double.
+  + RFM~
+  + KMEANS 6 segments~
+  + SILHOUETTE ~
 
 <br>
 
 ### 4. Code
 
-Please click [HERE](https://www.kaggle.com/erikbruin/house-prices-lasso-xgboost-and-a-detailed-eda/report) for the analysis report and code.
+Please click [HERE](https://nbviewer.org/github/keuntaepark/Customer-Segmentation-using-online-retail-dataset/blob/main/Online_Retail_Data.ipynb) for the analysis report and code.
 
 <br>
 
