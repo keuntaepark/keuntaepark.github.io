@@ -37,15 +37,17 @@ output:
 <br><br>
 
 ### 2. Goal
-To predict the final price of each home using 79 explanatory variables describing (almost) every aspect of residential homes in Ames, Iowa.
+To gain a comprehensive understanding of customer behavior, preferences, and purchasing patterns, segmentation is employed utilizing multiple variables, including the newly introduced variable, Inter-purchase Time.
 
 <br>
 
 ### 3. Methodology & Summary
 
-  + RFM~
-  + KMEANS 6 segments~
-  + SILHOUETTE ~
+  + RFM: Serving as the foundational framework for customer segmentation, the RFM model categorizes customers based on Recency, Frequency, Monetary value, and the newly introduced variable, Interpurchase Time. This amalgamation enables us to pinpoint distinct behavioral patterns with enhanced precision.
+  
+  + KMeans 6 segments: Building upon this enriched RFM model, we employ the KMeans Algorithm to cluster customers into six segments. This meticulous process aids in identifying groups of customers sharing similar traits, thus amplifying our capability to craft tailored marketing strategies effectively.
+  
+  + Silhouette: Following the segmentation, we conduct Silhouette analysis to gauge the quality of our clustering methodology. By shedding light on the separation between clusters, this analysis reinforces the robustness of our chosen approach.
 
 <br>
 
