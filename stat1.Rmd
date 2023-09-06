@@ -35,7 +35,7 @@ output:
 
 </p>
 <p align="center">
-[Fig. segmentation by k-means clustering]
+[Fig. Segmentation by K-Means Clustering]
 </p>
 
 
