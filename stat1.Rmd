@@ -25,10 +25,17 @@ output:
 ### 1. Figure
 
 <p align="center">
-<img src="images/predict_houseprice.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<img src="images/Monetary.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+
+<p align="center">
+<img src="images/frequency.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+
+<p align="center">
+<img src="images/Interpurchase.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+
 </p>
 <p align="center">
-[Fig. LASSO regression features by importance]
+[Fig. segmentation by k-means clustering]
 </p>
 
 
