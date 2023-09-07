@@ -13,28 +13,24 @@ output: html_document
 </p>
 <br>
 
-🚨*THIS IS A FICTIONAL PROFILE MEANT AS AN EXAMPLE FOR THE STEPBYSTAT COMMUNITY.* 
 <br><br><br>
 👋🏽 Hi, it is Keuntae Park.
 
 🎓 Bachelor's degree in Advertising/Public Relations, Hongik University (2019)
    Pursuing Master's in Business/Data Analytics (MSBA)
 
-🌇 New York City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
+🌇 Seoul City Native, with a passion for developing and applying mathematical and statistical models to hands-on strategies that will grow business.
 
-📚 Previously as content marketer, my primary objective was to enhance the usability and competitiveness of an online exhibition showroom for a well-known electronics brand's HVAC division. Through data analysis using GA, UI enhancements, and streamlining page loading speed, I accomplished a remarkable 300% surge in daily user growth and expanded sales.
+📚 Previously as a content marketer, I focused on enhancing the usability and competitiveness of brand content, which included optimizing an online exhibition showroom for a leading electronics brand's HVAC division. My approach involved leveraging data analysis using Google Analytics and Unity Analytics, implementing UI enhancements, and fine-tuning page loading speed. These efforts resulted in a significant 300% surge in daily user growth and a substantial boost in sales.
 
-In my recent position as a media coordinator at CHANEL, my main responsibility was to drive campaign success through the strategic use of media data analysis.
+In my recent role as a Media Coordinator at CHANEL, I collaborated across teams and leveraged Brand Watch and Google Analytics to tailor media strategies for specific consumer segments. This involved optimizing advertising placements and highlighting our brand's unique qualities.
 
 💻 I aim to blend decision science, data insights, and meticulous attention to detail to curate a thoughtful, warm customer experience. Through fostering meaningful brand connections, strategic decision-making, and leaving a lasting impact, I cultivate genuine customer engagement.
 
 🏔 In my free time, I find peace and rejuvenation by immersing myself in the practice of yoga and embracing the invigorating runs surrounded by the nature.
 
-💪 **Highlight your strengths, use keywords (5-6)**
+💪 Specializing in translating data-driven brand marketing insights into actionable strategies and facilitating seamless collaboration among cross-functional teams.
 
-e.g. 💪 Specialties in analyzing customer-driven data from e-commerce and applying insights to actionable strategies
-
-+ Programming: Python, R
-+ Data visualization: Tableau Software, Power BI
-+ Database: SQL, Postgre SQL, MongoDB, Neo4j
-+ Cloud Computing: AWS, GCP (BigQuery), Azure
++ Programming: Python, R, HTML/CSS
++ Database: SQL, MySQL
++ Visualization and Web Analytics: Google Analytics

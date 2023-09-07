@@ -7,20 +7,10 @@ output_dir: "."
 navbar:
   title: "Keuntae Park"
   left:
-    - text: "Tutorials"
-      href: tutorials.html
     - text: "Stat/ML"
       menu: 
       - text: "Online Retail Customer Segmentation"
         href: stat1.html
-    - text: "DB/SQL"
-      menu: 
-      - text: "Movie Explorer"
-        href: dbsql1.html
-    - text: "Visualization"
-      menu: 
-      - text: "Squid Game Elimination Analysis"
-        href: visualization1.html
   right:
     - icon: fas fa-envelope
       href: contact.html
