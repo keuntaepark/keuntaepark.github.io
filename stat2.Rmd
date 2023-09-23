@@ -17,7 +17,7 @@ output:
 ## **Groceries Market Basket Analysis**
 
 ![](https://img.shields.io/badge/Using-Python-blue)
-![](https://img.shields.io/badge/KMeans%20-red)
+![](https://img.shields.io/badge/ARIMA%20-red)
 
 
 <br><br><br>
@@ -25,39 +25,35 @@ output:
 ### 1. Figure
 
 <p align="center">
-<img src="images/monetary.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<img src="images/mb-02.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
 </p>
 
 <p align="center">
-<img src="images/frequency.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+<img src="images/mb-01.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
 </p>
 
 <p align="center">
-<img src="images/interpurchase.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+[Fig. Prediction Using ARIMA]
 </p>
-
-<p align="center">
-[Fig. Segmentation by K-Means Clustering]
-</p>
-
 
 <br>
 
 <br><br>
 
 ### 2. Goal
-To gain a comprehensive understanding of customer behavior, preferences, and purchasing patterns, segmentation is employed utilizing multiple variables, including the newly introduced variable, Inter-purchase Time.
+The project involves analyzing the Kaggle Groceries dataset to study sales forcasting. Aiming to use and understand time-series analysis to forecast the sales of the most frequently purchased items. This helps in inventory management and promotional planning.
 
 <br>
 
 ### 3. Methodology & Summary
 
-  + RFM: Serving as the foundational framework for customer segmentation, the RFM model categorizes customers based on Recency, Frequency, Monetary value, and the newly introduced variable, Interpurchase Time. This amalgamation enables us to pinpoint distinct behavioral patterns with enhanced precision.
+  + Time-Series Analysis with ARIMA: The cornerstone of our analysis is the application of the AutoRegressive Integrated Moving Average (ARIMA) model for time-series forecasting. By selecting the ARIMA model, we aimed to capture various temporal structures in the sales data, such as seasonality and trends, thereby enhancing the accuracy of our sales forecasts.
   
-  + KMeans 6 segments: Utilizing the KMeans Algorithm, we segmented customers into six distinct groups based on the enriched RFM model. This thorough analysis helps us identify clusters of customers who exhibit similar characteristics, enabling us to develop highly targeted marketing strategies. Notably, Cluster 2 stands out in this analysis due to its high monetary and frequency metrics compared to other clusters, along with a low inter-purchase interval.
+  + Day-of-Week Trends: We enriched our dataset with a 'Day_of_week' variable to unveil unique shopping behaviors associated with specific weekdays. The insights derived from this enabled us to identify the most and least popular days for shopping, serving as a basis for targeted promotional activities.
   
-  + Silhouette: Following the segmentation, we conduct Silhouette analysis to gauge the quality of our clustering methodology. By shedding light on the separation between clusters, this analysis reinforces the robustness of our chosen approach.
+  + Inventory Management: Leveraging the ARIMA-based time-series forecasts, we achieved a more nuanced understanding of inventory requirements. This precise forecasting method allows for optimized inventory levels, reducing both holding and shortage costs.
 
+  + Sales Forecasting: The culmination of our project was the development of a robust sales forecasting model based on the ARIMA algorithm. This model not only predicts future sales but also provides confidence intervals, offering a comprehensive tool for inventory management and promotional planning.
 <br>
 
 ### 4. Code
