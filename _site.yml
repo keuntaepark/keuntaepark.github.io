@@ -11,6 +11,8 @@ navbar:
       menu: 
       - text: "Online Retail Customer Segmentation"
         href: stat1.html
+      - text: "Groceries Market Basket Analysis"
+        href: stat2.html
   right:
     - icon: fas fa-envelope
       href: contact.html

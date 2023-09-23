@@ -11,7 +11,7 @@
 
 
 
-<title>Tutorials</title>
+<title>Stat2</title>
 
 <script src="site_libs/header-attrs-2.22/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -371,7 +371,6 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Tutorials</h1>
 
 </div>
 
@@ -379,66 +378,65 @@ div.tocify {
 <p><link rel="stylesheet" href="styles.css" type="text/css">
 <link rel="stylesheet" href="site_libs/academicons-1.9.1/css/academicons.min.css"/></p>
 <p><br><br><br></p>
+<div id="groceries-market-basket-analysis" class="section level2">
+<h2><strong>Groceries Market Basket Analysis</strong></h2>
+<p><img src="https://img.shields.io/badge/Using-Python-blue" /> <img
+src="https://img.shields.io/badge/KMeans%20-red" /></p>
 <p><br><br><br></p>
-<div id="hyperlink-추가하기" class="section level3">
-<h3>1. Hyperlink 추가하기</h3>
-<p><br></p>
-<div id="웹사이트-링크" class="section level4">
-<h4>웹사이트 링크</h4>
-<p><strong>[Markdown Input]</strong></p>
-<pre><code>e.g. For the most up to date list of publications, check out my [Google Scholar](https://scholar.google.com) page.</code></pre>
-<p><br></p>
-<p><strong>[Output]</strong></p>
-<p>e.g. For the most up to date list of publications, check out my <a
-href="https://scholar.google.com">Google Scholar</a> page.</p>
-<p><br></p>
-</div>
-<div id="디렉토리-내-파일-링크" class="section level4">
-<h4>디렉토리 내 파일 링크</h4>
-<p><strong>[Markdown Input]</strong></p>
-<pre><code>e.g. Please find my resume [HERE](files/sample_resume.pdf).</code></pre>
-<p><br></p>
-<p><strong>[Output]</strong></p>
-<p>e.g. Please find my resume <a
-href="files/sample_resume.pdf">HERE</a>.</p>
-<p><br></p>
-<p><br><br><br></p>
-</div>
-</div>
-<div id="youtube-동영상-임베드-추가하기" class="section level3">
-<h3>2. Youtube 동영상 임베드 추가하기</h3>
-<p><br></p>
-<p><strong>[Markdown Input]</strong></p>
-<p>Youtube 에서 홈페이지에 첨부하고 싶은 영상에서 [Share] &gt; [Embed]
-클릭. 해당 코드 복사하기</p>
-<p><strong>예시: 자기소개 하는 법에 대한 영상을
-임베드해보자</strong></p>
-<ul>
-<li>Youtube 주소: <a
-href="https://www.youtube.com/watch?v=HK1PxHdWHvk">ttps://www.youtube.com/watch?v=HK1PxHdWHvk</a></li>
-</ul>
-<pre><code>&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/HK1PxHdWHvk&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
-<p><br></p>
-<p><strong>[Output]</strong></p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HK1PxHdWHvk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p><br><br><br></p>
-</div>
-<div id="이미지-파일-추가하기" class="section level3">
-<h3>3. 이미지 파일 추가하기</h3>
-<p><strong>[Markdown Input]</strong></p>
-<pre><code>&lt;br&gt;
-&lt;p align=&quot;center&quot;&gt;
-&lt;img src=&quot;images/profile_pic.jpeg&quot; style=&quot;width:50%; border:0.5px solid; margin-right: 20px&quot; align=&quot;center&quot;&gt;
-&lt;/p&gt;
-&lt;br&gt;</code></pre>
-<p><br></p>
-<p><strong>[Output]</strong></p>
-<br>
+<div id="figure" class="section level3">
+<h3>1. Figure</h3>
 <p align="center">
-<img src="images/profile_pic.jpg" style="width:50%; border:0.5px solid; margin-right: 20px" align="center">
+<img src="images/monetary.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+<img src="images/frequency.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+<img src="images/interpurchase.png" style="width:80%; border:0px solid; margin-right: 20px" align="center">
+</p>
+<p align="center">
+[Fig. Segmentation by K-Means Clustering]
 </p>
 <p><br></p>
+<p><br><br></p>
+</div>
+<div id="goal" class="section level3">
+<h3>2. Goal</h3>
+<p>To gain a comprehensive understanding of customer behavior,
+preferences, and purchasing patterns, segmentation is employed utilizing
+multiple variables, including the newly introduced variable,
+Inter-purchase Time.</p>
+<p><br></p>
+</div>
+<div id="methodology-summary" class="section level3">
+<h3>3. Methodology &amp; Summary</h3>
+<ul>
+<li><p>RFM: Serving as the foundational framework for customer
+segmentation, the RFM model categorizes customers based on Recency,
+Frequency, Monetary value, and the newly introduced variable,
+Interpurchase Time. This amalgamation enables us to pinpoint distinct
+behavioral patterns with enhanced precision.</p></li>
+<li><p>KMeans 6 segments: Utilizing the KMeans Algorithm, we segmented
+customers into six distinct groups based on the enriched RFM model. This
+thorough analysis helps us identify clusters of customers who exhibit
+similar characteristics, enabling us to develop highly targeted
+marketing strategies. Notably, Cluster 2 stands out in this analysis due
+to its high monetary and frequency metrics compared to other clusters,
+along with a low inter-purchase interval.</p></li>
+<li><p>Silhouette: Following the segmentation, we conduct Silhouette
+analysis to gauge the quality of our clustering methodology. By shedding
+light on the separation between clusters, this analysis reinforces the
+robustness of our chosen approach.</p></li>
+</ul>
+<p><br></p>
+</div>
+<div id="code" class="section level3">
+<h3>4. Code</h3>
+<p>Please click <a
+href="https://nbviewer.org/github/keuntaepark/Market-Basket-Analysis-using-groceries-dataset/blob/main/Market_Basket_Analysis.ipynb">HERE</a>
+for the analysis report and code.</p>
+<p><br></p>
+</div>
 </div>
 
 
