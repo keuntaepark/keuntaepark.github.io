@@ -13,6 +13,8 @@ navbar:
         href: stat1.html
       - text: "Groceries Market Basket Analysis"
         href: stat2.html
+      - text: "Customer Churn Prediction"
+        href: stat3.html
   right:
     - icon: fas fa-envelope
       href: contact.html
