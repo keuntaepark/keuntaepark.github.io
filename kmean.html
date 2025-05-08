@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer Segmentation with KMeans | Keuntae Park</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document
+          .querySelectorAll(".lang-en")
+          .forEach(
+            (el) => (el.style.display = lang === "en" ? "block" : "none")
+          );
+        document
+          .querySelectorAll(".lang-kr")
+          .forEach(
+            (el) => (el.style.display = lang === "kr" ? "block" : "none")
+          );
+        document
+          .querySelectorAll(".lang-toggle button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("en");
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Customer Segmentation (KMeans)</h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" onclick="toggleLanguage('kr')">KOR</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- English Section -->
+      <div class="lang-en">
+        <h2>Project</h2>
+        <p>
+          While working on UK retail data, I realized that standard RFM features
+          didn’t fully capture repeat behavior. To address this, I researched
+          and implemented an additional metric:
+          <strong>Interpurchase Time</strong>, improving the behavioral clarity
+          of clusters beyond frequency counts.
+        </p>
+
+        <h2>Methodology</h2>
+        <ul>
+          <li>
+            <strong>Data Preparation:</strong> Cleaned 541,909 transactions;
+            dropped rows with missing CustomerID, removed Quantity/Price
+            outliers using IQR filtering.
+          </li>
+          <li>
+            <strong>Feature Engineering:</strong> Calculated RFM + Interpurchase
+            Time [(Tn – T1)/(Frequency – 1)] to include repeat timing.
+          </li>
+          <li>
+            <strong>Clustering:</strong> Applied KMeans (k=6, selected via Elbow
+            Method); evaluated cluster separation with Silhouette Score
+            (0.6279).
+          </li>
+          <li>
+            <strong>Business Insight:</strong> Analyzed each segment’s purchase
+            behavior; proposed marketing actions tailored to dormant, loyal, and
+            high-value groups.
+          </li>
+        </ul>
+
+        <h2>Key Outcomes</h2>
+        <ul>
+          <li>
+            Added Interpurchase Time as a custom feature, enriching traditional
+            segmentation models.
+          </li>
+          <li>
+            Produced clear visual outputs (boxplots, scatterplots, silhouette
+            plots) to support marketing recommendations.
+          </li>
+          <li>
+            Created a reusable segmentation pipeline applicable to other
+            datasets or industries.
+          </li>
+        </ul>
+
+        <h2>Reflection</h2>
+        <ul>
+          <li>
+            <strong>Challenge:</strong> Frequency-only models were too shallow
+            to capture meaningful patterns.
+          </li>
+          <li>
+            <strong>Approach:</strong> Searched literature and experimented with
+            Interpurchase Time; adjusted the formula to fit the dataset and
+            validated performance through clustering quality metrics.
+          </li>
+          <li>
+            <strong>Takeaway:</strong> Learned how to design features that
+            better represent real-world behavior and integrate them into
+            practical business workflows.
+          </li>
+        </ul>
+
+        <h2>Report</h2>
+        <p>
+          📍 Notebook:
+          <a
+            href="https://nbviewer.org/github/keuntaepark/Customer-Segmentation-using-online-retail-dataset/blob/main/Online_Retail_Data.ipynb"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📍 PDF Report:
+          <a href="kmean_eng.pdf" class="button" target="_blank">HERE</a><br />
+          📌 Dataset: UCI Online Retail Dataset (541,909 records)
+        </p>
+      </div>
+
+      <!-- Korean Section -->
+      <div class="lang-kr" style="display: none">
+        <h2>프로젝트</h2>
+        <p>
+          영국 리테일 데이터를 분석하며, 기존 RFM 지표만으로는 재구매 행동을
+          충분히 설명하지 못한다는 점을 발견했습니다. 이를 해결하기 위해 자료
+          조사와 실험을 거쳐
+          <strong>재구매 주기(Interpurchase Time)</strong> 피처를 추가로
+          설계하여, 단순 빈도 기반 분석을 넘어선 군집화를 시도했습니다.
+        </p>
+
+        <h2>방법론</h2>
+        <ul>
+          <li>
+            <strong>데이터 준비:</strong> 541,909건의 거래 데이터 중 CustomerID
+            결측치 제거, Quantity/Price 이상치 IQR 필터링으로 정제.
+          </li>
+          <li>
+            <strong>피처 엔지니어링:</strong> 재구매 리듬을 반영하기 위해 RFM +
+            Interpurchase Time [(Tn – T1)/(Frequency – 1)] 계산.
+          </li>
+          <li>
+            <strong>클러스터링:</strong> KMeans (k=6, Elbow로 선택) 적용,
+            Silhouette Score (0.6279)로 클러스터 품질 평가.
+          </li>
+          <li>
+            <strong>비즈니스 인사이트:</strong> 각 군집의 행동 패턴 분석 후 휴면
+            고객, 충성 고객, 고가 고객별 맞춤 마케팅 전략 제안.
+          </li>
+        </ul>
+
+        <h2>핵심 성과</h2>
+        <ul>
+          <li>Interpurchase Time이라는 맞춤 피처를 추가해 기존 분석을 보완.</li>
+          <li>
+            박스플롯, 산점도, 실루엣 플롯 등 직관적 시각화로 마케팅 권고를
+            뒷받침.
+          </li>
+          <li>
+            다른 산업에도 적용 가능한 재사용성 높은 세분화 파이프라인 구축.
+          </li>
+        </ul>
+
+        <h2>회고</h2>
+        <ul>
+          <li>
+            <strong>문제:</strong> 단순 빈도 중심의 분석으로는 행동 패턴을 깊게
+            설명하기 어려웠음.
+          </li>
+          <li>
+            <strong>접근:</strong> 문헌 검색과 수식 조정을 통해 Interpurchase
+            Time을 설계, 클러스터 품질 지표로 검증.
+          </li>
+          <li>
+            <strong>배운 점:</strong> 데이터 속 행동을 더 잘 반영하는 피처를
+            직접 설계하고 실무 적용까지 연결하는 방법을 익힘.
+          </li>
+        </ul>
+
+        <h2>보고서</h2>
+        <p>
+          📍 노트북 보기:
+          <a
+            href="https://nbviewer.org/github/keuntaepark/Customer-Segmentation-using-online-retail-dataset/blob/main/Online_Retail_Data.ipynb"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📍 PDF 보고서:
+          <a href="kmean.pdf" class="button" target="_blank">HERE</a><br />
+          📌 데이터: UCI Online Retail Dataset (541,909건)
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>

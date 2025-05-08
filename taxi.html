@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NYC Taxi Surcharge Optimization | Keuntae Park</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document
+          .querySelectorAll(".lang-en")
+          .forEach(
+            (el) => (el.style.display = lang === "en" ? "block" : "none")
+          );
+        document
+          .querySelectorAll(".lang-kr")
+          .forEach(
+            (el) => (el.style.display = lang === "kr" ? "block" : "none")
+          );
+        document
+          .querySelectorAll(".lang-toggle button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("en");
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>NYC Taxi Surcharge Optimization</h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" onclick="toggleLanguage('kr')">KOR</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="lang-en">
+        <h2>Project</h2>
+        <p>
+          Analyzed 3.4M+ NYC Yellow Taxi trips to uncover how the $2.50
+          congestion surcharge operates in practice and to design actionable,
+          data-backed policy improvements. The approach combined policy
+          analysis, quantitative impact estimation, and simulation of
+          alternative scenarios.
+        </p>
+
+        <ul>
+          <li>
+            <strong>Step 1 – Understanding Current Policy:</strong> Built
+            classification models (Logistic Regression, Random Forest) to
+            identify surcharge triggers; achieved ROC-AUC 0.91, using SHAP to
+            uncover key drivers like trip distance, pickup zones, and time of
+            day.
+          </li>
+          <li>
+            <strong>Step 2 – Estimating Impact:</strong> Applied Ridge
+            Regression to quantify how trip and location variables influenced
+            surcharge amounts; this set the stage for realistic scenario
+            testing.
+          </li>
+          <li>
+            <strong>Step 3 – Testing Alternatives:</strong> Simulated zone-based
+            and peak-hour pricing models; results showed peak-hour adjustments
+            could boost revenue by +1.56%, while zone-based tweaks improved
+            fairness in underserved areas.
+          </li>
+        </ul>
+
+        <h2>Key Results</h2>
+        <ul>
+          <li>
+            Revenue Impact: +0.9% total gain by combining time- and zone-based
+            strategies.
+          </li>
+          <li>
+            Model Performance: Classification (ROC-AUC 0.91), Regression (lowest
+            MAE, highest R² via Ridge).
+          </li>
+          <li>
+            Policy Takeaway: Demonstrated how data-driven congestion pricing can
+            balance operational goals with social equity.
+          </li>
+        </ul>
+
+        <h2>Business Relevance</h2>
+        <ul>
+          <li>
+            Delivered interpretable model outputs using SHAP, making key drivers
+            (e.g., trip distance, zone, time) transparent to cross-functional
+            teams.
+          </li>
+          <li>
+            Structured the simulation framework with modular design, enabling
+            easy parameter adjustments for dynamic pricing, logistics, and urban
+            planning applications.
+          </li>
+          <li>
+            Translated model outputs into scenario simulations showing how
+            policy changes would affect key outcomes like revenue, fairness, and
+            operational efficiency, providing concrete improvement
+            recommendations.
+          </li>
+        </ul>
+        <h2>Project Reflection</h2>
+        <ul>
+          <li>
+            <strong>Project:</strong> Focused on understanding how congestion
+            surcharges affect taxi operations and explored data-backed ways to
+            adjust policies.
+          </li>
+          <li>
+            <strong>Problem:</strong> Managed large, inconsistent datasets and
+            had to balance improving revenue without introducing new unfairness
+            across time and zones.
+          </li>
+          <li>
+            <strong>Process:</strong> Cleaned missing values (e.g., fare,
+            distance, passenger count) and removed outliers (e.g., trips >100
+            miles, negative fares), prioritized interpretable models, used SHAP
+            to clarify key drivers, and ran targeted simulations to check policy
+            impacts.
+          </li>
+          <li>
+            <strong>Outcome:</strong> Delivered clear, practical insights on
+            where small pricing adjustments could improve both revenue and
+            fairness. Learned to work with imperfect data while focusing on
+            actionable, realistic outputs.
+          </li>
+        </ul>
+
+        <h2>Code & Report</h2>
+        <p>
+          📍 Detailed notebook:
+          <a
+            href="https://colab.research.google.com/drive/1eJHvpsDgeiGNa_0tESW-gD6frek4cHhK?usp=sharing"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📍 Presentation (PDF):
+          <a href="taxi.pdf" class="button" target="_blank">HERE</a><br />
+          📌 Data: NYC TLC Yellow Taxi Trip Records, Zone Lookup
+        </p>
+      </div>
+
+      <div class="lang-kr" style="display: none">
+        <h2>프로젝트</h2>
+        <p>
+          340만 건의 NYC 옐로우 택시 데이터를 통해 현행 $2.50 혼잡 할증 정책의
+          운용 실태를 분석하고, 정책 개선을 위한 데이터 기반 대안들을
+          설계·시뮬레이션했습니다. 과정은 현 정책 분석, 영향 추정, 시나리오
+          테스트로 구성했습니다.
+        </p>
+
+        <ul>
+          <li>
+            <strong>1단계 – 현 정책 이해:</strong> 로지스틱 회귀, 랜덤 포레스트
+            등 분류 모델로 할증 발생 조건을 파악 (ROC-AUC 0.91), SHAP으로 핵심
+            요인(거리, 픽업 구역, 시간대) 해석.
+          </li>
+          <li>
+            <strong>2단계 – 영향 추정:</strong> Ridge 회귀로 요금에 영향을
+            미치는 변수 분석; 시나리오 분석의 기반 마련.
+          </li>
+          <li>
+            <strong>3단계 – 대안 시뮬레이션:</strong> 구역 기반, 피크 시간대
+            요금 정책을 시뮬레이션; 피크 시간 조정 시 +1.56% 수익 증가, 구역
+            조정 시 저개발 지역 공정성 개선.
+          </li>
+        </ul>
+
+        <h2>핵심 성과</h2>
+        <ul>
+          <li>수익 효과: 시간·구역 조합 전략으로 +0.9% 총 수익 상승.</li>
+          <li>
+            모델 성능: Classification (ROC-AUC 0.91), Regression (Ridge – 최저
+            MAE, 최고 R²).
+          </li>
+          <li>
+            정책 시사점: 데이터 기반 혼잡 요금 정책으로 재정·사회적 목표 동시
+            달성 가능성 입증.
+          </li>
+        </ul>
+
+        <h2>실무 적용성</h2>
+        <ul>
+          <li>
+            SHAP 등 기법을 활용해 주요 요인(거리, 구역, 시간대)을 시각화,
+            정책·운영팀이 이해하고 적용할 수 있게 제공.
+          </li>
+          <li>
+            시뮬레이션 프레임워크를 모듈형으로 설계, 파라미터 변경만으로 동적
+            가격, 물류, 도시 계획 등에 쉽게 적용 가능.
+          </li>
+          <li>
+            모델 분석 결과를 기반으로 다양한 정책 변화가 실제 수익, 공정성, 운영
+            효율성 등 핵심 지표에 미치는 영향을 시뮬레이션하여 실질적인 개선안을
+            도출.
+          </li>
+        </ul>
+
+        <h2>프로젝트 회고</h2>
+        <ul>
+          <li>
+            <strong>프로젝트:</strong> 혼잡 할증이 택시 운영에 미치는 영향을
+            분석하고, 데이터 기반으로 정책 조정 방안을 탐색.
+          </li>
+          <li>
+            <strong>문제:</strong> 방대한 비일관성 데이터를 처리하면서, 수익을
+            높이는 동시에 시간대·구역별 공정성을 해치지 않는 균형 고민.
+          </li>
+          <li>
+            <strong>과정:</strong> 결측치(fare, distance, passenger count) 제거
+            및 이상값(예: 100마일 초과, 음수 요금, 10명 초과 승객) 정리, 해석
+            가능한 모델 중심으로 분석, SHAP으로 주요 요인 명확화, 정책 영향을
+            점검하기 위한 시뮬레이션 설계.
+          </li>
+          <li>
+            <strong>결과:</strong> 작은 요금 조정만으로도 수익과 공정성을 개선할
+            수 있는 실질적 인사이트를 도출. 불완전한 데이터 속에서도 실행 가능한
+            결과에 집중하는 경험을 쌓음.
+          </li>
+        </ul>
+
+        <h2>코드 및 보고서</h2>
+        <p>
+          📍 상세 노트북:
+          <a
+            href="https://colab.research.google.com/drive/1eJHvpsDgeiGNa_0tESW-gD6frek4cHhK?usp=sharing"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📍 발표 자료 (PDF):
+          <a href="taxi.pdf" class="button" target="_blank">HERE</a><br />
+          📌 데이터: NYC TLC 옐로우 택시 트립 레코드, 구역 정보
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>

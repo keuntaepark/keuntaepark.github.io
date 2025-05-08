@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keuntae Park Portfolio</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+      }
+      header {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #111;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.5em;
+      }
+      header p.intro {
+        margin: 10px 0 20px;
+        font-size: 1.1em;
+      }
+      header a {
+        color: #fff;
+        margin: 0 10px;
+        text-decoration: none;
+        border-bottom: 1px solid #fff;
+      }
+      .container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      .card {
+        background-color: #1a1a1a;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+        overflow: hidden;
+        position: relative;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+      }
+      .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        object-position: 40% 42%;
+      }
+      .card-content {
+        padding: 20px;
+      }
+      .card h3 {
+        margin-top: 0;
+        color: #fff;
+      }
+      .card p {
+        color: #ccc;
+      }
+      .badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #ff4500;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.75em;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a {
+        color: #00ffff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Keuntae Park</h1>
+      <p class="intro">
+        MBA Candidate @ SKK GSB | Data Analytics · Project Management ·
+        Marketing Analytics
+      </p>
+      <p>
+        <a href="https://github.com/keuntaepark" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/keuntaepark" target="_blank"
+          >LinkedIn</a
+        >
+      </p>
+    </header>
+
+    <div class="container">
+      <div class="card" onclick="window.location.href='wildfire.html'">
+        <span class="badge">Working On</span>
+        <img src="images/wildfire_02.jpeg" alt="Wildfire Project" />
+        <div class="card-content">
+          <h3>Wildfire Spread Forecasting Tool</h3>
+          <p>
+            Built real-time wildfire predictor for faster emergency response.
+            Used wind data + scalable architecture to visualize spread,
+            preparing for future environmental datasets.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" onclick="window.location.href='taxi.html'">
+        <img src="images/taxi_01.png" alt="Taxi Project" />
+        <div class="card-content">
+          <h3>NYC Taxi Surcharge Optimization</h3>
+          <p>
+            Turned 3M+ taxi trips into smarter, fairer surcharge policies.
+            Applied machine learning (ROC-AUC 0.91) to recommend strategies
+            boosting revenue and equity.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" onclick="window.location.href='kmean.html'">
+        <img src="images/kmean.png" alt="KMeans Project" />
+        <div class="card-content">
+          <h3>Customer Segmentation (KMeans Clustering)</h3>
+          <p>
+            Revealed six key customer patterns to sharpen UK retail targeting.
+            Clustered 540K+ transactions with RFM + KMeans, unlocking deeper
+            marketing insights.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" onclick="window.location.href='arima01.html'">
+        <img src="images/arima.jpg" alt="ARIMA Project" />
+        <div class="card-content">
+          <h3>Business Forecasting w/ ARIMA</h3>
+          <p>
+            Forecasted 30+ years of demand to optimize operations and guide
+            strategic investments, boosting ROI with ARIMA-based models.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>

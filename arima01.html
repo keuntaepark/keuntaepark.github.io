@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Forecasting with ARIMA/SARIMAX | Keuntae Park</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document.querySelectorAll(".lang-en").forEach((el) => {
+          el.style.display = lang === "en" ? "block" : "none";
+        });
+        document.querySelectorAll(".lang-kr").forEach((el) => {
+          el.style.display = lang === "kr" ? "block" : "none";
+        });
+        document
+          .querySelectorAll(".lang-toggle button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("en");
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Business Forecasting (ARIMA/SARIMAX)</h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" onclick="toggleLanguage('kr')">KOR</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- English Section -->
+      <div class="lang-en">
+        <h2>Project</h2>
+        <p>
+          Built demand forecasts for energy-efficient appliances using 30+ years
+          of data. Focused on designing models that balance short-term
+          operational needs and long-term planning under real-world constraints.
+        </p>
+
+        <h2>Methodology</h2>
+        <ul>
+          <li>
+            <strong>Data Prep:</strong> Cleaned negative and missing demand
+            values; decomposed into trend, cyclical, seasonal, irregular parts.
+          </li>
+          <li>
+            <strong>Baseline Modeling:</strong> Applied ARIMA(1,1,1) and
+            SARIMA(1,1,1)(1,1,1,12); evaluated fit using AIC/BIC and residual
+            diagnostics.
+          </li>
+          <li>
+            <strong>External Variable Test:</strong> Added dummy sine proxies to
+            SARIMAX; confirmed no effect, highlighting the need to integrate
+            real external drivers (e.g., weather, marketing).
+          </li>
+          <li>
+            <strong>Prophet Modeling:</strong> Compared against Prophet for
+            flexible trend/seasonality handling; assessed tradeoffs across
+            models.
+          </li>
+        </ul>
+
+        <h2>Key Outcomes</h2>
+        <ul>
+          <li>
+            Quantified performance (MAE, RMSE) across ARIMA/SARIMA/SARIMAX and
+            Prophet.
+          </li>
+          <li>
+            Demonstrated the importance of business-relevant features for
+            boosting predictive power.
+          </li>
+          <li>
+            Delivered a modular forecasting pipeline ready for business driver
+            integration.
+          </li>
+        </ul>
+
+        <h2>Reflection</h2>
+        <ul>
+          <li>
+            <strong>Challenge:</strong> Off-the-shelf time series models hit a
+            performance ceiling without meaningful external data.
+          </li>
+          <li>
+            <strong>Approach:</strong> Explored adding proxy variables; learned
+            that model improvements depend on context-specific business inputs.
+          </li>
+          <li>
+            <strong>Takeaway:</strong> Modeling alone isn’t enough; identifying
+            and integrating real drivers is key to producing actionable
+            forecasts.
+          </li>
+        </ul>
+
+        <h2>Report</h2>
+        <p>
+          📍 Notebook (nbviewer):
+          <a
+            href="https://nbviewer.org/github/keuntaepark/ARIMA/blob/main/arima.ipynb"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📌 Data: Historical demand (1990–2023)
+        </p>
+      </div>
+
+      <!-- Korean Section -->
+      <div class="lang-kr" style="display: none">
+        <h2>프로젝트</h2>
+        <p>
+          30년 이상의 데이터를 기반으로 에너지 효율 가전 수요 예측을
+          설계했습니다. 단순한 단기 운영을 넘어, 실질적인 장기 전략 의사결정을
+          지원할 수 있는 모델링을 고민했습니다.
+        </p>
+
+        <h2>방법론</h2>
+        <ul>
+          <li>
+            <strong>데이터 정리:</strong> 음수 및 결측값 보정; 추세, 주기성,
+            계절성, 불규칙 요소로 분해.
+          </li>
+          <li>
+            <strong>베이스라인 모델링:</strong> ARIMA(1,1,1),
+            SARIMA(1,1,1)(1,1,1,12) 적용; AIC/BIC, 잔차 진단으로 적합도 평가.
+          </li>
+          <li>
+            <strong>외생 변수 테스트:</strong> 임시 sine 변수를 SARIMAX에 넣어
+            실험; 효과 없음 확인 → 실제 요인(날씨, 마케팅 등) 발굴 필요.
+          </li>
+          <li>
+            <strong>Prophet 모델링:</strong> 추세·계절성 유연성이 강한 Prophet과
+            비교; 모델별 성능 및 적용 조건 분석.
+          </li>
+        </ul>
+
+        <h2>핵심 성과</h2>
+        <ul>
+          <li>ARIMA/SARIMA/SARIMAX, Prophet 간 MAE, RMSE 비교.</li>
+          <li>
+            단순 모델링만으로는 한계가 있으며, 비즈니스 관련 변수 연계의 중요성
+            입증.
+          </li>
+          <li>외부 요인 연계에 적합한 모듈형 예측 파이프라인 완성.</li>
+        </ul>
+
+        <h2>회고</h2>
+        <ul>
+          <li>
+            <strong>문제:</strong> 오픈 소스 시계열 모델은 비즈니스 요인 없이
+            성능 한계에 부딪힘.
+          </li>
+          <li>
+            <strong>접근:</strong> 프록시 변수를 추가해보며 실험; 의미 있는 변수
+            없이 단순 확장은 소용없음을 확인.
+          </li>
+          <li>
+            <strong>배운 점:</strong> 좋은 예측은 모델링 자체가 아니라, 실제
+            요인을 어떻게 찾고 통합하느냐에 달려있음.
+          </li>
+        </ul>
+
+        <h2>보고서</h2>
+        <p>
+          📍 노트북 (nbviewer):
+          <a
+            href="https://nbviewer.org/github/keuntaepark/ARIMA/blob/main/arima.ipynb"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📌 데이터: 1990–2023년 수요 데이터
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>

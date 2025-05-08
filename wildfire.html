@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wildfire Spread Predictor | Keuntae Park</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document.querySelectorAll(".lang-en").forEach((el) => {
+          el.style.display = lang === "en" ? "block" : "none";
+        });
+        document.querySelectorAll(".lang-kr").forEach((el) => {
+          el.style.display = lang === "kr" ? "block" : "none";
+        });
+        document.querySelectorAll(".lang-toggle button").forEach((btn) => {
+          btn.classList.remove("active");
+        });
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("en");
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Wildfire Spread Predictor</h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" onclick="toggleLanguage('kr')">KOR</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="lang-en">
+        <h2>Overview</h2>
+        <p>
+          I built a web tool that predicts and visualizes wildfire spread
+          directions using real-time wind data. Users can click on a map to see
+          probabilistic spread predictions (N/E/S/W) rendered interactively.
+        </p>
+        <ul>
+          <li>
+            Realtime Prediction: Lightweight algorithm using current wind
+            direction and speed.
+          </li>
+          <li>
+            Visual & Interactive: Spread areas rendered directly on the map
+            (Leaflet.js).
+          </li>
+          <li>
+            Scalable Architecture: Designed for future enhancements with
+            historical fire and terrain data.
+          </li>
+        </ul>
+        <h2>Methodology & Details</h2>
+        <ul>
+          <li>
+            Spatial Prediction: Random Forest, XGBoost for handling terrain,
+            vegetation, wind features.
+          </li>
+          <li>
+            Temporal Modeling: ARIMA, LSTM to capture seasonality, lag effects,
+            sequential trends.
+          </li>
+          <li>
+            Optimization: Hyperparameter tuning balancing accuracy and
+            computational cost.
+          </li>
+          <li>
+            Integration: Real-time + historical data pipelines generating clear,
+            interpretable risk outputs.
+          </li>
+        </ul>
+        <h2>Code & Live Demo</h2>
+        <p>
+          📍 Try it out:
+          <a
+            href="https://keuntaepark.github.io/wildfire-spread"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📌 Powered by OpenStreetMap, Nominatim, Open-Meteo API, Leaflet.js
+        </p>
+      </div>
+
+      <div class="lang-kr" style="display: none">
+        <h2>개요</h2>
+        <p>
+          실시간 바람 데이터를 활용해 산불 확산 방향을 예측하고 시각화하는 웹
+          도구를 개발했습니다. 사용자가 지도를 클릭하면 동서남북 방향별 확산
+          확률이 인터랙티브하게 표시됩니다.
+        </p>
+        <ul>
+          <li>
+            실시간 예측: 현재 바람 방향과 풍속을 사용하는 가벼운 알고리즘.
+          </li>
+          <li>직관적 시각화: Leaflet.js로 지도에 직접 확산 영역을 표현.</li>
+          <li>확장 가능성: 산불 이력 및 지형 데이터로 고도화할 준비 완료.</li>
+        </ul>
+        <h2>방법론 및 세부 내용</h2>
+        <ul>
+          <li>
+            공간 예측: Random Forest, XGBoost로 지형, 식생, 바람 등 혼합 피처
+            처리.
+          </li>
+          <li>시간 예측: ARIMA, LSTM으로 계절성, 지연 효과, 순차 패턴 반영.</li>
+          <li>최적화: 정확도와 연산 비용 균형 맞추는 하이퍼파라미터 튜닝.</li>
+          <li>
+            통합: 실시간·과거 데이터 파이프라인 결합으로 명확하고 해석 가능한
+            위험 예측 제공.
+          </li>
+        </ul>
+        <h2>코드 및 데모</h2>
+        <p>
+          📍 데모 보기:
+          <a
+            href="https://keuntaepark.github.io/wildfire-spread"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
+          📌 본 도구는 OpenStreetMap, Nominatim, Open-Meteo API, Leaflet.js로
+          구축되었습니다.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>
