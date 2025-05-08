@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LG HVAC Virtual Experience | Keuntae Park</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document
+          .querySelectorAll(".lang-en")
+          .forEach(
+            (el) => (el.style.display = lang === "en" ? "block" : "none")
+          );
+        document
+          .querySelectorAll(".lang-kr")
+          .forEach(
+            (el) => (el.style.display = lang === "kr" ? "block" : "none")
+          );
+        document
+          .querySelectorAll(".lang-toggle button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("en");
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>LG HVAC Virtual Experience</h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" onclick="toggleLanguage('kr')">KOR</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="lang-en">
+        <h2>Project Overview</h2>
+        <p>
+          As project manager and data lead, I drove the LG Electronics HVAC
+          Virtual Experience (Jan–Apr 2025) by aligning design, engineering, and
+          external partners. The goal: deliver a high-performance virtual
+          showroom for B2B engagement, supported by data-driven UX improvements
+          and cross-functional alignment.
+        </p>
+
+        <h2>Key Challenges</h2>
+        <ul>
+          <li>
+            Identified heavy Unity assets as the main bottleneck using
+            walkthrough tests, developer logs, and user complaints.
+          </li>
+          <li>
+            Discovered missing user behavior data, making UX improvement
+            decisions speculative.
+          </li>
+          <li>
+            Mediated design vs. engineering conflicts over visual fidelity vs.
+            performance priorities.
+          </li>
+        </ul>
+
+        <h2>Approach & Strategy</h2>
+        <ul>
+          <li>
+            Led heatmap analysis in Python to detect low-traffic 3D zones;
+            recommended asset downgrades to improve load speed.
+          </li>
+          <li>
+            Acted as cross-team facilitator, ensuring clear priorities and
+            translating client goals into technical roadmaps.
+          </li>
+          <li>
+            Built a live Miro dashboard to track feedback, align progress, and
+            keep stakeholders synchronized.
+          </li>
+        </ul>
+
+        <h2>Key Outcomes & Business Impact</h2>
+        <ul>
+          <li>
+            +100% YoY visitor growth, contributing to increased B2B leads and
+            stronger sales pipeline.
+          </li>
+          <li>
+            +15% longer session times, reflecting better user engagement and
+            navigation.
+          </li>
+          <li>
+            20% faster load times, boosting user retention and experience
+            quality.
+          </li>
+        </ul>
+
+        <h2>What I Learned</h2>
+        <p>
+          Having faced the limitations of intuition-based decision-making, I
+          realized the importance of data-driven approaches for solving problems
+          and aligning teams. Since then, I’ve made it a practice to embed
+          analysis and measurement frameworks early in projects.
+        </p>
+
+        <h2>Client Recommendations & Future Plans</h2>
+        <p>
+          Post-project, I proposed Google Analytics integration and A/B testing
+          to segment user behavior and directly link UX optimizations to
+          business outcomes, such as lead conversions and retention
+          improvements.
+        </p>
+
+        <p>
+          Live Project:
+          <a
+            href="https://hvac-virtual-experience.lg.com/"
+            target="_blank"
+            class="button"
+            >HERE</a
+          >
+        </p>
+      </div>
+
+      <div class="lang-kr" style="display: none">
+        <h2>프로젝트 개요</h2>
+        <p>
+          <strong>프로젝트 기간:</strong> 2025.01.29 – 2025.04.30<br />
+          <strong>참여 인원:</strong> 4BY4 디자이너, Unity 개발자, 외부
+          협력사<br />
+          <strong>역할:</strong> 데이터 분석 및 프로젝트 관리 리드
+        </p>
+
+        <h2>핵심 문제 정의</h2>
+        <ul>
+          <li>
+            클라이언트 인터뷰 및 로그 분석으로 Unity 자산 과중이 주요 성능
+            병목임을 파악
+          </li>
+          <li>사용자 행동 데이터 부재로 UX 개선 방향성이 불명확함을 확인</li>
+          <li>
+            디자인팀의 시각 품질 요구와 엔지니어링팀의 퍼포먼스 요구 간 갈등
+            조율 필요
+          </li>
+        </ul>
+
+        <h2>접근 방식 및 전략</h2>
+        <ul>
+          <li>
+            Python으로 Heatmap 클릭·체류 데이터 분석 → 저활성 3D 구간 화질 낮춤
+            → 속도 최적화
+          </li>
+          <li>
+            Miro 대시보드를 구축해 피드백 및 진행 현황 실시간 공유, 팀 간 정렬
+            강화
+          </li>
+          <li>
+            클라이언트 목표를 기술 설계로 전환, 엔지니어링팀과 협력해 Unity
+            최적화 설계
+          </li>
+        </ul>
+
+        <h2>주요 성과 및 비즈니스 임팩트</h2>
+        <ul>
+          <li>
+            방문자 수 전년 대비 +100% → 신규 리드 창출 및 영업팀 연결 기회 증가
+          </li>
+          <li>세션 지속시간 +15% → 사용자 참여 및 UX 개선 효과 반영</li>
+          <li>페이지 로딩 속도 20% 개선 → 사용자 이탈률 감소 및 만족도 증가</li>
+        </ul>
+
+        <h2>주요 학습 및 성장</h2>
+        <p>
+          감과 직관에 의존한 논의의 한계를 직접 겪으며, 데이터 기반 접근이 문제
+          해결과 협업 모두에서 필수적임을 깨달음. 이로 인해 이후 프로젝트에서는
+          초기부터 분석과 측정 체계를 고려하는 습관을 기르게 됨.
+        </p>
+
+        <h2>클라이언트 제안 및 다음 단계</h2>
+        <p>
+          Google Analytics 연계 및 A/B 테스트로 사용자 세그먼트별 행동을
+          분석하고, UX 개선을 매출 전환까지 연결할 방안을 탐색할 것을 제안.
+        </p>
+
+        <p>
+          🔗
+          <a
+            href="https://hvac-virtual-experience.lg.com/"
+            class="button"
+            target="_blank"
+            >최종 프로젝트 보기</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>
