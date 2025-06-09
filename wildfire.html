@@ -111,89 +111,80 @@
 
     <div class="content">
       <div class="lang-en">
-        <h2>Project</h2>
+        <h2>Problem</h2>
         <p>
-          Led the design and implementation of a wildfire spread forecasting
-          system that integrates spatiotemporal wind data, historical fire
-          records, and machine learning predictions. The goal wasn’t just
-          prediction—<strong
-            >it was to build a tool that actually works in the field</strong
-          >.
+          Conventional wildfire forecasts tend to rely on qualitative judgments
+          or single-direction outputs, which are insufficient for rapid and
+          spatially informed decisions in emergency response. Wildfires often
+          spread in multiple directions depending on wind, terrain, and other
+          variables, but few systems quantify this complexity in a usable format
+          for field teams.
         </p>
 
-        <h2>Key Design & Execution Strategies</h2>
+        <h2>Action</h2>
         <ul>
           <li>
-            <strong>Problem framing & user-first modeling:</strong> Shifted from
-            single-label outputs to 8-direction probability vectors → better fit
-            for multi-directional fire behavior and frontend integration.
+            <strong>Reframed the Prediction Target:</strong> Modeled wildfire
+            spread as 8-directional probability vectors to reflect
+            multidirectional behavior and simplify map-based visualization
+            (Leaflet.js)
           </li>
           <li>
-            <strong>Model choice prioritization:</strong> Compared XGBoost,
-            LGBM, etc. → selected RandomForest (best cosine similarity: 0.58
-            avg) for stability and interpretability.
+            <strong>Model Benchmarking:</strong> Compared XGBoost, LGBM, and
+            RandomForest; selected RandomForest for its higher cosine similarity
+            (avg. 0.58) and stable performance
           </li>
           <li>
-            <strong>Data pipeline planning:</strong> Anticipated bottleneck in
-            aligning ERA5 wind and fire incident data → automated time/space
-            matching first to minimize downstream risk.
+            <strong>Data Pipeline Engineering:</strong> Automated time-aligned
+            and geospatial alignment of ERA5 wind data (NetCDF) with wildfire
+            incident data
           </li>
           <li>
-            <strong>Collaboration-ready architecture:</strong> Standardized
-            prediction output format (`predicted_spread.json`) → smoother
-            integration with frontend and future teams.
+            <strong>Prediction Reliability Boost:</strong> Combined real-time
+            wind API forecasts with historical model predictions using weighted
+            average (α=0.7)
+          </li>
+          <li>
+            <strong>Collaboration-Ready Output:</strong> Standardized prediction
+            output format as `predicted_spread.json` to ensure integration
+            readiness with frontend and external teams
           </li>
         </ul>
 
-        <h2>Implementation Highlights</h2>
+        <h2>Result</h2>
         <ul>
           <li>
-            <strong>Data engineering:</strong> Extracted and aligned
-            NetCDF-format wind data (u10, v10) to nearest fire points in UTC.
+            <strong>Field-Ready UX:</strong> Interactive 8-directional spread
+            map with click-based inputs → intuitive for non-technical users
           </li>
           <li>
-            <strong>Model architecture:</strong> Multi-output regression + wind
-            direction encoding (sin/cos) → enabled directional spread learning.
+            <strong>Scalable Architecture:</strong> Decoupled API/model/UI
+            layers → extendable to terrain, vegetation, or emergency alert
+            systems
           </li>
           <li>
-            <strong>Prediction blending:</strong> Combined real-time wind and
-            static model outputs (α = 0.7) → improved robustness.
+            <strong>Decision Support:</strong> Visual predictions enable
+            proactive planning and earlier evacuation triggers
           </li>
           <li>
-            <strong>UX & Visualization:</strong> Leaflet.js heatmap at 250m
-            resolution → interactive map updates via user clicks.
+            <strong>Model Interpretability:</strong> Used SHAP to build an
+            explainable ML workflow for transparency and ongoing model
+            refinement
           </li>
         </ul>
 
-        <h2>Impact Summary</h2>
+        <h2>Business/Public Sector Relevance</h2>
         <ul>
           <li>
-            <strong>User-oriented:</strong> Intuitive, map-based UI with dynamic
-            input → accessible to non-technical users in field scenarios.
+            Designed for adoption by wildfire response agencies with fine-tuned
+            data granularity and responsive UX
           </li>
           <li>
-            <strong>Scalable architecture:</strong> Separated API, model, and UI
-            layers → ready to expand with terrain, vegetation, alerts.
+            Planned integration with Korea Meteorological Administration and
+            Forestry APIs for field deployment
           </li>
           <li>
-            <strong>Decision support:</strong> Translated vague direction
-            guesses into interpretable, data-driven probabilities.
-          </li>
-          <li>
-            <strong>Model transparency:</strong> Integrated SHAP analysis →
-            continuous explainability and trust-building.
-          </li>
-        </ul>
-
-        <h2>Extension to Public Sector / B2G</h2>
-        <ul>
-          <li>
-            <strong>GovTech readiness:</strong> Fine-tuned granularity and UX
-            design for real-world agency use cases (e.g. forestry/fire units).
-          </li>
-          <li>
-            <strong>Future collaboration:</strong> Planning to integrate with
-            APIs from KMA, KFS → improve model with feedback from field.
+            Scalable as a public safety tool or climate-tech startup foundation
           </li>
         </ul>
 
@@ -267,88 +258,68 @@
       </div>
 
       <div class="lang-kr" style="display: none">
-        <h2>프로젝트</h2>
+        <h2>문제 정의 (Problem)</h2>
         <p>
-          복잡한 시공간 데이터를 통합하고, 실시간 기상 API와 머신러닝 예측을
-          연결하여 재난 대응에 실질적으로 기여할 수 있는 산불 확산 예측 시스템을
-          기획·총괄했습니다. 단순 분석이 아닌,
-          <strong>“현장 대응에 적합한 도구를 만드는 것”</strong>이 핵심
-          목표였습니다.
+          기존 산불 확산 예측은 정성적 예보나 단일 방향 추정에 머물러 있어, 현장
+          대응자들이 시공간적으로 빠르게 판단하고 대처하기 어려웠습니다. 바람과
+          지형 등 복합 요인에 따라 산불은 다방향으로 확산되지만, 이를 수치화하고
+          직관적으로 전달하는 시스템은 부재했습니다.
         </p>
 
-        <h2>핵심 설계 및 운영 전략</h2>
+        <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>문제 정의 & 사용자 관점 설계:</strong> 단일 레이블 대신
-            8방향 확률 벡터로 예측 → 다방향 확산 특성 반영하고 시각화 연동 쉽게
-            구성.
+            <strong>문제 재정의 및 설계 방향 수립:</strong> 단일 방향이 아닌
+            8방향 확률 벡터 예측을 통해 산불 확산의 다방향성 반영 → Leaflet.js
+            기반 시각화 연동 고려
           </li>
           <li>
-            <strong>우선순위 설정:</strong> XGBoost, LGBM 등 비교했지만
-            RandomForest가 가장 안정적인 성능 (평균 cosine 유사도 0.58) → 최종
-            채택.
+            <strong>모델링 전략 수립:</strong> XGBoost, LGBM, RandomForest 모델
+            비교 후 cosine 유사도 기준으로 안정성이 높은 RandomForest 선택 (평균
+            0.58)
           </li>
           <li>
-            <strong>데이터 파이프라인 계획:</strong> ERA5와 산불 데이터를
-            통합하는 데 가장 많은 리소스 소요 예상 → 시간·좌표 정렬 자동화부터
-            먼저 구축해 리스크 사전 제거.
+            <strong>데이터 파이프라인 설계:</strong> ERA5 풍속 데이터(NetCDF)와
+            산불 위치/시간 정보 정렬 자동화 → 시계열 + 공간 좌표 정렬 최적화
           </li>
           <li>
-            <strong>협업 고려한 구조화:</strong> 프론트엔드와 모델 예측 간
-            데이터 포맷 정규화 (`predicted_spread.json`) → 향후 팀 작업 시
-            유지보수 가능성 고려.
+            <strong>예측 신뢰도 향상:</strong> 실시간 기상 API 기반 바람 예보와
+            모델 결과를 가중 혼합 (α=0.7)하여 현실 반영력 강화
+          </li>
+          <li>
+            <strong>UX 및 협업 고려 구조화:</strong> `predicted_spread.json`
+            포맷으로 API-모델-UI 간 연동 통일 → 타 팀과의 유지보수 용이성 확보
           </li>
         </ul>
 
-        <h2>주요 구현 및 전략</h2>
+        <h2>성과 및 시사점 (Result)</h2>
         <ul>
           <li>
-            <strong>데이터 엔지니어링:</strong> NetCDF 격자 기반 바람 데이터를
-            UTC 변환 후 최근접 산불 데이터와 정렬.
+            <strong>현장 대응 지원:</strong> 클릭형 사용자 입력 기반 8방향 확산
+            예측 시각화 → 비전문가도 즉시 해석 가능
           </li>
           <li>
-            <strong>모델 설계:</strong> 다중 출력 회귀 + wind_sin, wind_cos 특성
-            추가 → 방향성 학습 가능하도록 구조화.
+            <strong>실무 확장성 확보:</strong> API/모델/UI 분리 구조 설계 → 향후
+            지형, 식생, 경보 시스템 등과 연동 가능
           </li>
           <li>
-            <strong>예측 신뢰도 향상:</strong> 실시간 API 기반 바람 예측과 과거
-            모델 결과를 α=0.7 비율로 혼합.
+            <strong>의사결정 보조 도구로 기능:</strong> 직관적 예측 결과를 통해
+            사전 대비 판단 기준 제공
           </li>
           <li>
-            <strong>시각화 및 UX:</strong> Leaflet.js로 250m 단위 확산 확률 맵을
-            생성 → 사용자 입력 기반 인터랙션 구현.
-          </li>
-        </ul>
-        <h2>성과 요약</h2>
-        <ul>
-          <li>
-            <strong>사용자 중심:</strong> 지도 기반 시각화 + 클릭형 입력 →
-            비전문가도 즉시 결과 해석 가능.
-          </li>
-          <li>
-            <strong>실무 확장 가능성 확보:</strong> API-모델-UI 분리 설계 →
-            지형/식생 데이터, 경보 시스템 연계 가능.
-          </li>
-          <li>
-            <strong>의사결정 지원:</strong> 정성 예보를 수치 예측으로 전환 →
-            사전 대응 판단 기준 확보.
-          </li>
-          <li>
-            <strong>지속 개선 기반 확보:</strong> SHAP 기반 해석 → 모델 성능 및
-            투명성 검증 루틴 마련.
+            <strong>지속 개선 구조 마련:</strong> SHAP 기반 피처 중요도 분석 →
+            모델 해석 가능성과 개선 루틴 확보
           </li>
         </ul>
 
-        <h2>비즈니스/공공 부문 확장성</h2>
+        <h2>비즈니스/공공 확장성</h2>
         <ul>
           <li>
-            <strong>재난 대응 기관용 도구로의 확장:</strong> 실제 사용 기관에
-            맞춘 데이터 granularity 및 반응형 UX 구현 예정.
+            산림청, 소방청 등 재난 대응 기관 맞춤형 UI 및 데이터 granularity
+            설계 중
           </li>
-          <li>
-            <strong>외부 협력 기반 확장:</strong> 기상청, 산림청 API 연동 →
-            실사용 피드백 기반 고도화 계획 중.
-          </li>
+          <li>기상청 실시간 API 연동 기반 실사용자 대상 베타 테스트 예정</li>
+          <li>공공 정책 및 기후 기술 스타트업으로의 스핀오프 가능성 검토</li>
         </ul>
 
         <div
