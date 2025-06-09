@@ -115,96 +115,62 @@
 
     <div class="content">
       <div class="lang-en">
-        <h2>Project</h2>
+        <h2>Problem</h2>
         <p>
-          Analyzed 3.4M+ NYC Yellow Taxi trips to uncover how the $2.50
-          congestion surcharge operates in practice and to design actionable,
-          data-backed policy improvements. The approach combined policy
-          analysis, quantitative impact estimation, and simulation of
-          alternative scenarios.
+          The $2.50 NYC congestion surcharge was introduced to reduce traffic
+          and increase revenue, but its real-world application lacks consistency
+          across time, zones, and trip distance. This has led to inefficiencies
+          in both fairness and operations, with over-concentration in low-income
+          zones and unclear triggers for drivers and city planners.
         </p>
 
+        <h2>Action</h2>
         <ul>
           <li>
-            <strong>Step 1 – Understanding Current Policy:</strong> Built
-            classification models (Logistic Regression, Random Forest) to
-            identify surcharge triggers; achieved ROC-AUC 0.91, using SHAP to
-            uncover key drivers like trip distance, pickup zones, and time of
-            day.
+            <strong>Policy Pattern Analysis:</strong> Built classification
+            models (Logistic Regression, Random Forest) to predict surcharge
+            triggers (ROC-AUC 0.91); used SHAP to visualize key features like
+            distance, time, and pickup zones
           </li>
           <li>
-            <strong>Step 2 – Estimating Impact:</strong> Applied Ridge
-            Regression to quantify how trip and location variables influenced
-            surcharge amounts; this set the stage for realistic scenario
-            testing.
+            <strong>Revenue Impact Modeling:</strong> Used Ridge Regression to
+            estimate the impact of variables on fare amounts, preparing
+            groundwork for realistic scenario testing
           </li>
           <li>
-            <strong>Step 3 – Testing Alternatives:</strong> Simulated zone-based
-            and peak-hour pricing models; results showed peak-hour adjustments
-            could boost revenue by +1.56%, while zone-based tweaks improved
-            fairness in underserved areas.
+            <strong>Scenario Simulation:</strong> Simulated peak-hour
+            adjustments and zone-based exceptions; compared revenue and equity
+            outcomes across scenarios
+          </li>
+          <li>
+            <strong>Framework Design:</strong> Modularized simulation tools to
+            allow reuse across pricing, logistics, and urban policy use cases
           </li>
         </ul>
 
-        <h2>Key Results</h2>
+        <h2>Result</h2>
         <ul>
           <li>
-            Revenue Impact: +0.9% total gain by combining time- and zone-based
-            strategies.
+            <strong>+0.9% total revenue gain</strong> through optimized time +
+            zone pricing strategies
           </li>
           <li>
-            Model Performance: Classification (ROC-AUC 0.91), Regression (lowest
-            MAE, highest R² via Ridge).
+            <strong>Improved equity:</strong> Reduced surcharge
+            overconcentration in underserved areas
           </li>
           <li>
-            Policy Takeaway: Demonstrated how data-driven congestion pricing can
-            balance operational goals with social equity.
+            <strong>Operational insight:</strong> Provided interpretable SHAP
+            outputs for cross-functional policy and operations teams
           </li>
         </ul>
 
         <h2>Business Relevance</h2>
         <ul>
+          <li>Transformed data insights into actionable policy proposals</li>
+          <li>Designed with imperfect data but focused on practical output</li>
           <li>
-            Delivered interpretable model outputs using SHAP, making key drivers
-            (e.g., trip distance, zone, time) transparent to cross-functional
-            teams.
-          </li>
-          <li>
-            Structured the simulation framework with modular design, enabling
-            easy parameter adjustments for dynamic pricing, logistics, and urban
-            planning applications.
-          </li>
-          <li>
-            Translated model outputs into scenario simulations showing how
-            policy changes would affect key outcomes like revenue, fairness, and
-            operational efficiency, providing concrete improvement
-            recommendations.
-          </li>
-        </ul>
-        <h2>Project Reflection</h2>
-        <ul>
-          <li>
-            <strong>Project:</strong> Focused on understanding how congestion
-            surcharges affect taxi operations and explored data-backed ways to
-            adjust policies.
-          </li>
-          <li>
-            <strong>Problem:</strong> Managed large, inconsistent datasets and
-            had to balance improving revenue without introducing new unfairness
-            across time and zones.
-          </li>
-          <li>
-            <strong>Process:</strong> Cleaned missing values (e.g., fare,
-            distance, passenger count) and removed outliers (e.g., trips >100
-            miles, negative fares), prioritized interpretable models, used SHAP
-            to clarify key drivers, and ran targeted simulations to check policy
-            impacts.
-          </li>
-          <li>
-            <strong>Outcome:</strong> Delivered clear, practical insights on
-            where small pricing adjustments could improve both revenue and
-            fairness. Learned to work with imperfect data while focusing on
-            actionable, realistic outputs.
+            Delivered reusable logic for broader smart city and dynamic pricing
+            strategies
           </li>
         </ul>
 
@@ -224,81 +190,61 @@
       </div>
 
       <div class="lang-kr" style="display: none">
-        <h2>프로젝트</h2>
+        <h2>문제 정의 (Problem)</h2>
         <p>
-          340만 건의 NYC 옐로우 택시 데이터를 통해 현행 $2.50 혼잡 할증 정책의
-          운용 실태를 분석하고, 정책 개선을 위한 데이터 기반 대안들을
-          설계·시뮬레이션했습니다. 과정은 현 정책 분석, 영향 추정, 시나리오
-          테스트로 구성했습니다.
+          현행 $2.50 NYC 혼잡 할증은 세수 확보와 교통 수요 분산을 목적으로
+          도입되었지만, 실제로는 시간·지역·거리별로 불명확하게 적용되어 공정성과
+          수익성 모두에서 비효율이 발생하고 있었습니다. 특히 저소득 지역에
+          과도한 할증이 집중되거나, 운영팀이 요금 패턴을 예측하기 어려운 문제가
+          있었습니다.
         </p>
 
+        <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>1단계 – 현 정책 이해:</strong> 로지스틱 회귀, 랜덤 포레스트
-            등 분류 모델로 할증 발생 조건을 파악 (ROC-AUC 0.91), SHAP으로 핵심
-            요인(거리, 픽업 구역, 시간대) 해석.
+            <strong>정책 구조 분석:</strong> 로지스틱 회귀, 랜덤 포레스트 모델을
+            활용해 할증 발생 조건 예측 (ROC-AUC 0.91), SHAP 기반으로 주요
+            요인(거리, 시간대, 구역) 시각화
           </li>
           <li>
-            <strong>2단계 – 영향 추정:</strong> Ridge 회귀로 요금에 영향을
-            미치는 변수 분석; 시나리오 분석의 기반 마련.
+            <strong>수익 영향 추정:</strong> Ridge 회귀로 요금에 영향을 미치는
+            변수 해석, 실현 가능한 시나리오 설계 기반 확보
           </li>
           <li>
-            <strong>3단계 – 대안 시뮬레이션:</strong> 구역 기반, 피크 시간대
-            요금 정책을 시뮬레이션; 피크 시간 조정 시 +1.56% 수익 증가, 구역
-            조정 시 저개발 지역 공정성 개선.
+            <strong>대안 시뮬레이션:</strong> 피크 시간대 조정, 특정 구역 제외
+            전략을 적용한 시뮬레이션 설계 및 수익/공정성 비교 분석
+          </li>
+          <li>
+            <strong>프레임워크 설계:</strong> 파라미터만 수정해 다양한
+            도시/물류/요금 모델에 재사용 가능한 구조로 시뮬레이션 툴 모듈화
           </li>
         </ul>
 
-        <h2>핵심 성과</h2>
+        <h2>성과 및 시사점 (Result)</h2>
         <ul>
-          <li>수익 효과: 시간·구역 조합 전략으로 +0.9% 총 수익 상승.</li>
           <li>
-            모델 성능: Classification (ROC-AUC 0.91), Regression (Ridge – 최저
-            MAE, 최고 R²).
+            <strong>총 수익 +0.9%</strong>: 시간+구역 전략 조합으로 실질 수익
+            증가
           </li>
           <li>
-            정책 시사점: 데이터 기반 혼잡 요금 정책으로 재정·사회적 목표 동시
-            달성 가능성 입증.
+            <strong>공정성 개선:</strong> 저소득 지역에 집중되던 할증 해소,
+            구역별 요금 차이 감소
+          </li>
+          <li>
+            <strong>정책 활용성 확보:</strong> 설명 가능한 SHAP 기반 인사이트
+            제공으로, 운영/정책팀의 실무 적용 가능성 확보
           </li>
         </ul>
 
-        <h2>실무 적용성</h2>
+        <h2>비즈니스 연계</h2>
         <ul>
           <li>
-            SHAP 등 기법을 활용해 주요 요인(거리, 구역, 시간대)을 시각화,
-            정책·운영팀이 이해하고 적용할 수 있게 제공.
+            데이터 분석 결과를 시뮬레이션과 연결하여 실질적 정책 대안을 설계
           </li>
+          <li>불완전한 데이터를 다루면서도 실행 가능성 중심의 분석으로 전환</li>
           <li>
-            시뮬레이션 프레임워크를 모듈형으로 설계, 파라미터 변경만으로 동적
-            가격, 물류, 도시 계획 등에 쉽게 적용 가능.
-          </li>
-          <li>
-            모델 분석 결과를 기반으로 다양한 정책 변화가 실제 수익, 공정성, 운영
-            효율성 등 핵심 지표에 미치는 영향을 시뮬레이션하여 실질적인 개선안을
-            도출.
-          </li>
-        </ul>
-
-        <h2>프로젝트 회고</h2>
-        <ul>
-          <li>
-            <strong>프로젝트:</strong> 혼잡 할증이 택시 운영에 미치는 영향을
-            분석하고, 데이터 기반으로 정책 조정 방안을 탐색.
-          </li>
-          <li>
-            <strong>문제:</strong> 방대한 비일관성 데이터를 처리하면서, 수익을
-            높이는 동시에 시간대·구역별 공정성을 해치지 않는 균형 고민.
-          </li>
-          <li>
-            <strong>과정:</strong> 결측치(fare, distance, passenger count) 제거
-            및 이상값(예: 100마일 초과, 음수 요금, 10명 초과 승객) 정리, 해석
-            가능한 모델 중심으로 분석, SHAP으로 주요 요인 명확화, 정책 영향을
-            점검하기 위한 시뮬레이션 설계.
-          </li>
-          <li>
-            <strong>결과:</strong> 작은 요금 조정만으로도 수익과 공정성을 개선할
-            수 있는 실질적 인사이트를 도출. 불완전한 데이터 속에서도 실행 가능한
-            결과에 집중하는 경험을 쌓음.
+            정량적 성과에 더해 정책 수립 및 도시 운영 의사결정에 적용 가능한
+            구조 설계
           </li>
         </ul>
 
