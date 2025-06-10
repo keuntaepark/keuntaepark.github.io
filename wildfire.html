@@ -136,10 +136,18 @@
       .version-description p {
         color: #ccc;
         font-size: 0.95em;
+        margin-bottom: 1em;
+      }
+      .version-description p:last-child {
         margin-bottom: 0;
       }
       .version-description p strong {
         color: #fff;
+      }
+      .version-description .change-summary {
+        font-style: italic;
+        color: #aaa;
+        margin-top: 1em;
       }
       .version-description .tech-stack {
         margin-top: 1em;
@@ -152,10 +160,12 @@
         color: #00ffff;
       }
       .desc-kr-title {
-        margin: 1.2em 0 0.2em 0;
+        margin-top: 1.5em;
         font-size: 1.1em;
         font-weight: bold;
         color: #ddd;
+        border-top: 1px dashed #444;
+        padding-top: 1.5em;
       }
       @media (max-width: 768px) {
         .version-slide {
@@ -225,28 +235,28 @@
           </li>
           <li>
             <strong>Implemented Dynamic Alpha Algorithm:</strong> Discarded a
-            fixed-weight approach (α=0.7). Introduced calculateDynamicAlpha, a
+            fixed-weight approach. Introduced `calculateDynamicAlpha`, a
             function that calculates a dynamic weight based on real-time wind
             speed and model uncertainty, automatically balancing trust between
             historical and real-time data.
           </li>
           <li>
             <strong>Context-Aware Spread Modeling:</strong> Developed
-            calculateDynamicMaxD to dynamically compute the maximum spread
+            `calculateDynamicMaxD` to dynamically compute the maximum spread
             distance (MaxD) based on real-time wind speed and humidity, enabling
-            more realistic simulations based on current weather conditions.
+            more realistic simulations.
           </li>
           <li>
             <strong>Advanced Data Processing:</strong> Implemented an enhanced
-            interpolation model (interpolateProb) that calculates a final
+            interpolation model (`interpolateProb`) that calculates a final
             uncertainty score for any arbitrary point by assessing the
             uncertainty of the four nearest data points.
           </li>
           <li>
             <strong>Architected for Collaboration:</strong> Standardized all
-            prediction outputs to the predicted_spread.json format and decoupled
-            the API/Model/UI architecture to improve team collaboration and
-            maintenance efficiency.
+            prediction outputs to the `predicted_spread.json` format and
+            decoupled the API/Model/UI architecture to improve team
+            collaboration and maintenance efficiency.
           </li>
         </ul>
         <h2>Result</h2>
@@ -319,24 +329,24 @@
           </li>
           <li>
             <strong>동적 가중치(Dynamic Alpha) 알고리즘 도입:</strong> 고정
-            가중치 방식(α=0.7)을 폐기. 실시간 풍속과 모델 불확실성을 변수로 동적
-            가중치를 계산(calculateDynamicAlpha)하여, 상황에 따라 과거 모델과
+            가중치 방식을 폐기. 실시간 풍속과 모델 불확실성을 변수로 동적
+            가중치를 계산(`calculateDynamicAlpha`)하여, 상황에 따라 과거 모델과
             실시간 데이터의 신뢰도를 자동 조절.
           </li>
           <li>
             <strong>상황인지형 확산 모델링:</strong> 실시간 풍속과 습도를
             기반으로 최대 확산 거리(MaxD)를 동적으로
-            계산(calculateDynamicMaxD)하여, 기상 조건에 따른 확산 규모를
+            계산(`calculateDynamicMaxD`)하여, 기상 조건에 따른 확산 규모를
             현실적으로 시뮬레이션.
           </li>
           <li>
             <strong>데이터 처리 고도화:</strong> 임의 지점 예측 시, 4개의 인접
             데이터 불확실성을 종합하여 최종 불확실성을 도출하는 개선된
-            보간(Interpolation) 모델(interpolateProb)을 적용.
+            보간(Interpolation) 모델(`interpolateProb`)을 적용.
           </li>
           <li>
             <strong>협업용 구조화:</strong> 모든 예측 결과를
-            predicted_spread.json 포맷으로 표준화하고, API/모델/UI 아키텍처를
+            `predicted_spread.json` 포맷으로 표준화하고, API/모델/UI 아키텍처를
             분리하여 팀 간 협업 및 유지보수 효율성 확보.
           </li>
         </ul>
@@ -394,17 +404,21 @@
               </div>
               <div class="version-description">
                 <h3>ver.01: Core Concept Validation</h3>
-                <p class="desc-en">
+                <p>
                   <strong>Problem:</strong> Text-based forecasts lacked spatial
                   context. <br /><strong>Action:</strong> Built an MVP with a
                   simple fan-chart to test the core hypothesis that map-based
                   visuals would be more effective for field decisions.
                 </p>
+                <p class="change-summary">
+                  <strong>Change:</strong> Text-based report → Map-based visual
+                  forecast.
+                </p>
                 <p class="tech-stack">
                   <strong>Tech:</strong> Vanilla JS, Leaflet.js
                 </p>
                 <h4 class="desc-kr-title">핵심 가설 검증</h4>
-                <p class="desc-kr">
+                <p>
                   <strong>문제:</strong> 텍스트 예보는 공간적 맥락이 부족.
                   <br /><strong>해결:</strong> 지도 기반 시각화가 더 효과적일
                   것이라는 핵심 가설을 검증하기 위해, 간단한 부채꼴 차트 형태의
@@ -421,19 +435,23 @@
               </div>
               <div class="version-description">
                 <h3>ver.02: Enhancing Visual Realism</h3>
-                <p class="desc-en">
+                <p>
                   <strong>Problem:</strong> The initial fan-chart was too
                   abstract for precise analysis. <br /><strong>Action:</strong>
                   Replaced it with a grid-based heatmap using interpolation,
                   significantly improving visual realism and optimizing the UX
                   for mobile.
                 </p>
+                <p class="change-summary">
+                  <strong>Change:</strong> Abstract fan-chart → Granular grid
+                  heatmap.
+                </p>
                 <p class="tech-stack">
                   <strong>Tech:</strong> Client-side Interpolation, Responsive
                   CSS
                 </p>
                 <h4 class="desc-kr-title">시각적 현실감 강화</h4>
-                <p class="desc-kr">
+                <p>
                   <strong>문제:</strong> 초기 부채꼴 차트는 정밀한 분석에 한계.
                   <br /><strong>해결:</strong> 시각적 현실감을 높이기 위해
                   보간법을 적용한 그리드 기반 히트맵으로 교체하고, 모바일 UX를
@@ -447,23 +465,27 @@
               </div>
               <div class="version-description">
                 <h3>ver.03: Upgrading the Prediction Engine</h3>
-                <p class="desc-en">
+                <p>
                   <strong>Problem:</strong> A static model could not adapt to
                   changing weather. <br /><strong>Action:</strong> Upgraded the
-                  prediction engine with a dynamic weighting system that blends
-                  historical data with real-time weather, improving adaptive
-                  accuracy.
+                  prediction engine with a dynamic weighting system, achieving a
+                  stable cosine similarity of 0.5875 with the RandomForest
+                  model.
+                </p>
+                <p class="change-summary">
+                  <strong>Change:</strong> Static prediction model → Adaptive
+                  engine with dynamic weighting.
                 </p>
                 <p class="tech-stack">
                   <strong>Tech:</strong> Python, Scikit-learn (RandomForest),
                   SHAP
                 </p>
                 <h4 class="desc-kr-title">예측 엔진의 지능화</h4>
-                <p class="desc-kr">
+                <p>
                   <strong>문제:</strong> 고정된 모델은 변화하는 기상에 적응
-                  불가. <br /><strong>해결:</strong> 과거 데이터와 실시간 기상
-                  정보를 동적으로 혼합하는 가중치 시스템을 도입, 상황 적응적
-                  정확도를 향상.
+                  불가. <br /><strong>해결:</strong> RandomForest 모델로
+                  안정적인 코사인 유사도 0.5875를 달성하는 동적 가중치 시스템을
+                  도입하여, 상황 적응적 정확도를 향상.
                 </p>
               </div>
             </div>
@@ -473,22 +495,28 @@
               </div>
               <div class="version-description">
                 <h3>ver.04: Ensuring Operational Reliability</h3>
-                <p class="desc-en">
+                <p>
                   <strong>Problem:</strong> Disjointed information and UI bugs
                   were hindering quick decision-making. <br /><strong
                     >Action:</strong
                   >
                   Overhauled the UI, integrating all data into a stable,
-                  single-view dashboard to ensure operational reliability.
+                  single-view dashboard and eliminating 100% of critical layout
+                  bugs.
+                </p>
+                <p class="change-summary">
+                  <strong>Change:</strong> Disjointed UI → Stable, single-view
+                  dashboard.
                 </p>
                 <p class="tech-stack">
                   <strong>Tech:</strong> Flexbox, Advanced CSS, DOM Manipulation
                 </p>
                 <h4 class="desc-kr-title">운영 신뢰성 확보</h4>
-                <p class="desc-kr">
+                <p>
                   <strong>문제:</strong> 분산된 정보와 UI 버그가 빠른 의사결정을
                   저해. <br /><strong>해결:</strong> 모든 데이터를 안정적인 단일
-                  대시보드에 통합하는 UI 개편을 통해 운영 신뢰성을 확보.
+                  대시보드에 통합하는 UI 개편을 통해 치명적 레이아웃 버그를 100%
+                  해결하고 운영 신뢰성을 확보.
                 </p>
               </div>
             </div>
@@ -501,22 +529,26 @@
               </div>
               <div class="version-description">
                 <h3>ver.05: Providing Decision Confidence</h3>
-                <p class="desc-en">
+                <p>
                   <strong>Problem:</strong> Users needed to know not just the
                   prediction, but how much to trust it. <br /><strong
                     >Action:</strong
                   >
-                  Introduced a visualized uncertainty score (±%) for each
-                  direction, evolving the tool from a forecast to a quantifiable
+                  Introduced a visualized uncertainty score (±%) for each of the
+                  8 directions, evolving the tool into a quantifiable
                   decision-support instrument.
+                </p>
+                <p class="change-summary">
+                  <strong>Change:</strong> Forecast-only output → Forecast +
+                  Quantified Uncertainty.
                 </p>
                 <p class="tech-stack">
                   <strong>Tech:</strong> Client-side Dynamic Calculations
                 </p>
                 <h4 class="desc-kr-title">의사결정의 확신 제공</h4>
-                <p class="desc-kr">
-                  <strong>문제:</strong> 사용자는 예측 결과뿐 아니라 그 예측의
-                  신뢰도를 파악해야 할 필요. <br /><strong>해결:</strong> 방향별
+                <p>
+                  <strong>문제:</strong> 사용자는 예측뿐 아니라 그 신뢰도까지
+                  파악해야 할 필요. <br /><strong>해결:</strong> 8개 방향별
                   불확실성(±%) 점수를 시각화하여, 예보 도구를 정량적 의사결정
                   지원 도구로 발전시킴.
                 </p>
