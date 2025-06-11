@@ -27,6 +27,9 @@
         text-decoration: none;
         margin: 0 10px;
       }
+      nav a:hover {
+        text-decoration: underline;
+      }
       .lang-toggle {
         text-align: center;
         margin-bottom: 20px;
@@ -47,11 +50,6 @@
       h2 {
         border-bottom: 1px solid #444;
         padding-bottom: 5px;
-      }
-      .content {
-        max-width: 800px;
-        margin: 40px auto;
-        padding: 0 20px;
       }
       ul {
         padding-left: 20px;
@@ -109,52 +107,87 @@
 
     <div class="content">
       <div class="lang-en">
-        <h2>Project Overview</h2>
-        <ul>
-          <li><strong>Duration:</strong> Jan 29 – Apr 30, 2023</li>
-          <li><strong>Team:</strong> 4BY4 designer, Unity developer, external partners</li>
-          <li><strong>Role:</strong> Lead, Data Analysis & Project Management</li>
-        </ul>
-
         <h2>Problem</h2>
         <p>
-        In this client project to visualize HVAC systems in Unity, we identified performance bottlenecks caused by overloaded high-resolution assets. There was a lack of behavioral data, making UX direction unclear. Additionally, we needed to reconcile conflicting expectations between design (visual fidelity) and engineering (performance and stability).
+          In a client project to visualize HVAC systems in Unity, we faced
+          **performance bottlenecks** caused by overloaded high-resolution
+          assets, leading to slow page loads and user drop-offs. A significant
+          **lack of behavioral data** made UX direction unclear, and there was
+          **conflicting expectations between design (visual fidelity) and
+          engineering (performance and stability)**, hindering project alignment and
+          progress.
         </p>
 
         <h2>Action</h2>
         <ul>
           <li>
-            <strong>Bridge between Client & Technical Teams:</strong> Quickly learned HVAC system structure and industry context; translated requirements into technical specs and relayed them effectively to the Unity team
+            Product & Technical Bridging: Quickly learned HVAC system structure
+            and industry context. Translated client requirements into precise
+            technical specifications and effectively relayed them to the Unity
+            development team, ensuring clear communication and shared
+            understanding.
           </li>
           <li>
-            <strong>Behavioral Data Analysis:</strong> Used Python to generate heatmaps of user clicks and dwell time → lowered texture resolution in underused 3D areas to improve loading speed
+            Behavioral Data Analysis for Optimization: Led data analysis using
+            Python to generate heatmaps of user clicks and dwell time within the
+            3D virtual space. This data-driven insight allowed us to
+            strategically lower texture resolution in underused 3D areas, directly
+            improving loading speed and overall performance.
           </li>
           <li>
-            <strong>Team Alignment & Transparency:</strong> Created a real-time Miro dashboard to share feedback, issue tracking, and progress with all stakeholders
+            Stakeholder Alignment & Transparency: Created a real-time Miro
+            dashboard as a single source of truth to share client feedback,
+            issue tracking, and progress with all stakeholders. This proactive
+            approach ensured transparency and fostered strong team alignment.
           </li>
           <li>
-            <strong>Data-informed Design Trade-offs:</strong> Balanced design aesthetics and system performance through structured analysis → optimized Unity scene configuration
+            Data-Informed Design Trade-offs: Balanced design aesthetics (client
+            priority) and system performance (engineering priority) by
+            leveraging structured data analysis as objective evidence. This allowed
+            us to find optimal compromise points and implement precise Unity
+            scene configurations for maximum efficiency.
           </li>
         </ul>
 
         <h2>Result</h2>
         <ul>
-          <li><strong>+100% visitor growth:</strong> Improved visibility and sales lead generation</li>
-          <li><strong>+15% session duration:</strong> Higher engagement and better UX</li>
-          <li><strong>20% faster page load time:</strong> Reduced bounce rates and improved satisfaction</li>
+          <li>
+            Increased User Engagement & Lead Generation: Achieved a
+            +100% visitor growth through improved visibility and a +15% session
+            duration, indicating higher engagement and better UX.
+          </li>
+          <li>
+            Improved Technical Performance: Reduced page load time by 20%,
+            significantly decreasing bounce rates and improving user
+            satisfaction with a faster, smoother experience.
+          </li>
+          <li>
+            Enhanced Cross-Functional Collaboration: Successfully
+            reconciled conflicting stakeholder expectations (design vs.
+            engineering) by utilizing data as a neutral arbiter, leading to a
+            more efficient and harmonized project execution.
+          </li>
         </ul>
 
-        <h2>Learning & Growth</h2>
-        <p>
-        This project taught me how critical structured data is in resolving cross-functional conflicts. I shifted from intuition-driven decisions to evidence-based alignment—now, I prioritize early-stage measurement strategies in every project.
+        <h2>PM Learnings & Future Vision</h2> <p>
+          This project was a pivotal experience, teaching me how critical
+          structured data is in resolving complex cross-functional conflicts. I
+          successfully shifted from intuition-driven decisions to
+          evidence-based alignment, a philosophy I now prioritize through
+          early-stage measurement strategies in every subsequent project.
         </p>
-
-        <h2>Follow-up Strategy</h2>
         <ul>
-          <li>Proposed integration with Google Analytics and A/B testing to analyze behavior by user segment</li>
-          <li>Suggested connecting UX improvements to conversion flows to support sales outcomes</li>
+          <li>
+            Proposed integration with Google Analytics and A/B testing to
+            analyze behavior by user segment, enabling future personalized UX
+            optimizations.
+          </li>
+          <li>
+            Suggested connecting UX improvements to conversion flows and sales
+            outcomes, aiming to directly link product enhancements with
+            measurable business value.
+          </li>
         </ul>
-
 
         <p>
           Live Project:
@@ -168,52 +201,80 @@
       </div>
 
       <div class="lang-kr" style="display: none">
-        <h2>프로젝트 개요</h2>
-        <ul>
-          <li><strong>프로젝트 기간:</strong> 2023.01.29 – 2023.04.30</li>
-          <li><strong>참여 인원:</strong> 4BY4 디자이너, Unity 개발자, 외부 협력사</li>
-          <li><strong>역할:</strong> 데이터 분석 및 프로젝트 관리 총괄</li>
-        </ul>
-
         <h2>문제 정의 (Problem)</h2>
         <p>
-        HVAC 시스템을 Unity로 시각화하는 클라이언트 프로젝트에서, 고해상도 자산 사용으로 인한 퍼포먼스 병목이 발생했고, 사용자 행동 데이터 부재로 UX 개선의 방향성이 불분명했습니다. 또한 클라이언트 요구(디자인 퀄리티)와 개발팀 요구(속도 및 안정성)가 충돌하며 프로젝트 정렬에 어려움이 있었습니다.
+          HVAC 시스템을 Unity로 시각화하는 클라이언트 프로젝트에서, 고해상도
+          자산 사용으로 인한 **퍼포먼스 병목 (느린 로딩 속도, 사용자 이탈)**이
+          발생했습니다. 사용자 행동 데이터의 **심각한 부재**로 UX 개선의
+          방향성이 불분명했으며, **클라이언트 요구(디자인 퀄리티)와 개발팀
+          요구(속도 및 안정성) 간의 기대치 충돌**이 프로젝트 정렬 및 진행에
+          어려움을 야기했습니다.
         </p>
 
         <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>클라이언트–작업자 간 브릿지 역할 수행:</strong> HVAC 구조와 산업 컨텍스트를 빠르게 학습한 뒤, 기술 사양을 개발팀에 번역하고 사용자 관점에서 요구사항 정리
+            제품 및 기술 브릿지 역할 수행: HVAC 시스템 구조와 산업 컨텍스트를
+            신속히 학습. 클라이언트의 요구사항을 명확한 기술 사양으로 번역하여
+            Unity 개발팀에 효과적으로 전달, 투명한 소통과 이해 증진.
           </li>
           <li>
-            <strong>행동 데이터 기반 분석:</strong> Python을 활용해 3D 공간별 체류시간, 클릭 빈도 heatmap 분석 → 저활성 영역에 낮은 해상도 적용하여 속도 최적화
+            최적화를 위한 행동 데이터 분석: Python을 활용하여 3D 가상 공간 내
+            사용자 클릭 및 체류 시간 히트맵 분석을 주도. 이 데이터 기반 인사이트를
+            통해 저활성 영역의 텍스처 해상도를 전략적으로 낮춰 로딩 속도 및 전체
+            퍼포먼스를 직접적으로 개선.
           </li>
           <li>
-            <strong>정렬 구조 설계:</strong> Miro 기반 대시보드를 구축해 클라이언트 피드백, 내부 진척도, 병목 이슈를 시각화 → 모든 이해관계자 간 투명성 확보
+            이해관계자 정렬 및 투명성 확보: Miro 기반 실시간 대시보드를 구축하여
+            클라이언트 피드백, 이슈 추적, 진척도를 모든 이해관계자와 공유. 이
+            선제적 접근 방식을 통해 투명성을 확보하고 강력한 팀 정렬을
+            이끌어냄.
           </li>
           <li>
-            <strong>기술 설계 조율:</strong> 데이터 기반 설계를 통해 디자인 품질과 성능 간 trade-off 해결 → Unity 최적화 방향 도출
+            데이터 기반의 디자인 트레이드오프: 디자인 심미성(클라이언트
+            우선순위)과 시스템 퍼포먼스(개발팀 우선순위) 사이의 균형을, 구조화된
+            데이터 분석을 객관적인 증거로 활용하여 조율. 이를 통해 최적의
+            절충점을 찾고 Unity 씬 구성을 정밀하게 최적화하여 효율성을 극대화.
           </li>
         </ul>
 
         <h2>성과 및 임팩트 (Result)</h2>
         <ul>
-          <li><strong>방문자 수 +100% 증가:</strong> 가시성 향상 및 리드 생성에 기여</li>
-          <li><strong>세션 시간 +15%:</strong> UX 개선 효과와 사용자 몰입도 증대</li>
-          <li><strong>페이지 로딩 속도 20% 개선:</strong> 초기 진입 이탈률 감소</li>
+          <li>
+            사용자 참여 및 리드 생성 증대: 가시성 향상을 통한 방문자 수 +100%
+            증가 및 세션 시간 +15% 증대. 이는 높은 사용자 참여도와 개선된 UX
+            효과를 시사.
+          </li>
+          <li>
+            기술적 퍼포먼스 향상: 페이지 로딩 속도를 20% 단축하여 초기 진입
+            이탈률을 현저히 감소시키고, 더 빠르고 부드러운 사용자 경험을 통해
+            만족도 향상.
+          </li>
+          <li>
+            교차 기능 협업 강화: 데이터라는 중립적 중재자를 활용하여
+            (디자인 vs. 개발) 상충되는 이해관계자들의 기대치를 성공적으로
+            조정, 더욱 효율적이고 조화로운 프로젝트 실행을 이끌어냄.
+          </li>
         </ul>
 
-        <h2>학습 및 성장</h2>
-        <p>
-        기술·디자인·비즈니스 간 갈등 상황에서, 단순한 감이 아닌 데이터를 통해 구조적으로 문제를 조율하는 경험을 얻었습니다. 이후 프로젝트에서 항상 데이터 수집 및 해석 단계를 먼저 고려하는 습관이 생겼습니다.
+        <h2>PM 학습 및 미래 비전</h2> <p>
+          이 프로젝트는 복잡한 교차 기능 갈등 상황에서 구조화된 데이터가 얼마나
+          중요한지 깨닫게 해준 중요한 경험입니다. 저는 직관에 기반한 의사결정에서
+          벗어나 증거 기반의 정렬로 성공적으로 전환했으며, 이제는 모든 후속
+          프로젝트에서 초기 단계의 측정 전략을 우선시하는 철학을 갖게
+          되었습니다.
         </p>
-
-        <h2>후속 제안 및 확장성</h2>
         <ul>
-          <li>Google Analytics 연계 및 A/B 테스트를 통한 사용자 세그먼트별 행동 분석</li>
-          <li>UX 개선 → 컨버전 → 영업전환까지 연결하는 데이터 기반 흐름 설계 제안</li>
+          <li>
+            Google Analytics 연동 및 A/B 테스트를 통한 사용자 세그먼트별 행동
+            분석을 제안하여, 향후 개인화된 UX 최적화 가능성 확보.
+          </li>
+          <li>
+            UX 개선을 전환율 및 매출 성과와 직접적으로 연결하는 데이터 기반
+            흐름 설계를 제안하여, 제품 개선이 측정 가능한 비즈니스 가치로
+            이어지도록 함.
+          </li>
         </ul>
-
 
         <p>
           🔗
