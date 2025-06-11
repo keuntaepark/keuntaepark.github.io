@@ -133,84 +133,64 @@
       <div class="lang-en">
         <h2>Problem</h2>
         <p>
-          While analyzing UK retail customer data, I identified that standard
-          RFM (Recency, Frequency, Monetary) metrics alone were insufficient to
-          fully capture nuanced repeat purchase behaviors and predict future
-          customer value. This limitation led to inefficient marketing campaigns
-          and missed personalization opportunities, as diverse customer needs
-          were not being adequately addressed.
+          Standard RFM metrics for UK retail data were insufficient to capture
+          nuanced repeat purchase behaviors and predict future customer value.
+          This limitation led to inefficient marketing campaigns and missed
+          personalization opportunities, as diverse customer needs were not
+          being adequately addressed.
         </p>
 
         <h2>Action</h2>
         <ul>
           <li>
-            <strong
-              >Advanced Feature Engineering for Behavioral Insights:</strong
-            >
-            Beyond standard RFM, I researched and implemented additional, more
-            granular metrics such as Interpurchase Time (the time between
-            purchases) and Impulse Score (proportion of 2-day repurchases). This
-            expanded data set (541,909 transactions) allowed for a deeper
-            understanding of unique purchasing patterns.
+            Advanced Feature Engineering for Behavioral Insights: Beyond RFM,
+            implemented Interpurchase Time & Impulse Score (2-day repurchases)
+            on 541,909 transactions for deeper pattern understanding.
           </li>
           <li>
-            <strong>Data-Driven Customer Segmentation:</strong> Employed KMeans
-            clustering (with k=5, selected using Elbow and Silhouette methods)
-            to systematically identify and define distinct customer segments
-            based on their quantitative behavioral traits.
+            Data-Driven Customer Segmentation: Employed KMeans clustering (k=5
+            via Elbow/Silhouette) to define distinct customer segments based on
+            behavioral traits.
           </li>
           <li>
-            <strong
-              >Simulated Emotion Analysis for Deeper Understanding:</strong
-            >
-            To bridge the gap between quantitative data and qualitative customer
-            intent, I designed a methodology to simulate user feedback per
-            segment and conducted sentiment analysis using VADER. This provided
-            a quantifiable understanding of customer emotional tone and
-            preferences within each cluster.
+            Simulated Emotion Analysis for Deeper Understanding: Designed
+            methodology to simulate user feedback per segment; conducted VADER
+            sentiment analysis for quantifiable emotional tone.
           </li>
           <li>
-            <strong>Actionable UX/Marketing Strategy Development:</strong> Based
-            on the identified segments and their emotional profiles, I mapped
-            and designed personalized UX and marketing strategies. This included
-            tailored messaging, offer types (e.g., urgency prompts, loyalty
-            perks, comeback offers), and interaction frequencies designed to
-            match each segment's unique behavioral and emotional traits.
+            Actionable UX/Marketing Strategy Development: Mapped personalized
+            UX/marketing strategies (messaging, offers, interaction frequencies)
+            to each segment's unique behavioral/emotional traits.
           </li>
           <li>
-            <strong>Operationalization through Real-time Deployment:</strong> To
-            ensure the segmentation was directly actionable, I built a real-time
-            classifier and deployed a Streamlit application. This tool now
-            enables immediate prediction of customer segments from raw
-            behavioral input, facilitating dynamic personalization in live
-            environments.
+            Operationalization through Real-time Deployment: Built & deployed a
+            Streamlit app for real-time customer segment prediction, enabling
+            dynamic personalization.
           </li>
         </ul>
 
         <h2>Result</h2>
         <ul>
           <li>
-            <strong>Holistic Customer Understanding:</strong> Successfully
-            identified 5 behaviorally and emotionally distinct customer
-            clusters, providing a comprehensive and actionable view beyond
-            traditional segmentation.
+            Holistic Customer Understanding: Identified 5 behaviorally &
+            emotionally distinct customer clusters; provided comprehensive,
+            actionable view.
           </li>
           <li>
-            <strong>Enhanced Personalization Capability:</strong> Developed and
-            mapped personalized UX and marketing strategies for each unique
-            cluster, enabling more targeted and effective customer engagement.
+            Enhanced Personalization Capability: Developed personalized
+            UX/marketing strategies for each cluster; enabled more targeted,
+            effective engagement.
           </li>
           <li>
-            <strong>Real-time Strategic Deployment:</strong> Built and deployed
-            a real-time customer segment classifier (Streamlit app) that
-            automates the categorization of new or existing users, enabling
+            Real-time Strategic Deployment: Built a real-time customer segment
+            classifier (Streamlit app); automated user categorization for
             dynamic personalization at scale.
           </li>
           <li>
-            <strong>Deployable Framework for Continuous Optimization:</strong>
-            Delivered a full-cycle customer segmentation pipeline that is not
-            just an analysis but a deployable framework for continuous
-            targeting, interpretation, UX planning, and operationalization.
+            Deployable Framework for Continuous Optimization: Delivered a
+            full-cycle segmentation pipeline as a deployable framework for
+            continuous targeting, interpretation, UX planning, &
+            operationalization.
           </li>
         </ul>
 
@@ -260,69 +240,56 @@
       <div class="lang-kr" style="display: none">
         <h2>문제 정의 (Problem)</h2>
         <p>
-          영국 리테일 고객 데이터를 분석하며, 기존 RFM (Recency, Frequency,
-          Monetary) 지표만으로는 고객의 미묘한 재구매 행동을 완전히 포착하고
-          미래 가치를 예측하기에 불충분하다는 한계를 발견했습니다. 이러한 한계는
-          다양한 고객 니즈를 적절히 반영하지 못하여 마케팅 캠페인의 비효율성과
-          개인화 기회 상실로 이어졌습니다.
+          영국 리테일 데이터 분석 결과, 기존 RFM 지표만으로는 미묘한 재구매
+          행동을 포착하고 미래 고객 가치를 예측하기에 불충분했습니다. 이는
+          마케팅 비효율 및 개인화 기회 상실로 이어졌고, 다양한 고객 니즈가
+          충족되지 못했습니다.
         </p>
 
         <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>행동 인사이트 강화를 위한 고급 피처 설계:</strong> 기존
-            RFM을 넘어, 재구매 주기(Interpurchase Time) 및 충동 점수(2일 내
-            재구매 비율)와 같은 더욱 세분화된 지표를 연구하고 구현. 총
-            541,909건의 거래 데이터를 활용하여 고객의 독특한 구매 패턴을
-            심층적으로 이해.
+            행동 인사이트 강화를 위한 고급 피처 설계: RFM을 넘어 재구매 주기 &
+            충동 점수(2일 내 재구매율)를 541,909건 거래에 구현, 구매 패턴 심층
+            이해.
           </li>
           <li>
-            <strong>데이터 기반 고객 세분화:</strong> KMeans 클러스터링(Elbow 및
-            Silhouette 방법을 활용하여 k=5로 선정)을 적용하여, 정량적 행동
-            특성에 기반한 명확한 고객 세그먼트 체계적 도출.
+            데이터 기반 고객 세분화: KMeans 클러스터링(k=5,
+            Elbow/Silhouette)으로 정량적 행동 특성 기반 고객 세그먼트 정의.
           </li>
           <li>
-            <strong>심층 이해를 위한 감정 시뮬레이션 분석:</strong> 정량적
-            데이터와 질적 고객 의도 간의 간극을 좁히기 위해, 각 세그먼트별 가상
-            사용자 피드백을 설계하고 VADER를 활용한 감정 분석 수행. 이를 통해 각
-            군집 내 고객의 감정적 톤과 선호도를 정량적으로 이해.
+            심층 이해를 위한 감정 시뮬레이션 분석: 세그먼트별 가상 사용자 피드백
+            설계 & VADER 감정 분석으로 고객 감정 톤 정량화.
           </li>
           <li>
-            <strong>실행 가능한 UX/마케팅 전략 개발:</strong> 도출된 세그먼트 및
-            그들의 감정 프로파일을 기반으로 개인화된 UX 및 마케팅 전략을 설계.
-            이는 각 세그먼트의 고유한 행동 및 감정 특성에 맞춰진 맞춤형 메시지,
-            제안 유형(예: 긴급 프로모션, 로열티 혜택, 복귀 유도 제안) 및
-            상호작용 빈도 포함.
+            실행 가능한 UX/마케팅 전략 개발: 도출된 세그먼트 및 감정 프로파일
+            기반 개인화된 UX/마케팅 전략(맞춤 메시지, 제안 유형, 상호작용 빈도)
+            설계 & 매핑.
           </li>
           <li>
-            <strong>실시간 배포를 통한 운영 자동화:</strong> 세분화 모델이 실제
-            운영에서 즉시 활용될 수 있도록, 실시간 분류기 및 Streamlit
-            애플리케이션을 개발하고 배포. 이는 신규/기존 사용자의 세그먼트를
-            자동으로 예측하여, 실시간 환경에서의 동적 개인화를 가능하게 함.
+            실시간 배포를 통한 운영 자동화: Streamlit 앱으로 실시간 고객
+            세그먼트 분류기 구축, 동적 개인화 가능.
           </li>
         </ul>
 
         <h2>성과 및 임팩트 (Result)</h2>
         <ul>
           <li>
-            <strong>총체적 고객 이해 확보:</strong> 행동 및 감정적으로 명확하게
-            구분되는 5개 고객 군집을 성공적으로 도출하여, 전통적인 세분화를
-            넘어선 포괄적이고 실행 가능한 고객 인사이트 제공.
+            총체적 고객 이해 확보: 행동 및 감정적으로 명확한 5개 고객 군집 도출,
+            포괄적이고 실행 가능한 고객 뷰 제공.
           </li>
           <li>
-            <strong>개인화 역량 강화:</strong> 각 고유한 군집에 맞는 개인화된 UX
-            및 마케팅 전략을 개발하고 매핑하여, 더욱 타겟팅되고 효과적인 고객
-            참여 유도.
+            개인화 역량 강화: 각 군집에 맞는 개인화된 UX/마케팅 전략 개발, 더욱
+            타겟팅되고 효과적인 고객 참여 유도.
           </li>
           <li>
-            <strong>실시간 전략 배포 능력 확보:</strong> 실시간 고객 세그먼트
-            분류기 (Streamlit 앱)를 구축하고 배포하여, 신규 또는 기존 사용자의
-            세분화를 자동화하고 동적 개인화를 대규모로 가능하게 함.
+            실시간 전략 배포 능력 확보: Streamlit 앱으로 실시간 고객 세그먼트
+            분류기 구축, 대규모 동적 개인화 자동화.
           </li>
           <li>
-            <strong>지속적 최적화를 위한 배포 가능한 프레임워크:</strong> 단순한
-            분석을 넘어, 지속적인 타겟팅, 해석, UX 기획, 그리고 운영 자동화를
-            위한 배포 가능한 전체 사이클 고객 세분화 프레임워크를 제공.
+            지속적 최적화를 위한 배포 가능한 프레임워크: 분석을 넘어 지속적인
+            타겟팅, 해석, UX 기획, 운영 자동화를 위한 전체 사이클 프레임워크
+            제공.
           </li>
         </ul>
 
