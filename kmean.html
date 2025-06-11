@@ -27,6 +27,9 @@
         text-decoration: none;
         margin: 0 10px;
       }
+      nav a:hover {
+        text-decoration: underline;
+      }
       .lang-toggle {
         text-align: center;
         margin-bottom: 20px;
@@ -74,6 +77,25 @@
       a.button:hover {
         background-color: #00cccc;
       }
+      .project-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 6px;
+        border: 1px solid #444;
+      }
+      .image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .image-item {
+        flex: 1 1 300px;
+        max-width: 500px;
+        text-align: center;
+      }
     </style>
     <script>
       function toggleLanguage(lang) {
@@ -108,116 +130,109 @@
     </header>
 
     <div class="content">
-      <!-- English Section -->
       <div class="lang-en">
-        <h2>Project</h2>
+        <h2>Problem</h2>
         <p>
-          While working on UK retail data, I realized that standard RFM features
-          didn’t fully capture repeat behavior. To address this, I researched
-          and implemented an additional metric:
-          <strong>Interpurchase Time</strong>, improving the behavioral clarity
-          of clusters beyond frequency counts.
+          While analyzing UK retail customer data, I identified that standard
+          RFM (Recency, Frequency, Monetary) metrics alone were insufficient to
+          fully capture nuanced repeat purchase behaviors and predict future
+          customer value. This limitation led to inefficient marketing campaigns
+          and missed personalization opportunities, as diverse customer needs
+          were not being adequately addressed.
         </p>
 
-        <h2>Methodology</h2>
+        <h2>Action</h2>
         <ul>
           <li>
-            <strong>Data Preparation:</strong> Cleaned 541,909 transactions;
-            removed missing CustomerIDs and outliers.
+            <strong
+              >Advanced Feature Engineering for Behavioral Insights:</strong
+            >
+            Beyond standard RFM, I researched and implemented additional, more
+            granular metrics such as Interpurchase Time (the time between
+            purchases) and Impulse Score (proportion of 2-day repurchases). This
+            expanded data set (541,909 transactions) allowed for a deeper
+            understanding of unique purchasing patterns.
           </li>
           <li>
-            <strong>Feature Engineering:</strong> Calculated RFM + Interpurchase
-            Time + Impulse Score (proportion of 2-day repurchases).
+            <strong>Data-Driven Customer Segmentation:</strong> Employed KMeans
+            clustering (with k=5, selected using Elbow and Silhouette methods)
+            to systematically identify and define distinct customer segments
+            based on their quantitative behavioral traits.
           </li>
           <li>
-            <strong>Clustering:</strong> Applied KMeans (k=5, Elbow & Silhouette
-            selected); visualized behavior by segment.
+            <strong
+              >Simulated Emotion Analysis for Deeper Understanding:</strong
+            >
+            To bridge the gap between quantitative data and qualitative customer
+            intent, I designed a methodology to simulate user feedback per
+            segment and conducted sentiment analysis using VADER. This provided
+            a quantifiable understanding of customer emotional tone and
+            preferences within each cluster.
           </li>
           <li>
-            <strong>Emotion Analysis:</strong> Simulated user feedback per
-            segment and ran sentiment analysis using VADER to quantify tone.
+            <strong>Actionable UX/Marketing Strategy Development:</strong> Based
+            on the identified segments and their emotional profiles, I mapped
+            and designed personalized UX and marketing strategies. This included
+            tailored messaging, offer types (e.g., urgency prompts, loyalty
+            perks, comeback offers), and interaction frequencies designed to
+            match each segment's unique behavioral and emotional traits.
+          </li>
+          <li>
+            <strong>Operationalization through Real-time Deployment:</strong> To
+            ensure the segmentation was directly actionable, I built a real-time
+            classifier and deployed a Streamlit application. This tool now
+            enables immediate prediction of customer segments from raw
+            behavioral input, facilitating dynamic personalization in live
+            environments.
           </li>
         </ul>
 
-        <h2>Key Outcomes</h2>
+        <h2>Result</h2>
         <ul>
           <li>
-            Identified 5 behaviorally distinct clusters using quantitative and
-            emotional features.
+            <strong>Holistic Customer Understanding:</strong> Successfully
+            identified 5 behaviorally and emotionally distinct customer
+            clusters, providing a comprehensive and actionable view beyond
+            traditional segmentation.
           </li>
           <li>
-            Mapped personalized UX strategies to each cluster (e.g. urgency
-            prompts, loyalty perks, comeback offers).
+            <strong>Enhanced Personalization Capability:</strong> Developed and
+            mapped personalized UX and marketing strategies for each unique
+            cluster, enabling more targeted and effective customer engagement.
           </li>
           <li>
-            Built a real-time classifier and deployed a Streamlit tool to
-            predict customer segments from raw behavior input.
+            <strong>Real-time Strategic Deployment:</strong> Built and deployed
+            a real-time customer segment classifier (Streamlit app) that
+            automates the categorization of new or existing users, enabling
+            dynamic personalization at scale.
+          </li>
+          <li>
+            <strong>Deployable Framework for Continuous Optimization:</strong>
+            Delivered a full-cycle customer segmentation pipeline that is not
+            just an analysis but a deployable framework for continuous
+            targeting, interpretation, UX planning, and operationalization.
           </li>
         </ul>
 
-        <h2>Strategic Summary</h2>
-        <p>
-          This project demonstrates a full-cycle customer segmentation pipeline:
-        </p>
-        <ul>
-          <li>
-            <strong>Clustering:</strong> Data-driven segmentation using
-            time-sensitive behavioral indicators.
-          </li>
-          <li>
-            <strong>Interpretation:</strong> Emotion simulation enabled a deeper
-            understanding of customer intent and tone.
-          </li>
-          <li>
-            <strong>UX Planning:</strong> Segment-level messaging strategies
-            designed to match behavioral traits.
-          </li>
-          <li>
-            <strong>Operationalization:</strong> A real-time model now maps
-            users to clusters for dynamic personalization.
-          </li>
-        </ul>
-        <p>
-          The output is a deployable framework for targeting, not just analysis.
-        </p>
-
-        <div
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-          "
-        >
-          <div style="flex: 1 1 300px; max-width: 500px; text-align: center">
+        <div class="image-container">
+          <div class="image-item">
             <img
               src="images/kmean.png"
               alt="KMeans Cluster Visualization"
-              style="
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                border-radius: 6px;
-              "
+              class="project-image"
             />
             <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-              Figure 01
+              Figure 01: Customer Clusters by Behavioral Features
             </p>
           </div>
-          <div style="flex: 1 1 300px; max-width: 500px; text-align: center">
+          <div class="image-item">
             <img
               src="images/kmean_app.png"
               alt="Streamlit App Screenshot"
-              style="
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                border-radius: 6px;
-              "
+              class="project-image"
             />
             <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-              Figure 02
+              Figure 02: Real-time Customer Segmentation App
             </p>
           </div>
         </div>
@@ -226,7 +241,7 @@
         <p>
           📍 Notebook:
           <a
-            href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/kmean_clustering_code.html"
+            href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/kmean_clustering.html"
             class="button"
             target="_blank"
             >HERE</a
@@ -242,110 +257,94 @@
         </p>
       </div>
 
-      <!-- Korean Section -->
       <div class="lang-kr" style="display: none">
-        <h2>프로젝트</h2>
+        <h2>문제 정의 (Problem)</h2>
         <p>
-          영국 리테일 데이터를 분석하며, 기존 RFM 지표만으로는 재구매 행동을
-          충분히 설명하지 못한다는 점을 발견했습니다. 이를 보완하기 위해
-          <strong>재구매 주기(Interpurchase Time)</strong>과
-          <strong>충동 점수</strong>를 포함한 피처를 설계했고, 클러스터별 가상
-          리뷰 기반의 감정 분석도 함께 진행했습니다.
+          영국 리테일 고객 데이터를 분석하며, 기존 RFM (Recency, Frequency,
+          Monetary) 지표만으로는 고객의 미묘한 재구매 행동을 완전히 포착하고
+          미래 가치를 예측하기에 불충분하다는 한계를 발견했습니다. 이러한 한계는
+          다양한 고객 니즈를 적절히 반영하지 못하여 마케팅 캠페인의 비효율성과
+          개인화 기회 상실로 이어졌습니다.
         </p>
 
-        <h2>방법론</h2>
+        <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>데이터 전처리:</strong> 총 541,909건 거래 중 CustomerID 결측
-            및 이상치 제거.
+            <strong>행동 인사이트 강화를 위한 고급 피처 설계:</strong> 기존
+            RFM을 넘어, 재구매 주기(Interpurchase Time) 및 충동 점수(2일 내
+            재구매 비율)와 같은 더욱 세분화된 지표를 연구하고 구현. 총
+            541,909건의 거래 데이터를 활용하여 고객의 독특한 구매 패턴을
+            심층적으로 이해.
           </li>
           <li>
-            <strong>피처 설계:</strong> RFM + Interpurchase Time + 2일 내 재구매
-            비율 기반 Impulse Score.
+            <strong>데이터 기반 고객 세분화:</strong> KMeans 클러스터링(Elbow 및
+            Silhouette 방법을 활용하여 k=5로 선정)을 적용하여, 정량적 행동
+            특성에 기반한 명확한 고객 세그먼트 체계적 도출.
           </li>
           <li>
-            <strong>클러스터링:</strong> KMeans (k=5), Elbow와 Silhouette
-            기준으로 군집 수 도출.
+            <strong>심층 이해를 위한 감정 시뮬레이션 분석:</strong> 정량적
+            데이터와 질적 고객 의도 간의 간극을 좁히기 위해, 각 세그먼트별 가상
+            사용자 피드백을 설계하고 VADER를 활용한 감정 분석 수행. 이를 통해 각
+            군집 내 고객의 감정적 톤과 선호도를 정량적으로 이해.
           </li>
           <li>
-            <strong>감정 분석:</strong> 군집별 사용자 리뷰 생성 → VADER로 감정
-            톤 수치화.
+            <strong>실행 가능한 UX/마케팅 전략 개발:</strong> 도출된 세그먼트 및
+            그들의 감정 프로파일을 기반으로 개인화된 UX 및 마케팅 전략을 설계.
+            이는 각 세그먼트의 고유한 행동 및 감정 특성에 맞춰진 맞춤형 메시지,
+            제안 유형(예: 긴급 프로모션, 로열티 혜택, 복귀 유도 제안) 및
+            상호작용 빈도 포함.
+          </li>
+          <li>
+            <strong>실시간 배포를 통한 운영 자동화:</strong> 세분화 모델이 실제
+            운영에서 즉시 활용될 수 있도록, 실시간 분류기 및 Streamlit
+            애플리케이션을 개발하고 배포. 이는 신규/기존 사용자의 세그먼트를
+            자동으로 예측하여, 실시간 환경에서의 동적 개인화를 가능하게 함.
           </li>
         </ul>
 
-        <h2>핵심 성과</h2>
+        <h2>성과 및 임팩트 (Result)</h2>
         <ul>
-          <li>총 5개 군집 도출 → 행동 및 감정 기반으로 명확하게 해석 가능.</li>
           <li>
-            각 세그먼트에 맞춘 UX 전략 제시 (e.g. 긴급 메시지, VIP 혜택, 복귀
-            유도).
+            <strong>총체적 고객 이해 확보:</strong> 행동 및 감정적으로 명확하게
+            구분되는 5개 고객 군집을 성공적으로 도출하여, 전통적인 세분화를
+            넘어선 포괄적이고 실행 가능한 고객 인사이트 제공.
           </li>
           <li>
-            Streamlit 앱을 통해 실시간 신규 사용자 분류 및 전략 제안 가능.
+            <strong>개인화 역량 강화:</strong> 각 고유한 군집에 맞는 개인화된 UX
+            및 마케팅 전략을 개발하고 매핑하여, 더욱 타겟팅되고 효과적인 고객
+            참여 유도.
+          </li>
+          <li>
+            <strong>실시간 전략 배포 능력 확보:</strong> 실시간 고객 세그먼트
+            분류기 (Streamlit 앱)를 구축하고 배포하여, 신규 또는 기존 사용자의
+            세분화를 자동화하고 동적 개인화를 대규모로 가능하게 함.
+          </li>
+          <li>
+            <strong>지속적 최적화를 위한 배포 가능한 프레임워크:</strong> 단순한
+            분석을 넘어, 지속적인 타겟팅, 해석, UX 기획, 그리고 운영 자동화를
+            위한 배포 가능한 전체 사이클 고객 세분화 프레임워크를 제공.
           </li>
         </ul>
 
-        <h2>전략 요약</h2>
-        <p>
-          이 프로젝트는 고객 행동 분석을 넘어 실무 적용 가능한 세분화
-          프레임워크로 이어졌습니다:
-        </p>
-        <ul>
-          <li>
-            <strong>군집화:</strong> 시간 기반 행동 지표를 반영한 세분화 모델
-            구축.
-          </li>
-          <li>
-            <strong>해석:</strong> 감정 시뮬레이션을 통한 사용자 톤 및 성향
-            추정.
-          </li>
-          <li>
-            <strong>UX 설계:</strong> 각 군집에 맞는 콘텐츠/메시지 전략 설계.
-          </li>
-          <li>
-            <strong>자동화:</strong> 실시간 분류 모델을 통해 신규 유입 사용자
-            대응 자동화.
-          </li>
-        </ul>
-        <p>단순 분석을 넘어 실행 가능한 사용자 전략으로 확장했습니다.</p>
-
-        <div
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-          "
-        >
-          <div style="flex: 1 1 300px; max-width: 500px; text-align: center">
+        <div class="image-container">
+          <div class="image-item">
             <img
               src="images/kmean.png"
               alt="KMeans Cluster Visualization"
-              style="
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                border-radius: 6px;
-              "
+              class="project-image"
             />
             <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-              Figure 01
+              Figure 01: 행동 특성에 따른 고객 군집
             </p>
           </div>
-          <div style="flex: 1 1 300px; max-width: 500px; text-align: center">
+          <div class="image-item">
             <img
               src="images/kmean_app.png"
               alt="Streamlit App Screenshot"
-              style="
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                border-radius: 6px;
-              "
+              class="project-image"
             />
             <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-              Figure 02
+              Figure 02: 실시간 고객 세분화 앱
             </p>
           </div>
         </div>
@@ -354,7 +353,7 @@
         <p>
           📍 노트북 보기:
           <a
-            href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/kmean_clustering_code.html"
+            href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/kmean_clustering.html"
             class="button"
             target="_blank"
             >HERE</a
