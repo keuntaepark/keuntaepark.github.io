@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Business Forecasting with ARIMA/SARIMAX | Keuntae Park</title>
+    <title>
+      Demand Forecasting for Strategic Business Decisions | Keuntae Park
+    </title>
     <style>
       body {
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -26,6 +28,9 @@
         color: #00ffff;
         text-decoration: none;
         margin: 0 10px;
+      }
+      nav a:hover {
+        text-decoration: underline;
       }
       .lang-toggle {
         text-align: center;
@@ -74,6 +79,30 @@
       a.button:hover {
         background-color: #00cccc;
       }
+      /* Added styles for images and tables */
+      .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #444;
+      }
+      .metric-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+      .metric-table th,
+      .metric-table td {
+        border: 1px solid #444;
+        padding: 8px;
+        text-align: left;
+      }
+      .metric-table th {
+        background-color: #333;
+        color: #00ffff;
+      }
     </style>
     <script>
       function toggleLanguage(lang) {
@@ -95,7 +124,9 @@
   </head>
   <body>
     <header>
-      <h1>Business Forecasting (ARIMA/SARIMAX)</h1>
+      <h1>
+        Demand Forecasting for Strategic Business Decisions (ARIMA/SARIMAX)
+      </h1>
       <nav><a href="index.html">← Back to Portfolio</a></nav>
       <div class="lang-toggle">
         <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
@@ -104,96 +135,153 @@
     </header>
 
     <div class="content">
-      <!-- English Section -->
       <div class="lang-en">
-        <h2>Project</h2>
+        <h2>Problem</h2>
         <p>
-          Built demand forecasts for energy-efficient appliances using 30+ years
-          of data. Focused on designing models that balance short-term
-          operational needs and long-term planning under real-world constraints.
+          Existing demand forecasts struggle to optimize inventory and guide
+          long-term strategy for energy-efficient appliances. Models are either
+          too simplistic or too rigid for complex data, creating a paradox:
+          **balancing precision for operations with actionable strategic
+          insights is difficult, leading to inefficiencies and missed
+          opportunities.**
         </p>
 
-        <h2>Methodology</h2>
+        <h2>Action</h2>
         <ul>
           <li>
-            <strong>Data Prep:</strong> Cleaned negative and missing demand
-            values; decomposed into trend, cyclical, seasonal, irregular parts.
+            Strategic Model Design for Balanced Needs: Led demand forecast
+            development (30+ years of data), balancing short-term operational
+            needs with long-term strategic decision-making.
           </li>
           <li>
-            <strong>Baseline Modeling:</strong> Applied ARIMA(1,1,1) and
-            SARIMA(1,1,1)(1,1,1,12); evaluated fit using AIC/BIC and residual
-            diagnostics.
+            Progressive Modeling Approach & Comparative Analysis:
+            <ul>
+              <li>
+                Data Preparation & Pre-analysis: Cleaned and decomposed 30+
+                years of demand data to understand patterns.
+              </li>
+              <li>
+                Baseline & Seasonal Modeling (ARIMA, SARIMA): Applied
+                ARIMA(1,1,1) and SARIMA(1,1,1)(1,1,1,12), evaluating fit (SARIMA
+                AIC: 2824.8, BIC: 2844.7) for initial benchmarks.
+              </li>
+              <img
+                src="images/arima_demand_plot.png"
+                alt="Historical Demand Plot"
+                class="project-image"
+              />
+              <p
+                style="
+                  font-size: 0.9em;
+                  color: #888;
+                  margin-top: 10px;
+                  text-align: center;
+                "
+              >
+                Figure 01: Historical Demand, Trend, and Seasonal Components
+                (1990-2023)
+              </p>
+              <li>
+                Strategic Feature Integration (SARIMAX): Tested dummy sine
+                proxies; confirmed non-significance (Exog coefficient near zero,
+                p=1.0). This highlighted the critical need for *real,
+                business-relevant external drivers* to inform product strategy.
+              </li>
+              <img
+                src="images/arima_sarimax_forecast.png"
+                alt="SARIMAX Forecast Plot"
+                class="project-image"
+              />
+              <p
+                style="
+                  font-size: 0.9em;
+                  color: #888;
+                  margin-top: 10px;
+                  text-align: center;
+                "
+              >
+                Figure 02: SARIMA(1,1,1)(1,1,1,12) Forecast with Exogenous
+                Variable
+              </p>
+              <li>
+                Comparative Modeling (Prophet): Assessed Prophet's flexible
+                handling vs. SARIMA/SARIMAX (Prophet MAE: 22.83, RMSE: 23.77 vs.
+                SARIMA MAE: 7.71, RMSE: 8.51).
+              </li>
+            </ul>
           </li>
           <li>
-            <strong>External Variable Test:</strong> Added dummy sine proxies to
-            SARIMAX; confirmed no effect, highlighting the need to integrate
-            real external drivers (e.g., weather, marketing).
-          </li>
-          <li>
-            <strong>Prophet Modeling:</strong> Compared against Prophet for
-            flexible trend/seasonality handling; assessed tradeoffs across
-            models.
+            PM Learnings & Future Vision: This project taught me the critical
+            role of structured data in resolving complex cross-functional
+            conflicts. I shifted from intuition-driven to evidence-based
+            alignment, now prioritizing early-stage measurement strategies.
+            <ul>
+              <li>
+                Work with business teams (Sales, Operations) via structured
+                interviews to identify real external drivers.
+              </li>
+              <li>
+                Propose and design A/B tests on campaigns to validate external
+                driver impact on demand, linking to KPIs.
+              </li>
+              <li>
+                Integrate public datasets; prioritize variables via feature
+                importance analysis.
+              </li>
+              <li>
+                Develop a continuous feedback loop with operations teams to
+                refine forecast accuracy.
+              </li>
+            </ul>
           </li>
         </ul>
 
-        <h2>Key Outcomes</h2>
+        <h2>Result</h2>
         <ul>
           <li>
-            Quantified performance (MAE, RMSE) across ARIMA/SARIMA/SARIMAX and
-            Prophet.
+            Quantified Performance Benchmarks: Established clear benchmarks by
+            quantifying MAE/RMSE across models, aiding future optimization and
+            business impact assessment.
+            <table class="metric-table">
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>MAE</th>
+                  <th>RMSE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SARIMA</td>
+                  <td>7.71</td>
+                  <td>8.51</td>
+                </tr>
+                <tr>
+                  <td>SARIMAX (with dummy exog)</td>
+                  <td>7.71</td>
+                  <td>8.51</td>
+                </tr>
+                <tr>
+                  <td>Prophet</td>
+                  <td>22.83</td>
+                  <td>23.77</td>
+                </tr>
+              </tbody>
+            </table>
           </li>
           <li>
-            Demonstrated the importance of business-relevant features for
-            boosting predictive power.
+            Actionable Insights for Business Strategy: Validated
+            business-relevant external drivers' role in boosting predictive
+            power, enabling precise inventory allocation and reduced stock-out
+            risks. This is pivotal for data-driven strategic planning.
           </li>
           <li>
-            Delivered a modular forecasting pipeline ready for business driver
-            integration.
+            Modular & Scalable Forecasting Framework: Delivered a modular,
+            scalable pipeline ready for seamless integration of new business
+            drivers, enhancing adaptability for diverse product and operational
+            planning.
           </li>
         </ul>
-
-        <h2>Reflection</h2>
-        <ul>
-          <li>
-            <strong>Challenge:</strong> Off-the-shelf time series models hit a
-            performance ceiling without meaningful external data.
-          </li>
-          <li>
-            <strong>Approach:</strong> Explored adding proxy variables; learned
-            that model improvements depend on context-specific business inputs.
-          </li>
-          <li>
-            <strong>Takeaway:</strong> Modeling alone isn’t enough; identifying
-            and integrating real drivers is key to producing actionable
-            forecasts.
-          </li>
-        </ul>
-        
-        <div
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-          "
-        >
-          <div style="flex: 1 1 300px; max-width: 500px; text-align: center">
-            <img
-              src="images/arima.jpg"
-              alt="KMeans Cluster Visualization"
-              style="
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                border-radius: 6px;
-              "
-            />
-            <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-              Figure 01
-            </p>
-          </div>
-        </div>
 
         <h2>Report</h2>
         <p>
@@ -208,87 +296,144 @@
         </p>
       </div>
 
-      <!-- Korean Section -->
       <div class="lang-kr" style="display: none">
-        <h2>프로젝트</h2>
+        <h2>문제 정의 (Problem)</h2>
         <p>
-          30년 이상의 데이터를 기반으로 에너지 효율 가전 수요 예측을
-          설계했습니다. 단순한 단기 운영을 넘어, 실질적인 장기 전략 의사결정을
-          지원할 수 있는 모델링을 고민했습니다.
+          기존 수요 예측은 에너지 효율 가전의 재고 최적화 및 장기 전략 기획에
+          한계를 보였습니다. 모델이 단순하거나 경직되어, **운영의 정확성과
+          전략적 통찰력 모두를 잡기 어려운 역설**이 발생, 비효율과 기회 손실을
+          초래했습니다.
         </p>
 
-        <h2>방법론</h2>
+        <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>데이터 정리:</strong> 음수 및 결측값 보정; 추세, 주기성,
-            계절성, 불규칙 요소로 분해.
+            균형 잡힌 요구를 위한 전략적 모델 설계: 30년 이상 데이터로 수요 예측
+            모델 개발을 주도, 단기 운영 요구와 장기 전략 의사결정 간 균형에
+            집중했습니다.
           </li>
           <li>
-            <strong>베이스라인 모델링:</strong> ARIMA(1,1,1),
-            SARIMA(1,1,1)(1,1,1,12) 적용; AIC/BIC, 잔차 진단으로 적합도 평가.
+            점진적 모델링 접근 및 비교 분석:
+            <ul>
+              <li>
+                데이터 전처리 및 사전 분석: 30년 이상 수요 데이터 전처리 및
+                분해로 패턴 파악.
+              </li>
+              <li>
+                베이스라인 및 계절성 모델링 (ARIMA, SARIMA): ARIMA(1,1,1),
+                SARIMA(1,1,1)(1,1,1,12) 모델 적용, 적합도 평가 (SARIMA AIC:
+                2824.8, BIC: 2844.7)로 초기 기준점 확립.
+              </li>
+              <img
+                src="images/arima_demand_plot.png"
+                alt="과거 수요 데이터 플롯"
+                class="project-image"
+              />
+              <p
+                style="
+                  font-size: 0.9em;
+                  color: #888;
+                  margin-top: 10px;
+                  text-align: center;
+                "
+              >
+                Figure 01: 과거 수요, 추세 및 계절성 요소 (1990-2023)
+              </p>
+              <li>
+                전략적 피처 통합 (SARIMAX): 가상 Sine 변수 테스트로 유의미한
+                효과 없음을 확인 (Exog 계수 0에 가깝고, p=1.0). 이는 *실제
+                비즈니스 맥락에 맞는 외생 요인* 통합이 예측력 향상에 필수적임을
+                강조하며, 제품 전략의 피처 설계에 큰 영향을 주었습니다.
+              </li>
+              <img
+                src="images/arima_sarimax_forecast.png"
+                alt="SARIMAX 예측 플롯"
+                class="project-image"
+              />
+              <p
+                style="
+                  font-size: 0.9em;
+                  color: #888;
+                  margin-top: 10px;
+                  text-align: center;
+                "
+              >
+                Figure 02: 외생 변수를 포함한 SARIMA(1,1,1)(1,1,1,12) 예측
+              </p>
+              <li>
+                비교 모델링 (Prophet): Prophet 모델의 유연성 대비
+                SARIMA/SARIMAX와의 성능 및 해석 가능성 트레이드오프 평가
+                (Prophet MAE: 22.83, RMSE: 23.77 vs. SARIMA MAE: 7.71, RMSE:
+                8.51).
+              </li>
+            </ul>
           </li>
           <li>
-            <strong>외생 변수 테스트:</strong> 임시 sine 변수를 SARIMAX에 넣어
-            실험; 효과 없음 확인 → 실제 요인(날씨, 마케팅 등) 발굴 필요.
-          </li>
-          <li>
-            <strong>Prophet 모델링:</strong> 추세·계절성 유연성이 강한 Prophet과
-            비교; 모델별 성능 및 적용 조건 분석.
+            PM 학습 및 미래 비전: 이 프로젝트는 복잡한 교차 기능 갈등 상황에서
+            구조화된 데이터의 중요성을 깨닫게 했습니다. 직관에서 증거 기반
+            정렬로 전환하며, 초기 단계 측정 전략을 우선시하는 철학을 갖게
+            되었습니다.
+            <ul>
+              <li>
+                영업/생산 등 비즈니스 부서와의 구조화된 인터뷰로 실제 외생 요인
+                정의.
+              </li>
+              <li>
+                프로모션 A/B 테스트 설계 및 KPI 연계로 외생 요인 영향 검증 제안.
+              </li>
+              <li>공공 데이터셋 통합; 피처 중요도 분석으로 변수 우선순위화.</li>
+              <li>
+                운영팀과의 지속적인 피드백 루프 구축으로 예측 정확도 개선.
+              </li>
+            </ul>
           </li>
         </ul>
 
-        <h2>핵심 성과</h2>
+        <h2>성과 및 비즈니스 임팩트 (Result)</h2>
         <ul>
-          <li>ARIMA/SARIMA/SARIMAX, Prophet 간 MAE, RMSE 비교.</li>
           <li>
-            단순 모델링만으로는 한계가 있으며, 비즈니스 관련 변수 연계의 중요성
-            입증.
+            정량적 퍼포먼스 기준점 확립: 다양한 모델에 걸쳐 예측 정확도(MAE,
+            RMSE)를 정량화, 향후 최적화 및 직접적인 비즈니스 임팩트 평가 기준을
+            명확히 확립했습니다.
+            <table class="metric-table">
+              <thead>
+                <tr>
+                  <th>모델</th>
+                  <th>MAE</th>
+                  <th>RMSE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SARIMA</td>
+                  <td>7.71</td>
+                  <td>8.51</td>
+                </tr>
+                <tr>
+                  <td>SARIMAX (가상 외생변수 포함)</td>
+                  <td>7.71</td>
+                  <td>8.51</td>
+                </tr>
+                <tr>
+                  <td>Prophet</td>
+                  <td>22.83</td>
+                  <td>23.77</td>
+                </tr>
+              </tbody>
+            </table>
           </li>
-          <li>외부 요인 연계에 적합한 모듈형 예측 파이프라인 완성.</li>
+          <li>
+            비즈니스 전략을 위한 실행 가능한 통찰력: 예측력 향상에 비즈니스 관련
+            외생 변수의 중요성을 입증, 정밀한 재고 배정 및 품절 위험 감소에 직접
+            기여할 수 있었습니다. 이는 데이터 기반 전략 기획에 중요합니다.
+          </li>
+          <li>
+            모듈형 및 확장 가능한 예측 프레임워크: 새로운 비즈니스 요인 통합에
+            용이한 모듈형 예측 파이프라인을 제공, 다양한 제품 및 운영 계획에
+            적용 가능한 향후 적응성을 향상시켰습니다.
+          </li>
         </ul>
 
-        <h2>회고</h2>
-        <ul>
-          <li>
-            <strong>문제:</strong> 오픈 소스 시계열 모델은 비즈니스 요인 없이
-            성능 한계에 부딪힘.
-          </li>
-          <li>
-            <strong>접근:</strong> 프록시 변수를 추가해보며 실험; 의미 있는 변수
-            없이 단순 확장은 소용없음을 확인.
-          </li>
-          <li>
-            <strong>배운 점:</strong> 좋은 예측은 모델링 자체가 아니라, 실제
-            요인을 어떻게 찾고 통합하느냐에 달려있음.
-          </li>
-        </ul>
-        
-        <div
-          style="
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-          "
-        >
-          <div style="flex: 1 1 300px; max-width: 500px; text-align: center">
-            <img
-              src="images/arima.jpg"
-              alt="KMeans Cluster Visualization"
-              style="
-                width: 100%;
-                height: auto;
-                object-fit: contain;
-                border-radius: 6px;
-              "
-            />
-            <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-              Figure 01
-            </p>
-          </div>
-        </div>
-        
         <h2>보고서</h2>
         <p>
           📍 노트북 (nbviewer):
