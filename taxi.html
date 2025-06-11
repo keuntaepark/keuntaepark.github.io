@@ -80,6 +80,25 @@
       a.button:hover {
         background-color: #00cccc;
       }
+      /* Added styles for images */
+      .project-image-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .project-image-item {
+        flex: 1 1 300px; /* Allows items to grow/shrink, min 300px */
+        max-width: 100%; /* Ensures it doesn't overflow */
+        text-align: center;
+      }
+      .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        border: 1px solid #444;
+      }
     </style>
     <script>
       function toggleLanguage(lang) {
@@ -117,72 +136,86 @@
       <div class="lang-en">
         <h2>Problem</h2>
         <p>
-          The $2.50 NYC congestion surcharge was introduced to reduce traffic
-          and increase revenue, but its real-world application lacks consistency
-          across time, zones, and trip distance. This has led to inefficiencies
-          in both fairness (over-concentration in low-income zones and
-          operational clarity (unclear triggers for drivers and city
-          planners The pursuit of simple policy creates unintended complex
-          problems.
+          The $2.50 NYC congestion surcharge lacked consistency across time,
+          zones, and trip distance. This led to inefficiencies in fairness
+          (over-concentration in low-income zones) and operational clarity
+          (unclear triggers), creating complex problems from a simple policy.
         </p>
 
         <h2>Action</h2>
         <ul>
           <li>
-            <strong>Data-Driven Policy Analysis:</strong> Built classification
-            models (Logistic Regression, RandomForest) to predict surcharge
-            triggers (ROC-AUC 0.91) using 3M+ taxi trips. Utilized SHAP to
-            visualize key features (distance, time, pickup zones), providing
-            interpretable insights into policy patterns.
+            Data-Driven Policy Analysis: Built classification models (Logistic
+            Regression, RandomForest) to predict surcharge triggers (ROC-AUC
+            0.91) using 3M+ taxi trips; utilized SHAP for interpretable policy
+            insights.
           </li>
           <li>
-            <strong>Quantifiable Revenue & Equity Modeling:</strong> Developed
-            Ridge Regression models to estimate the impact of proposed policy
-            variables on fare amounts. This prepared a robust groundwork for
-            realistic scenario testing, balancing both revenue potential and
-            fairness.
+            Quantifiable Revenue & Equity Modeling: Developed Ridge Regression
+            models to estimate policy impact on fares; prepared groundwork for
+            balanced scenario testing.
           </li>
           <li>
-            <strong>Strategic Scenario Simulation:</strong> Designed and
-            executed simulations for alternative policies, including peak-hour
-            adjustments and zone-based exceptions. Quantitatively compared
-            revenue and equity outcomes across these scenarios to identify
-            optimal strategies.
+            Strategic Scenario Simulation: Designed & executed simulations for
+            alternative policies (peak-hour/zone exceptions); compared revenue &
+            equity outcomes to identify optimal strategies.
           </li>
           <li>
-            <strong>Reusable Framework Design:</strong> Modularized all
-            simulation and analysis tools into a reusable framework. This
-            enabled rapid adaptation and application across diverse use cases
-            like dynamic pricing, urban logistics, and broader smart city policy
-            development.
+            Reusable Framework Design: Modularized simulation/analysis tools
+            into a reusable framework; enabled rapid adaptation for dynamic
+            pricing, urban logistics, & smart city policy.
           </li>
         </ul>
+
+        <div class="project-image-container">
+          <div class="project-image-item">
+            <img
+              src="images/taxi_shap_summary.png"
+              alt="SHAP Summary Plot"
+              class="project-image"
+            />
+            <p style="font-size: 0.9em; color: #888; margin-top: 10px">
+              Figure 01: SHAP Feature Importance for Surcharge Prediction
+              (Classifier Model)
+            </p>
+          </div>
+        </div>
 
         <h2>Result</h2>
         <ul>
           <li>
-            <strong>Tangible Revenue Growth:</strong> Achieved a 0.9% total
-            revenue gain through data-driven, optimized time and zone pricing
-            strategies.
+            Tangible Revenue Growth: Achieved +0.9% total revenue gain through
+            data-driven, optimized time/zone pricing.
           </li>
           <li>
-            <strong>Enhanced Policy Equity:</strong> Significantly reduced
-            surcharge overconcentration in underserved areas leading to a
-            fairer distribution of costs.
+            Enhanced Policy Equity: Significantly reduced surcharge
+            overconcentration in underserved areas, leading to fairer cost
+            distribution.
           </li>
           <li>
-            <strong>Actionable Operational Insight:</strong> Provided
-            interpretable SHAP outputs that clarified complex surcharge
-            triggers, enabling cross-functional policy and operations teams to
-            make informed decisions and refine implementation.
+            Actionable Operational Insight: Provided interpretable SHAP outputs
+            clarifying complex surcharge triggers; enabled informed
+            cross-functional policy/operations decisions.
           </li>
           <li>
-            <strong>Scalable Strategic Tool:</strong> Delivered a reusable
-            framework that transforms raw data into actionable policy proposals,
-            serving as a foundation for broader smart city and dynamic pricing
-            initiatives.
+            Scalable Strategic Tool: Delivered a reusable framework transforming
+            raw data into actionable policy proposals; foundation for broader
+            smart city initiatives.
           </li>
         </ul>
+
+        <div class="project-image-container">
+          <div class="project-image-item">
+            <img
+              src="images/taxi_revenue_trend.png"
+              alt="Revenue Trend Comparison"
+              class="project-image"
+            />
+            <p style="font-size: 0.9em; color: #888; margin-top: 10px">
+              Figure 02: Modeled Revenue Trend: Before vs. After Optimization
+            </p>
+          </div>
+        </div>
 
         <h2>Code & Report</h2>
         <p>
@@ -202,62 +235,78 @@
       <div class="lang-kr" style="display: none">
         <h2>문제 정의 (Problem)</h2>
         <p>
-          현행 $2.50 NYC 혼잡 할증은 세수 확보와 교통 수요 분산을 목적으로
-          도입되었지만, 실제로는 시간·지역·거리별로 불명확하게 적용되어 공정성
-          (저소득 지역 할증 과다 집중)과 운영 효율성 (운전사 및 도시
-          계획가에게 불분명한 할증 발생 조건) 모두에서 비효율이 발생했습니다.
-          단순한 정책이 의도치 않은 복잡한 문제로 이어진 상황이었습니다.
+          현행 $2.50 NYC 혼잡 할증은 적용에 일관성이 부족했습니다. 이는 공정성
+          (저소득 지역 할증 과다 집중) 및 운영 효율성 (불분명한 할증 발생 조건)
+          비효율로 이어져, 단순한 정책이 의도치 않은 복잡한 문제를
+          초래했습니다.
         </p>
 
         <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>데이터 기반 정책 분석:</strong> 300만 건 이상의 택시 운행
-            데이터를 활용하여 로지스틱 회귀 및 랜덤 포레스트 분류 모델로 할증
-            발생 조건 예측 (ROC-AUC 0.91). SHAP 기반으로 주요 요인(거리, 시간대,
-            구역)을 시각화하여 정책 패턴에 대한 해석 가능한 인사이트 제공.
+            데이터 기반 정책 분석: 300만 건 이상 택시 운행 데이터를 활용, 분류
+            모델(로지스틱 회귀, 랜덤 포레스트)로 할증 발생 조건 예측 (ROC-AUC
+            0.91); SHAP 기반 정책 인사이트 제공.
           </li>
           <li>
-            <strong>정량적 수익 및 공정성 모델링:</strong> Ridge 회귀 모델을
-            개발하여 제안된 정책 변수가 요금에 미치는 영향을 추정. 이는 수익
-            잠재력과 공정성 모두를 균형 있게 고려한 현실적인 시나리오 테스트를
-            위한 견고한 기반이 됨.
+            정량적 수익 및 공정성 모델링: Ridge 회귀 모델로 정책 변수 요금 영향
+            추정, 균형 잡힌 시나리오 테스트 기반 마련.
           </li>
           <li>
-            <strong>전략적 시나리오 시뮬레이션:</strong> 피크 시간대 조정 및
-            특정 구역 제외 전략을 포함한 대안 정책 시뮬레이션을 설계하고 실행.
-            이러한 시나리오별 수익 및 공정성 결과를 정량적으로 비교하여 최적의
-            전략 도출.
+            전략적 시나리오 시뮬레이션: 대안 정책(피크/구역 예외) 시뮬레이션
+            설계 & 실행; 수익/공정성 비교로 최적 전략 도출.
           </li>
           <li>
-            <strong>재사용 가능한 프레임워크 설계:</strong> 모든 시뮬레이션 및
-            분석 도구를 재사용 가능한 모듈형 프레임워크로 구축. 이를 통해
-            다이내믹 요금 책정, 도시 물류, 광범위한 스마트 도시 정책 개발 등
-            다양한 활용 사례에 대한 신속한 적용과 확장이 가능하도록 함.
+            재사용 가능한 프레임워크 설계: 시뮬레이션/분석 도구를 모듈화,
+            다이내믹 요금, 도시 물류, 스마트 도시 정책에 신속 적용 가능.
           </li>
         </ul>
+
+        <div class="project-image-container">
+          <div class="project-image-item">
+            <img
+              src="images/taxi_shap_summary.png"
+              alt="SHAP 요약 플롯"
+              class="project-image"
+            />
+            <p style="font-size: 0.9em; color: #888; margin-top: 10px">
+              Figure 01: 할증 예측을 위한 SHAP 피처 중요도 (분류 모델)
+            </p>
+          </div>
+        </div>
 
         <h2>성과 및 임팩트 (Result)</h2>
         <ul>
           <li>
-            <strong>실질적인 수익 증대:</strong> 데이터 기반 최적화된 시간+구역
-            요금 전략을 통해 총 수익 +0.9% 증가를 달성.
+            실질적인 수익 증대: 데이터 기반 최적화된 시간/구역 요금 전략으로 총
+            수익 +0.9% 증가 달성.
           </li>
           <li>
-            <strong>정책 공정성 향상:</strong> 저소득 지역에 집중되던 할증을
-            대폭 감소시켜 비용 분배의 공정성 증대.
+            정책 공정성 향상: 저소득 지역 할증 과다 집중 대폭 감소, 공정한 비용
+            분배 기여.
           </li>
           <li>
-            <strong>실무 적용 가능한 운영 인사이트:</strong> 복잡한 할증 발생
-            조건을 명확히 해주는 해석 가능한 SHAP 결과물 제공하여,
-            운영/정책팀의 정보에 기반한 의사결정 및 구현 개선 지원.
+            실무 적용 가능한 운영 인사이트: 해석 가능한 SHAP 결과물로 할증 조건
+            명확화, 정책/운영팀의 정보 기반 의사결정 지원.
           </li>
           <li>
-            <strong>확장 가능한 전략 도구:</strong> 원시 데이터를 실행 가능한
-            정책 제안으로 전환하는 재사용 가능한 프레임워크를 제공하여, 광범위한
-            스마트 도시 및 동적 요금 책정 이니셔티브를 위한 기반 마련.
+            확장 가능한 전략 도구: 원시 데이터를 실행 가능한 정책 제안으로
+            전환하는 재사용 프레임워크 제공; 스마트 도시 이니셔티브 기반 마련.
           </li>
         </ul>
+
+        <div class="project-image-container">
+          <div class="project-image-item">
+            <img
+              src="images/taxi_revenue_trend.png"
+              alt="수익 추세 비교"
+              class="project-image"
+            />
+            <p style="font-size: 0.9em; color: #888; margin-top: 10px">
+              Figure 02: 모델링된 수익 추세: 최적화 전후 비교
+            </p>
+          </div>
+        </div>
 
         <h2>코드 및 보고서</h2>
         <p>
