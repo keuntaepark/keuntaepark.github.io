@@ -141,9 +141,8 @@
           Existing demand forecasts struggle to optimize inventory and guide
           long-term strategy for energy-efficient appliances. Models are either
           too simplistic or too rigid for complex data, creating a paradox:
-          balancing precision for operations with actionable strategic
-          insights is difficult, leading to inefficiencies and missed
-          opportunities.
+          balancing precision for operations with actionable strategic insights
+          is difficult, leading to inefficiencies and missed opportunities.
         </p>
 
         <h2>Action</h2>
@@ -178,7 +177,8 @@
                   text-align: center;
                 "
               >
-                Figure 01: Time Series Forecast with Trend and Seasonality (1990–2023)
+                Figure 01: Time Series Forecast with Trend and Seasonality
+                (1990–2023)
               </p>
               <li>
                 Strategic Feature Integration (SARIMAX): Tested dummy sine
@@ -258,6 +258,34 @@
           </li>
         </ul>
 
+        <h2>Tech Stack</h2>
+        <p>
+          This project uses Python to sequentially compare and analyze the
+          performance of ARIMA, SARIMA, SARIMAX, and Prophet models for
+          forecasting demand with monthly time series data. It presents a
+          decision-making process for selecting the optimal model by
+          quantitatively evaluating each with MAE and RMSE metrics.
+        </p>
+        <h4>Python</h4>
+        <ul>
+          <li>
+            <strong>Data Processing & Feature Generation:</strong>
+            <code>pandas</code>, <code>numpy</code>
+          </li>
+          <li>
+            <strong>Time Series Modeling:</strong>
+            <code>statsmodels.api</code> (for ARIMA, SARIMA, SARIMAX),
+            <code>prophet</code>
+          </li>
+          <li>
+            <strong>Visualization:</strong> <code>matplotlib.pyplot</code>
+          </li>
+          <li>
+            <strong>Performance Evaluation:</strong>
+            <code>sklearn.metrics</code> (for MAE, RMSE)
+          </li>
+        </ul>
+
         <h2>Report</h2>
         <p>
           📍 Notebook (nbviewer):
@@ -275,8 +303,8 @@
         <h2>문제 정의 (Problem)</h2>
         <p>
           기존 수요 예측은 에너지 효율 가전의 재고 최적화 및 장기 전략 기획에
-          한계를 보였습니다. 모델이 단순하거나 경직되어, 운영의 정확성과
-          전략적 통찰력 모두를 잡기 어려운 역설이 발생, 비효율과 기회 손실을
+          한계를 보였습니다. 모델이 단순하거나 경직되어, 운영의 정확성과 전략적
+          통찰력 모두를 잡기 어려운 역설이 발생, 비효율과 기회 손실을
           초래했습니다.
         </p>
 
@@ -387,6 +415,29 @@
             모듈형 및 확장 가능한 예측 프레임워크: 새로운 비즈니스 요인 통합에
             용이한 모듈형 예측 파이프라인을 제공, 다양한 제품 및 운영 계획에
             적용 가능한 향후 적응성을 향상시켰습니다.
+          </li>
+        </ul>
+
+        <h2>기술 스택</h2>
+        <p>
+          월별 시계열 데이터를 활용하여 수요를 예측하기 위해, Python을 사용하여
+          ARIMA, SARIMA, SARIMAX, Prophet 모델의 성능을 순차적으로 비교 및
+          분석했습니다. MAE와 RMSE를 통해 각 모델을 정량적으로 평가하여 최적의
+          모델을 선정하는 의사결정 과정을 제시합니다.
+        </p>
+        <h4>Python</h4>
+        <ul>
+          <li>
+            <strong>데이터 처리/생성:</strong> <code>pandas</code>,
+            <code>numpy</code>
+          </li>
+          <li>
+            <strong>시계열 모델링:</strong> <code>statsmodels.api</code> (ARIMA,
+            SARIMA, SARIMAX), <code>prophet</code>
+          </li>
+          <li><strong>시각화:</strong> <code>matplotlib.pyplot</code></li>
+          <li>
+            <strong>성능 평가:</strong> <code>sklearn.metrics</code> (MAE, RMSE)
           </li>
         </ul>
 
