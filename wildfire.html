@@ -289,6 +289,40 @@
             agencies (e.g., meteorological and forestry services).
           </li>
         </ul>
+
+        <h2>Tech Stack</h2>
+        <p>
+          The Wildfire Predictor was built by merging historical Korean wildfire
+          data with real-time wind data to forecast spread probability in 8
+          directions. Core modeling was implemented in Python, with dynamic
+          visualization handled by JavaScript.
+        </p>
+        <h4>Python</h4>
+        <ul>
+          <li>
+            <strong>Data Processing & Analysis:</strong> <code>pandas</code>,
+            <code>numpy</code>
+          </li>
+          <li>
+            <strong>Machine Learning Modeling:</strong>
+            <code>scikit-learn</code> (for Random Forest),
+            <code>xgboost</code> (for performance comparison)
+          </li>
+          <li><strong>Data Output:</strong> <code>json</code></li>
+        </ul>
+        <h4>JavaScript</h4>
+        <ul>
+          <li><strong>Data Visualization:</strong> <code>Leaflet.js</code></li>
+          <li>
+            <strong>External Data Collection:</strong> Open-Meteo API for
+            real-time wind data
+          </li>
+          <li>
+            <strong>Core Logic:</strong> A custom function to fuse AI
+            predictions with real-time wind conditions.
+          </li>
+        </ul>
+
         <h2>Code & Live Demo</h2>
         <p>
           📍 Try it out:
@@ -361,6 +395,35 @@
             공공 데이터 API 연동을 위한 기술적 토대 확보.
           </li>
         </ul>
+
+        <h2>기술 스택</h2>
+        <p>
+          Wildfire Predictor는 과거 한국 산불 데이터와 실시간 바람 데이터를
+          융합하여 8방향 확산 확률을 예측하는 프로젝트입니다. 핵심 모델링은
+          Python으로, 동적인 시각화는 JavaScript로 구현했습니다.
+        </p>
+        <h4>Python</h4>
+        <ul>
+          <li>
+            <strong>데이터 처리/분석:</strong> <code>pandas</code>,
+            <code>numpy</code>
+          </li>
+          <li>
+            <strong>머신러닝 모델링:</strong> <code>scikit-learn</code> (Random
+            Forest), <code>xgboost</code> (비교용)
+          </li>
+          <li><strong>데이터 출력:</strong> <code>json</code></li>
+        </ul>
+        <h4>JavaScript</h4>
+        <ul>
+          <li><strong>데이터 시각화:</strong> <code>Leaflet.js</code></li>
+          <li><strong>외부 데이터 수집:</strong> Open-Meteo API</li>
+          <li>
+            <strong>핵심 로직:</strong> AI 예측과 실시간 바람을 융합하는 동적
+            가중치 로직
+          </li>
+        </ul>
+
         <h2>코드 및 데모</h2>
         <p>
           📍 데모 보기:
