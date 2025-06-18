@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Olist Customer Churn Analysis and Retention Strategy | Keuntae Park
+    </title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+      .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #444;
+      }
+      .metric-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+      .metric-table th,
+      .metric-table td {
+        border: 1px solid #444;
+        padding: 8px;
+        text-align: left;
+      }
+      .metric-table th {
+        background-color: #333;
+        color: #00ffff;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document.querySelectorAll(".lang-en").forEach((el) => {
+          el.style.display = lang === "en" ? "block" : "none";
+        });
+        document.querySelectorAll(".lang-kr").forEach((el) => {
+          el.style.display = lang === "kr" ? "block" : "none";
+        });
+        document
+          .querySelectorAll(".lang-toggle button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("kr"); // Default to Korean
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>
+        Data-Driven Customer Churn Analysis and Retention Strategy for Olist E-commerce
+      </h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" class="active" onclick="toggleLanguage('kr')">KOR</button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="lang-en" style="display: none">
+        <h2>Problem</h2>
+        <p>
+          An initial analysis of the Olist e-commerce platform revealed a critical customer churn issue, with a repeat purchase rate of less than 4%. This low retention rate hinders LTV (Customer Lifetime Value) growth and forces a heavy reliance on new customer acquisition, threatening the long-term sustainability of the business. This project aimed to identify the root cause of churn and propose a data-driven, verifiable solution.
+        </p>
+
+        <h2>Action</h2>
+        <ul>
+          <li>
+            <strong>Problem Quantification & Pattern Discovery (EDA & Cohort Analysis):</strong>
+            <ul>
+              <li>Pinpointed the primary leakage point via AARRR funnel analysis, which showed a 96% drop-off rate between the Activation and Retention stages.</li>
+              <li>Visually proved through Cohort Analysis that this high initial churn was a long-standing, structural problem, not a one-time issue.</li>
+              <img
+              src="images/retention_heatmap.png"
+              alt="retention_heatmap"
+              class="project-image"
+              />
+              <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 01: Monthly Retention Rate Heatmap</p>
+            </ul>
+          </li>
+          <li>
+            <strong>Root Cause Analysis (LTV & Regional Analysis):</strong>
+            <ul>
+                <li>Hypothesized that a poor first-purchase experience, driven by delivery performance, was the root cause of churn.</li>
+                <li>LTV analysis revealed that 53.5% of total revenue comes from the top 20% of VIP customers, who are heavily concentrated in well-serviced southeastern metropolitan areas (e.g., SP, RJ).</li>
+                <li>In contrast, regions with the highest rate of "bad delivery experiences" (>16 days) were concentrated in the North/Northeast, proving a strong correlation between delivery experience, LTV, and churn.</li>
+                </li>
+                <img
+                src="images/distribution.png"
+                alt="distribution"
+                class="project-image"
+                />
+                <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 02: LTV Distribution and Box Plot</p>
+            </ul>
+          </li>
+          <li>
+            <strong>Solution Design & Impact Simulation (ML & A/B Test):</strong>
+            <ul>
+                <li>Designed a solution to mitigate the negative impact of poor delivery: proactively offering compensation to affected customers.</li>
+                <li>Developed a repurchase prediction ML model, comparing multiple algorithms (Logistic Regression, RandomForest, XGBoost) and applying advanced techniques like SMOTE, Cost-Sensitive Learning, and GridSearchCV to handle severe class imbalance.</li>
+                <li>An A/B test simulation using the champion model predicted that offering a 10% discount coupon to customers with delayed deliveries would increase their repurchase probability by 2.58 percentage points, yielding a positive ROI of approximately 38.8%.</li>
+                </ul>
+          </li>
+        </ul>
+
+        <h2>Result</h2>
+        <ul>
+          <li>
+            <strong>Identified Key Driver of Churn:</strong> Proved with data that inconsistent and poor delivery experiences are a primary cause of Olist's low customer retention.
+          </li>
+          <li>
+            <strong>Proposed a Data-Driven, Actionable Solution:</strong> Moved beyond insights to propose a concrete action plan—a 10% coupon for delayed orders—backed by a clear expected ROI of 38.8%, providing a strong business case for implementation.
+          </li>
+          <li>
+            <strong>Informed Strategic Decision-Making:</strong> Provided a clear, data-driven direction for the business: instead of broad marketing efforts, retention resources should be focused on targeted interventions for specific customer segments who have had a poor delivery experience.
+          </li>
+        </ul>
+
+        <h2>Tech Stack</h2>
+        <ul>
+          <li><strong>Language:</strong> Python</li>
+          <li><strong>Data Processing & Analysis:</strong> Pandas, NumPy, SQL (via `sqlite3`)</li>
+          <li><strong>Visualization:</strong> Matplotlib, Seaborn</li>
+          <li><strong>Machine Learning:</strong> Scikit-learn (Logistic Regression, RandomForest, StandardScaler, GridSearchCV), XGBoost</li>
+          <li><strong>Imbalanced Data Handling:</strong> imbalanced-learn (SMOTE)</li>
+        </ul>
+
+        <h2>Report</h2>
+        <p>
+          📍 Notebook (nbviewer):
+          <a href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/olist_code.html" class="button" target="_blank">HERE</a><br />
+          📌 Data: Olist E-Commerce Public Dataset
+        </p>
+      </div>
+
+      <div class="lang-kr">
+        <h2>문제 정의 (Problem)</h2>
+        <p>
+          브라질 이커머스 플랫폼 Olist의 고객 데이터를 분석한 결과, 첫 구매 이후 재구매로 이어지는 비율이 4% 미만에 머무는 심각한 고객 이탈(Churn) 문제를 발견했습니다. 이러한 낮은 리텐션은 LTV(고객 생애 가치) 성장을 저해하고, 신규 고객 유치에만 의존하게 만들어 비즈니스의 장기적 안정성을 위협하는 핵심적인 문제였습니다. 본 프로젝트의 목표는 이탈의 근본적인 원인을 데이터로 규명하고, 검증 가능한 해결 전략을 제시하는 것입니다.
+        </p>
+
+        <h2>나의 기여 (Action)</h2>
+        <ul>
+          <li>
+            <strong>문제 정량화 및 패턴 발견 (EDA & 코호트 분석)</strong>
+            <ul>
+              <li>AARRR 퍼널 분석을 통해, 고객 여정 중 '활성화(첫 구매 성공)'에서 '유지(재구매)'로 넘어가는 단계의 이탈률이 96%에 달하는 것을 확인하며 문제 구간 특정</li>
+              <li>코호트 분석을 통해, 이러한 높은 초기 이탈률이 특정 시점의 문제가 아닌, 장기간 지속된 구조적인 문제임을 시각적으로 증명</li>
+              <img
+              src="images/retention_heatmap.png"
+              alt="retention_heatmap"
+              class="project-image"
+              />
+              <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 01: 월별 고객 리텐션 히트맵</p>
+            </ul>
+          </li>
+          <li>
+            <strong>핵심 원인 가설 수립 및 검증 (LTV & 지역 분석)</strong>
+            <ul>
+                <li>'나쁜 첫 구매 경험'을 이탈의 핵심 원인으로 가정하고, 가장 유력한 후보인 '배송 경험'에 대한 심층 분석 진행</li>
+                <li>LTV 분석 결과, 전체 매출의 53.5%가 상위 20%의 VIP 고객에게서 발생하며, 이들은 대부분 배송 인프라가 좋은 남동부 대도시(SP, RJ 등)에 집중되어 있음을 발견</li>
+                <li>반면, '나쁜 배송 경험' 고객 비율은 북부/북동부 지역(AP, AM 등)에서 최대 86%에 달하는 등, 두 그룹의 지역 분포가 명확히 분리됨을 확인하여 '배송 경험과 고객 가치의 상관관계' 가설 증명</li>
+                <img
+                src="images/distribution.png"
+                alt="distribution"
+                class="project-image"
+                />
+                <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 02: LTV 분포 히스토그램 및 박스플롯</p>
+            </ul>
+          </li>
+          <li>
+            <strong>해결 전략 설계 및 효과 예측 (ML & A/B 테스트 시뮬레이션)</strong>
+            <ul>
+                <li>'배송 지연' 문제에 대응하기 위해, "선제적 보상(쿠폰)이 고객 경험을 개선하여 재구매를 유도할 것"이라는 가설 수립</li>
+                <li>재구매 고객 예측 ML 모델 개발. SMOTE, Cost-Sensitive 학습, GridSearchCV 등의 기법을 적용하여 클래스 불균형 문제를 해결하고 모델 성능 최적화</li>
+                <li>A/B 테스트 시뮬레이션 결과, 배송 지연 고객에게 10% 할인 쿠폰을 제공할 경우 재구매 확률이 2.58%p 상승하며, 약 38.8%의 긍정적 ROI를 기대할 수 있음을 예측</li>
+                </ul>
+          </li>
+        </ul>
+
+        <h2>성과 및 비즈니스 임팩트 (Result)</h2>
+        <ul>
+          <li>
+            <strong>고객 이탈의 핵심 동인 규명:</strong> 막연했던 '낮은 리텐션'의 원인이 '지역별 배송 경험의 큰 편차'에 있음을 데이터로 명확히 증명함.
+          </li>
+          <li>
+            <strong>데이터 기반의 실행 가능한 해결책 제시:</strong> 문제 제시에 그치지 않고, '10% 할인 쿠폰'이라는 구체적인 액션 아이템과 예상 ROI 38.8%라는 명확한 기대 효과를 제시하여, 즉시 실행 가능한 비즈니스 전략의 근거 마련.
+          </li>
+          <li>
+            <strong>전략적 의사결정 지원:</strong> 분석을 통해 "모든 고객에게 동일한 마케팅을 할 것이 아니라, 배송 지연을 겪은 특정 고객 그룹에 집중해야 한다"는 선택과 집중에 대한 데이터 기반의 방향성 제시.
+          </li>
+        </ul>
+
+        <h2>기술 스택 (Tech Stack)</h2>
+        <ul>
+          <li><strong>언어:</strong> Python</li>
+          <li><strong>데이터 처리/분석:</strong> Pandas, NumPy, SQL (via `sqlite3`)</li>
+          <li><strong>시각화:</strong> Matplotlib, Seaborn</li>
+          <li><strong>머신러닝:</strong> Scikit-learn (Logistic Regression, RandomForest, StandardScaler, GridSearchCV), XGBoost</li>
+          <li><strong>불균형 데이터 처리:</strong> imbalanced-learn (SMOTE)</li>
+        </ul>
+
+        <h2>보고서 (Report)</h2>
+        <p>
+          📍 노트북 (nbviewer):
+          <a href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/olist_code.html" class="button" target="_blank">HERE</a><br />
+          📌 데이터: Olist E-Commerce Public Dataset
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>
