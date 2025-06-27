@@ -219,52 +219,62 @@
         <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>문제 정량화 및 패턴 발견 (EDA & 코호트 분석)</strong>
+            <strong>① 데이터 수집 및 분석 환경 구축</strong>
             <ul>
-              <li>AARRR 퍼널 분석을 통해, 고객 여정 중 '활성화(첫 구매 성공)'에서 '유지(재구매)'로 넘어가는 단계의 이탈률이 96%에 달하는 것을 확인하며 문제 구간 특정</li>
-              <li>코호트 분석을 통해, 이러한 높은 초기 이탈률이 특정 시점의 문제가 아닌, 장기간 지속된 구조적인 문제임을 시각적으로 증명</li>
+                <li>분산된 10만 건 CSV 데이터의 분석용 DB(SQLite) 통합 환경 구축</li>
+                <li>Python(`pandas`, `sqlite3` 등) 활용, 데이터 로딩 및 DB 적재 파이프라인 설계</li>
+                <li>SQL과 Pandas 연동, 분석 목적에 맞는 최종 테이블 구성 및 정제</li>
+            </ul>
+          </li>
+          <li>
+            <strong>② 탐색 및 구조적 문제 정의</strong>
+            <ul>
+                <li>AARRR 퍼널 및 코호트 분석을 통한 비즈니스 현황 진단</li>
+                <li>신규 고객 재구매율 3%대의 구조적 이탈 문제 정량적 발견</li>
+                <li>`Seaborn`, `Matplotlib` 활용, 코호트별 유지율 시각화 및 문제의 장기적 특성 규명</li>
+            </ul>
               <img
               src="images/retention_heatmap.png"
               alt="retention_heatmap"
               class="project-image"
               />
               <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 01: 월별 고객 리텐션 히트맵</p>
-            </ul>
           </li>
           <li>
-            <strong>핵심 원인 가설 수립 및 검증 (LTV & 지역 분석)</strong>
+            <strong>③ 가설 기반 분석 및 검증</strong>
             <ul>
-                <li>'나쁜 첫 구매 경험'을 이탈의 핵심 원인으로 가정하고, 가장 유력한 후보인 '배송 경험'에 대한 심층 분석 진행</li>
-                <li>LTV 분석 결과, 전체 매출의 53.5%가 상위 20%의 VIP 고객에게서 발생하며, 이들은 대부분 배송 인프라가 좋은 남동부 대도시(SP, RJ 등)에 집중되어 있음을 발견</li>
-                <li>반면, '나쁜 배송 경험' 고객 비율은 북부/북동부 지역(AP, AM 등)에서 최대 86%에 달하는 등, 두 그룹의 지역 분포가 명확히 분리됨을 확인하여 '배송 경험과 고객 가치의 상관관계' 가설 증명</li>
+                <li>'부정적 배송 경험'을 이탈의 핵심 원인으로 가설 수립</li>
+                <li>가설 검증을 위한 핵심 파생 변수(`delivery_diff`) 피처 엔지니어링</li>
+                <li>'빠른 배송'이 높은 리텐션으로 이어지지 않는다는 통념과 반대되는 인사이트 도출</li>
+                <li>`SciPy` 활용, 카이제곱 검정을 통해 '지역별 배송 품질 편차' 등 복합 요인의 연관성 검토</li>
+            </ul>
                 <img
                 src="images/distribution.png"
                 alt="distribution"
                 class="project-image"
                 />
                 <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 02: LTV 분포 히스토그램 및 박스플롯</p>
-            </ul>
           </li>
           <li>
-            <strong>해결 전략 설계 및 효과 예측 (ML & A/B 테스트 시뮬레이션)</strong>
+            <strong>④ 모델링 설계 및 전략화 시도</strong>
             <ul>
-                <li>'배송 지연' 문제에 대응하기 위해, "선제적 보상(쿠폰)이 고객 경험을 개선하여 재구매를 유도할 것"이라는 가설 수립</li>
-                <li>재구매 고객 예측 ML 모델 개발. SMOTE, Cost-Sensitive 학습, GridSearchCV 등의 기법을 적용하여 클래스 불균형 문제를 해결하고 모델 성능 최적화</li>
-                <li>A/B 테스트 시뮬레이션 결과, 배송 지연 고객에게 10% 할인 쿠폰을 제공할 경우 재구매 확률이 2.58%p 상승하며, 약 38.8%의 긍정적 ROI를 기대할 수 있음을 예측</li>
-                </ul>
+                <li>단일 변수로 설명되지 않는 이탈 패턴 파악을 위한 `XGBoost` 재구매 예측 모델 설계</li>
+                <li>이탈 위험 고객군 식별 및 '배송 지연 고객 대상 쿠폰 제공' 시나리오 시뮬레이션</li>
+                <li>전략 실행 시, 약 39%의 긍정적 ROI 창출 효과를 정량적으로 예측 및 제시</li>
+            </ul>
           </li>
         </ul>
 
         <h2>성과 및 비즈니스 임팩트 (Result)</h2>
         <ul>
           <li>
-            <strong>고객 이탈의 핵심 동인 규명:</strong> 막연했던 '낮은 리텐션'의 원인이 '지역별 배송 경험의 큰 편차'에 있음을 데이터로 명확히 증명함.
+            고객 이탈의 핵심 동인이 '지역별 배송 경험 편차'임을 데이터 기반으로 규명
           </li>
           <li>
-            <strong>데이터 기반의 실행 가능한 해결책 제시:</strong> 문제 제시에 그치지 않고, '10% 할인 쿠폰'이라는 구체적인 액션 아이템과 예상 ROI 38.8%라는 명확한 기대 효과를 제시하여, 즉시 실행 가능한 비즈니스 전략의 근거 마련.
+            '10% 할인 쿠폰 제공'이라는 구체적 해결책과 예상 ROI(38.8%)를 함께 제시하여, 실행 근거 마련
           </li>
           <li>
-            <strong>전략적 의사결정 지원:</strong> 분석을 통해 "모든 고객에게 동일한 마케팅을 할 것이 아니라, 배송 지연을 겪은 특정 고객 그룹에 집중해야 한다"는 선택과 집중에 대한 데이터 기반의 방향성 제시.
+            '선택과 집중'을 통한 리소스 최적화 등 데이터 기반의 전략적 의사결정 방향성 제시
           </li>
         </ul>
 
@@ -274,6 +284,7 @@
           <li><strong>데이터 처리/분석:</strong> Pandas, NumPy, SQL (via `sqlite3`)</li>
           <li><strong>시각화:</strong> Matplotlib, Seaborn</li>
           <li><strong>머신러닝:</strong> Scikit-learn (Logistic Regression, RandomForest, StandardScaler, GridSearchCV), XGBoost</li>
+          <li><strong>통계 검증:</strong> SciPy (Chi-squared test)</li>
           <li><strong>불균형 데이터 처리:</strong> imbalanced-learn (SMOTE)</li>
         </ul>
 
