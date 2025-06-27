@@ -68,16 +68,43 @@
       .card p {
         color: #ccc;
       }
+
+      /* --- Final Badge Style (Static Black & White) --- */
       .badge {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 15px;
+        right: 15px;
+        padding: 5px 12px;
+        border-radius: 50px; /* Pill shape */
+        font-size: 0.75em;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        border: 1px solid transparent;
+      }
+
+      /* White Badge */
+      .badge.da,
+      .badge.ml {
+        background-color: #fff;
+        color: #000;
+        border-color: #fff;
+      }
+
+      /* Black Badge */
+      .badge.forecast {
+        background-color: #000;
+        color: #fff;
+        border-color: #fff;
+      }
+
+      /* Working On Badge */
+      .badge.working {
         background-color: #ff4500;
         color: white;
-        padding: 5px 10px;
-        border-radius: 5px;
-        font-size: 0.75em;
+        border-color: #ff4500;
       }
+
       footer {
         text-align: center;
         padding: 20px;
@@ -110,7 +137,7 @@
 
     <div class="container">
       <div class="card" onclick="window.location.href='wildfire.html'">
-        <span class="badge">Working On</span>
+        <span class="badge working">Working On</span>
         <img src="images/wildfire_02.jpeg" alt="Wildfire Project" />
         <div class="card-content">
           <h3>Wildfire Spread Forecasting for Rapid Response</h3>
@@ -122,16 +149,20 @@
       </div>
 
       <div class="card" onclick="window.location.href='olist.html'">
+        <span class="badge da">Data Analysis</span>
         <img src="images/retention_heatmap.png" alt="Olist Retention Project" />
         <div class="card-content">
           <h3>Olist E-commerce Churn Analysis & Retention Strategy</h3>
           <p>
-            A data-driven strategy to improve customer retention, predicted to lift the repurchase rate by +2.58%p with a +38.8% ROI, based on ML-powered A/B test simulation on 100k orders
+            A data-driven strategy to improve customer retention, predicted to
+            lift the repurchase rate by +2.58%p with a +38.8% ROI, based on
+            ML-powered A/B test simulation on 100k orders
           </p>
         </div>
       </div>
 
       <div class="card" onclick="window.location.href='taxi.html'">
+        <span class="badge ml">Machine Learning</span>
         <img src="images/taxi_01.png" alt="Taxi Project" />
         <div class="card-content">
           <h3>NYC Taxi Policy Optimization</h3>
@@ -143,6 +174,7 @@
       </div>
 
       <div class="card" onclick="window.location.href='kmean.html'">
+        <span class="badge da">Data Analysis</span>
         <img src="images/kmean.png" alt="KMeans Project" />
         <div class="card-content">
           <h3>Customer Segmentation for Personalized Strategy</h3>
@@ -154,6 +186,7 @@
       </div>
 
       <div class="card" onclick="window.location.href='arima01.html'">
+        <span class="badge da">Forecasting</span>
         <img src="images/arima.jpg" alt="ARIMA Project" />
         <div class="card-content">
           <h3>Demand Forecasting for Strategic Business Insights</h3>
@@ -165,6 +198,7 @@
       </div>
 
       <div class="card" onclick="window.location.href='hvac.html'">
+        <span class="badge da">Data Analysis</span>
         <img src="images/hvac.jpg" alt="HVAC Virtual Experience Project" />
         <div class="card-content">
           <h3>LG HVAC Virtual Showroom PM & Data Strategy</h3>
