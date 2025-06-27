@@ -140,22 +140,48 @@
       <div class="lang-en">
         <h2>Problem</h2>
         <p>
-          Unity-based HVAC visualization: Performance bottlenecks (slow loads,
-          user drop-offs) from high-res assets. Lack of behavioral data blurred
-          UX direction. Critically, design (fidelity) and engineering
-          (performance) expectations clashed, hindering project progress.
+          Amidst the COVID-19 pandemic, the challenge was to create a virtual
+          showroom for a core B2B product to secure client leads. The primary
+          goal was 'generating leads by ensuring users complete the virtual
+          tour,' but we faced technical limitations with 3D assets and the
+          difficulty of conveying a complex product structure in a mobile-first
+          environment.
+        </p>
+
+        <h2>Pain Point</h2>
+        <p>
+          Post-launch, GA4 analysis revealed a critical issue: an
+          <strong>80% bounce rate</strong> and a dismal
+          <strong>'virtual showroom completion rate,'</strong> our key
+          performance indicator (KPI). This not only meant failing to secure
+          leads but also risking a negative brand experience and threatening the
+          entire project's ROI. A data-driven diagnosis to find the root cause
+          of the low completion rate was imperative.
         </p>
 
         <h2>Action</h2>
+        <p>
+          Led a structured, hypothesis-driven project to improve the showroom
+          completion rate, focusing on 'Usability,' 'User Experience (UX),' and
+          'Content'.
+        </p>
         <ul>
           <li>
-            Product & Technical Bridging: Translated client requirements into
-            technical specs for Unity dev team; ensured clear communication.
+            <strong>Hypothesis 1 (Usability): 'It's difficult to use.'</strong>
+            <br />→ Implementation of an interactive tutorial based on
+            competitor UX benchmarking to reduce the initial learning curve.
           </li>
           <li>
-            Behavioral Data Analysis for Optimization: Led Python-based analysis
-            (heatmaps of clicks/dwell time); strategically lowered texture
-            resolution in underused 3D areas for loading speed.
+            <strong
+              >Hypothesis 2 (User Experience): 'The experience is poor.'</strong
+            >
+            <br />→ Pinpointed drop-off points using <strong>GA4</strong>, then
+            visualized clickstream data as a heatmap using
+            <strong>Python (Matplotlib, Seaborn)</strong>. Identified a key
+            bottleneck preventing completion: high-resource 3D assets in
+            low-traffic areas slowing load times. Collaboration with engineers
+            to optimize these assets using the
+            <strong>LOD (Level of Detail)</strong> technique.
           </li>
           <div class="project-image-container">
             <div class="project-image-item">
@@ -165,61 +191,64 @@
                 class="project-image"
               />
               <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-                Figure 01: Heatmap Analysis of User Behavior on Virtual Showroom
-                (example)
+                Figure 01: Heatmap of raw clickstream data identifying the UX
+                bottleneck
               </p>
             </div>
           </div>
           <li>
-            Stakeholder Alignment & Transparency: Created real-time Miro
-            dashboard for client feedback, issues, and progress; ensured
-            transparency and team alignment.
-          </li>
-          <div class="project-image-container">
-            <div class="project-image-item">
-              <img
-                src="images/hvac_miro_project_board.png"
-                alt="Miro Board for Real-time Progress & Issue Tracking"
-                class="project-image"
-              />
-              <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-                Figure 02: Real-time Project Progress and Issue Tracking (Miro
-                Board)
-              </p>
-            </div>
-          </div>
-          <li>
-            Data-Informed Design Trade-offs: Balanced design aesthetics and
-            system performance using structured data analysis; optimized Unity
-            scene configuration.
+            <strong
+              >Hypothesis 3 (Content): 'It's hard to find desired
+              information.'</strong
+            >
+            <br />→ Redesigning the Information Architecture (IA) to a
+            card-style format, arranging custom information based on user
+            interests and actual exploration flows.
           </li>
         </ul>
 
         <h2>Result</h2>
         <ul>
           <li>
-            Increased User Engagement & Lead Generation: +100% visitor growth;
-            +15% session duration.
+            <strong
+              >Achieved a 25% increase in the core showroom completion
+              rate.</strong
+            >
           </li>
           <li>
-            Improved Technical Performance: 20% faster page load time; reduced
-            bounce rates, improved user satisfaction.
+            <strong
+              >15 percentage point (p.p.) reduction in core bounce rate</strong
+            >
+            through comprehensive improvements.
           </li>
           <li>
-            Enhanced Cross-Functional Collaboration: Reconciled conflicting
-            stakeholder expectations via data; efficient, harmonized project
-            execution.
+            <strong>20% improvement in average page load speed</strong> via 3D
+            asset optimization.
+          </li>
+          <li>
+            <strong>Direct contribution to securing B2B client leads</strong> by
+            boosting user retention and completion.
           </li>
         </ul>
 
-        <h2>Tech Stack & My Role</h2>
+        <h2>Tech Stack</h2>
         <ul>
-            <li><strong>Google Analytics (GA):</strong> Directly analyzed key metrics to identify problems and quantitatively measure improvement.</li>
-            <li><strong>Python (Data Analysis):</strong> Interpreted the tech team's Python analysis results (e.g., heatmaps) to propose data-driven optimization strategies.</li>
-            <li><strong>Unity / C# (3D Development):</strong> Coordinated with the dev team on the technical feasibility of data-driven optimizations and managed execution.</li>
-            <li><strong>Miro (Collaboration):</strong> Built and operated a real-time dashboard to manage stakeholder communication.</li>
+          <li>
+            <strong>Google Analytics (GA4):</strong> Defining and tracking KPIs,
+            including user funnels and showroom completion rate; extracting raw
+            data for analysis
+          </li>
+          <li>
+            <strong>Python (Matplotlib, Seaborn):</strong> Leading data
+            analysis; processing and visualizing raw clickstream data to
+            identify problems and provide evidence for technical improvements
+          </li>
+          <li>
+            <strong>Information Architecture:</strong> Leading the redesign of
+            the content structure to improve user engagement and journey
+            completion
+          </li>
         </ul>
-
 
         <p>
           Live Project:
@@ -235,21 +264,44 @@
       <div class="lang-kr" style="display: none">
         <h2>문제 정의 (Problem)</h2>
         <p>
-          Unity 기반 HVAC 시각화 프로젝트에서, 고해상도 자산으로 인한 퍼포먼스
-          병목 (느린 로딩, 사용자 이탈) 발생. 행동 데이터 부재로 UX 방향 불분명.
-          디자인 (퀄리티)과 개발 (퍼포먼스) 간 기대치 충돌이 프로젝트 진행을
-          저해했습니다.
+          코로나19로 인해 오프라인 행사가 불가능해지면서, LG디스플레이의 핵심
+          B2B 제품인 HVAC 시스템을 소개할 가상 쇼룸을 구축하고, 이를 통해 잠재
+          고객 리드를 확보해야 하는 과제가 있었습니다. 목표는 '긍정적인 고객
+          경험을 통한 쇼룸 완주 및 리드 확보'였지만, 현실은 3D 에셋의 기술적
+          제약과 복잡한 제품 구조를 모바일 환경에서 효과적으로 전달해야 하는'
+          공간 기획의 어려움이었습니다.
+        </p>
+
+        <h2>페인포인트 (Pain Point)</h2>
+        <p>
+          런칭 직후, <strong>80% 이상의 높은 이탈률</strong>과 함께 핵심 성공
+          지표(KPI)인 <strong>‘가상 쇼룸 완주율’의 심각한 저조</strong>를 확인.
+          이는 리드 확보 실패를 넘어, 프로젝트 ROI를 위협하고 브랜드 경험에
+          부정적 영향을 줄 수 있는 결정적 문제. '왜 사용자가 완주하지 않는가?'에
+          대한 데이터 기반의 원인 규명 시급.
         </p>
 
         <h2>나의 기여 (Action)</h2>
+        <p>
+          '쇼룸 완주율' 개선을 목표로, '사용성', '경험(UX)', '콘텐츠' 측면에서
+          가설을 수립하고 데이터 기반으로 검증하는 구조적 개선 프로젝트 리드.
+        </p>
         <ul>
           <li>
-            제품 및 기술 브릿지 역할 수행: 클라이언트 요구사항을 Unity 개발팀에
-            기술 사양으로 번역; 명확한 소통 확보.
+            <strong>가설 1 (사용성): '이용이 어렵다'</strong>
+            <br />→ 경쟁사 UX 벤치마킹 및 초기 학습 부담을 줄이는 인터랙티브
+            튜토리얼 기획·도입.
           </li>
           <li>
-            최적화를 위한 행동 데이터 분석: Python 기반 분석(클릭/체류 시간
-            히트맵) 주도; 저활성 영역 텍스처 해상도 낮춰 로딩 속도 개선.
+            <strong>가설 2 (사용 경험): '사용 경험이 안 좋다'</strong>
+            <br />→
+            <strong
+              >GA4를 활용해 이탈 지점을 특정하고 Python(Matplotlib,
+              Seaborn)</strong
+            >
+            기반 클릭 스트림 데이터 히트맵 시각화. 완주를 저해하는 UX 병목
+            구간(저빈도 고용량 3D 에셋) 특정. 데이터 근거로 엔지니어와 협업하여
+            <strong>LOD(Level of Detail)</strong> 기법 최적화 진행.
           </li>
           <div class="project-image-container">
             <div class="project-image-item">
@@ -259,54 +311,47 @@
                 class="project-image"
               />
               <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-                Figure 01: 가상 쇼룸 사용자 행동 히트맵 분석 (예시)
+                Figure 01: 원시 클릭 스트림 데이터 히트맵 분석으로 UX 병목 구간
+                특정
               </p>
             </div>
           </div>
           <li>
-            이해관계자 정렬 및 투명성 확보: Miro 대시보드 구축;
-            피드백/이슈/진척도 공유로 투명성 및 팀 정렬 확보.
-          </li>
-          <div class="project-image-container">
-            <div class="project-image-item">
-              <img
-                src="images/hvac_miro_project_board.png"
-                alt="실시간 프로젝트 진행 상황 및 이슈 추적을 위한 Miro 보드"
-                class="project-image"
-              />
-              <p style="font-size: 0.9em; color: #888; margin-top: 10px">
-                Figure 02: 프로젝트 진행 상황 및 이슈 추적 (Miro 보드)
-              </p>
-            </div>
-          </div>
-          <li>
-            데이터 기반 디자인 트레이드오프: 구조화된 데이터 분석을 객관적
-            증거로 활용; 디자인과 퍼포먼스 균형 조율로 Unity 씬 최적화.
+            <strong>가설 3 (콘텐츠): '원하는 정보를 찾기 어렵다'</strong>
+            <br />→ 고객의 관심사와 실제 탐색 흐름에 맞춰 카드형 콘텐츠 구성 및
+            맞춤형 정보 배치 방식으로 정보 구조(IA) 재설계.
           </li>
         </ul>
 
         <h2>성과 및 임팩트 (Result)</h2>
         <ul>
           <li>
-            사용자 참여 및 리드 생성 증대: 방문자 수 +100% 증가; 세션 시간 +15%
-            증대.
+            <strong>핵심 경험 완주율 25% 증대 달성.</strong>
+          </li>
+          <li>종합적 개선을 통한 <strong>핵심 이탈률 15%p 감소.</strong></li>
+          <li>
+            3D 에셋 최적화를 통한 <strong>평균 로딩 속도 20% 개선.</strong>
           </li>
           <li>
-            기술적 퍼포먼스 향상: 페이지 로딩 속도 20% 단축; 이탈률 감소, 사용자
-            만족도 향상.
-          </li>
-          <li>
-            교차 기능 협업 강화: 데이터 기반으로 상충 기대치 성공적 조정;
-            효율적, 조화로운 프로젝트 실행.
+            사용자 리텐션 및 완주율 증대를 통한
+            <strong>B2B 고객 리드 확보에 직접 기여.</strong>
           </li>
         </ul>
 
-        <h2>기술 스택 및 나의 역할</h2>
+        <h2>기술 스택(Tech Stack)</h2>
         <ul>
-            <li><strong>Google Analytics (GA):</strong> 핵심 지표를 직접 분석하여 문제를 식별하고, 개선 성과를 정량적으로 측정.</li>
-            <li><strong>Python (데이터 분석):</strong> 기술팀의 Python 분석 결과(히트맵 등)를 해석하여, 데이터 기반 최적화 방향을 제시.</li>
-            <li><strong>Unity / C# (3D 개발):</strong> 개발팀과 데이터 기반 최적화 방안의 기술 구현 가능성을 조율하며 실행을 관리.</li>
-            <li><strong>Miro (협업):</strong> 실시간 대시보드를 직접 구축·운영하여 모든 이해관계자의 소통을 관리.</li>
+          <li>
+            <strong>Google Analytics (GA4):</strong> 핵심 KPI(퍼널, 쇼룸 완주율)
+            정의 및 트래킹, 분석용 원시 데이터 추출
+          </li>
+          <li>
+            <strong>Python (Matplotlib, Seaborn):</strong> 데이터 분석 리드,
+            원시 데이터 가공 및 시각화로 문제 원인 규명 및 개선 근거 제시
+          </li>
+          <li>
+            <strong>Information Architecture:</strong> 사용자 여정 완주율을
+            높이기 위한 콘텐츠 구조 재설계 주도
+          </li>
         </ul>
 
         <p>
