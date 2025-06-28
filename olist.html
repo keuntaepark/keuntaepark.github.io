@@ -86,22 +86,6 @@
         margin-bottom: 20px;
         border: 1px solid #444;
       }
-      .metric-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 15px;
-        margin-bottom: 20px;
-      }
-      .metric-table th,
-      .metric-table td {
-        border: 1px solid #444;
-        padding: 8px;
-        text-align: left;
-      }
-      .metric-table th {
-        background-color: #333;
-        color: #00ffff;
-      }
     </style>
     <script>
       function toggleLanguage(lang) {
@@ -124,12 +108,15 @@
   <body>
     <header>
       <h1>
-        Data-Driven Customer Churn Analysis and Retention Strategy for Olist E-commerce
+        Data-Driven Customer Churn Analysis and Retention Strategy for Olist
+        E-commerce
       </h1>
       <nav><a href="index.html">← Back to Portfolio</a></nav>
       <div class="lang-toggle">
         <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
-        <button id="btn-kr" class="active" onclick="toggleLanguage('kr')">KOR</button>
+        <button id="btn-kr" class="active" onclick="toggleLanguage('kr')">
+          KOR
+        </button>
       </div>
     </header>
 
@@ -137,75 +124,165 @@
       <div class="lang-en" style="display: none">
         <h2>Problem</h2>
         <p>
-          An initial analysis of the Olist e-commerce platform revealed a critical customer churn issue, with a repeat purchase rate of less than 4%. This low retention rate hinders LTV (Customer Lifetime Value) growth and forces a heavy reliance on new customer acquisition, threatening the long-term sustainability of the business. This project aimed to identify the root cause of churn and propose a data-driven, verifiable solution.
+          Olist, a leading Brazilian e-commerce platform, faces a critical
+          retention problem with a repeat purchase rate of less than 4%. This
+          "leaky bucket" forces a heavy reliance on new customer acquisition,
+          hindering LTV (Customer Lifetime Value) growth and threatening
+          long-term sustainability. The goal of this project was to use data to
+          uncover the true, non-obvious root cause of this high churn.
         </p>
 
         <h2>Action</h2>
         <ul>
           <li>
-            <strong>Problem Quantification & Pattern Discovery (EDA & Cohort Analysis):</strong>
+            <strong
+              >1. Problem Quantification (Funnel & Cohort Analysis):</strong
+            >
             <ul>
-              <li>Pinpointed the primary leakage point via AARRR funnel analysis, which showed a 96% drop-off rate between the Activation and Retention stages.</li>
-              <li>Visually proved through Cohort Analysis that this high initial churn was a long-standing, structural problem, not a one-time issue.</li>
-              <img
-              src="images/retention_heatmap.png"
-              alt="retention_heatmap"
+              <li>
+                Confirmed via AARRR funnel analysis that over 96% of activated
+                users churn after their first purchase.
+              </li>
+              <li>
+                Proved through Cohort Analysis that this was a structural and
+                long-standing issue, not a seasonal anomaly.
+              </li>
+            </ul>
+            <img
+              src="images/cohort_analysis.png"
               class="project-image"
-              />
-              <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 01: Monthly Retention Rate Heatmap</p>
+              alt="Cohort Analysis: Retention Drop-off"
+            />
+            <p
+              style="
+                font-size: 0.9em;
+                color: #888;
+                margin-top: 10px;
+                text-align: center;
+              "
+            >
+              Figure 01: Monthly Retention Rate Heatmap
+            </p>
+          </li>
+          <li>
+            <strong>2. Root Cause Exploration (Hypothesis Testing):</strong>
+            <ul>
+              <li>
+                Systematically tested three main hypotheses: product type,
+                payment method, and delivery experience.
+              </li>
+              <li>
+                Revealed that no single factor was a "smoking gun"; retention
+                was similarly low across all groups, suggesting a more complex
+                problem.
+              </li>
+              <li>
+                This critical insight invalidated simple explanations and
+                justified the need for a more sophisticated, multivariate
+                approach.
+              </li>
             </ul>
           </li>
           <li>
-            <strong>Root Cause Analysis (LTV & Regional Analysis):</strong>
+            <strong>3. Predictive Modeling & Driver Analysis:</strong>
             <ul>
-                <li>Hypothesized that a poor first-purchase experience, driven by delivery performance, was the root cause of churn.</li>
-                <li>LTV analysis revealed that 53.5% of total revenue comes from the top 20% of VIP customers, who are heavily concentrated in well-serviced southeastern metropolitan areas (e.g., SP, RJ).</li>
-                <li>In contrast, regions with the highest rate of "bad delivery experiences" (>16 days) were concentrated in the North/Northeast, proving a strong correlation between delivery experience, LTV, and churn.</li>
-                </li>
-                <img
-                src="images/distribution.png"
-                alt="distribution"
-                class="project-image"
-                />
-                <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 02: LTV Distribution and Box Plot</p>
+              <li>
+                Developed an XGBoost machine learning model to understand the
+                complex interactions between all factors influencing retention.
+              </li>
+              <li>
+                Used SHAP analysis to interpret the model's decisions, which
+                confirmed that `delivery_time` was the most powerful and
+                consistent negative predictor of customer retention, once all
+                variables were considered simultaneously.
+              </li>
             </ul>
-          </li>
-          <li>
-            <strong>Solution Design & Impact Simulation (ML & A/B Test):</strong>
-            <ul>
-                <li>Designed a solution to mitigate the negative impact of poor delivery: proactively offering compensation to affected customers.</li>
-                <li>Developed a repurchase prediction ML model, comparing multiple algorithms (Logistic Regression, RandomForest, XGBoost) and applying advanced techniques like SMOTE, Cost-Sensitive Learning, and GridSearchCV to handle severe class imbalance.</li>
-                <li>An A/B test simulation using the champion model predicted that offering a 10% discount coupon to customers with delayed deliveries would increase their repurchase probability by 2.58 percentage points, yielding a positive ROI of approximately 38.8%.</li>
-                </ul>
+            <img
+              src="images/shap.png"
+              alt="shap"
+              class="project-image"
+              style="max-width: 500px; display: block; margin: 0 auto"
+            />
+            <p
+              style="
+                font-size: 0.9em;
+                color: #888;
+                margin-top: 10px;
+                text-align: center;
+              "
+            >
+              Figure 02: SHAP Summary Plot — Key Driver Impact Visualization
+            </p>
           </li>
         </ul>
 
         <h2>Result</h2>
         <ul>
           <li>
-            <strong>Identified Key Driver of Churn:</strong> Proved with data that inconsistent and poor delivery experiences are a primary cause of Olist's low customer retention.
+            <strong>1. Structured the Problem with Data</strong>
+            <ul>
+              <li>
+                Framed the vague "low retention" issue as a quantifiable,
+                structural leak in the customer funnel.
+              </li>
+              <li>
+                This shifted the business focus from short-term marketing fixes
+                to long-term strategic solutions.
+              </li>
+            </ul>
           </li>
           <li>
-            <strong>Proposed a Data-Driven, Actionable Solution:</strong> Moved beyond insights to propose a concrete action plan—a 10% coupon for delayed orders—backed by a clear expected ROI of 38.8%, providing a strong business case for implementation.
+            <strong>2. Uncovered the True Root Cause</strong>
+            <ul>
+              <li>
+                Moved beyond the limitations of simple analysis to prove with a
+                machine learning model that the primary driver of churn was the
+                inconsistent delivery experience and broken customer trust in
+                specific regions.
+              </li>
+            </ul>
           </li>
           <li>
-            <strong>Informed Strategic Decision-Making:</strong> Provided a clear, data-driven direction for the business: instead of broad marketing efforts, retention resources should be focused on targeted interventions for specific customer segments who have had a poor delivery experience.
+            <strong>3. Linked Analysis Directly to Strategy</strong>
+            <ul>
+              <li>
+                Provided a clear, data-driven mandate to prioritize improving
+                delivery reliability.
+              </li>
+              <li>
+                The analysis forms a direct basis for designing targeted A/B
+                tests and measuring the ROI of future retention initiatives.
+              </li>
+            </ul>
           </li>
         </ul>
 
         <h2>Tech Stack</h2>
         <ul>
           <li><strong>Language:</strong> Python</li>
-          <li><strong>Data Processing & Analysis:</strong> Pandas, NumPy, SQL (via `sqlite3`)</li>
+          <li>
+            <strong>Data Processing & Analysis:</strong> Pandas, NumPy, SQL (via
+            `sqlite3`)
+          </li>
           <li><strong>Visualization:</strong> Matplotlib, Seaborn</li>
-          <li><strong>Machine Learning:</strong> Scikit-learn (Logistic Regression, RandomForest, StandardScaler, GridSearchCV), XGBoost</li>
-          <li><strong>Imbalanced Data Handling:</strong> imbalanced-learn (SMOTE)</li>
+          <li>
+            <strong>Machine Learning:</strong> Scikit-learn (Logistic
+            Regression, RandomForest), XGBoost, SHAP
+          </li>
+          <li>
+            <strong>Statistical Testing:</strong> SciPy (Chi-squared test)
+          </li>
         </ul>
 
         <h2>Report</h2>
         <p>
           📍 Notebook (nbviewer):
-          <a href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/olist_code.html" class="button" target="_blank">HERE</a><br />
+          <a
+            href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/olist_code.html"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
           📌 Data: Olist E-Commerce Public Dataset
         </p>
       </div>
@@ -213,85 +290,155 @@
       <div class="lang-kr">
         <h2>문제 정의 (Problem)</h2>
         <p>
-          브라질 이커머스 플랫폼 Olist의 고객 데이터를 분석한 결과, 첫 구매 이후 재구매로 이어지는 비율이 4% 미만에 머무는 심각한 고객 이탈(Churn) 문제를 발견했습니다. 이러한 낮은 리텐션은 LTV(고객 생애 가치) 성장을 저해하고, 신규 고객 유치에만 의존하게 만들어 비즈니스의 장기적 안정성을 위협하는 핵심적인 문제였습니다. 본 프로젝트의 목표는 이탈의 근본적인 원인을 데이터로 규명하고, 검증 가능한 해결 전략을 제시하는 것입니다.
+          브라질 이커머스 플랫폼 Olist의 재구매율은 4% 미만으로, 신규 고객
+          대부분이 첫 구매 후 이탈하는 심각한 문제를 겪고 있습니다. 이는 LTV
+          성장을 저해하고 지속적인 신규 고객 유치 비용을 발생시켜 장기적인 사업
+          안정성을 위협합니다. 본 프로젝트는 데이터 기반으로 이탈의 근본적인
+          원인을 규명하는 것을 목표로 합니다.
         </p>
 
         <h2>나의 기여 (Action)</h2>
         <ul>
           <li>
-            <strong>① 데이터 수집 및 분석 환경 구축</strong>
+            <strong>문제의 정량화 및 패턴 발견</strong>
             <ul>
-                <li>분산된 10만 건 CSV 데이터의 분석용 DB(SQLite) 통합 환경 구축</li>
-                <li>Python(`pandas`, `sqlite3` 등) 활용, 데이터 로딩 및 DB 적재 파이프라인 설계</li>
-                <li>SQL과 Pandas 연동, 분석 목적에 맞는 최종 테이블 구성 및 정제</li>
+              <li>
+                AARRR 퍼널 및 코호트 분석으로 첫 구매 후 재구매 전환율이 4%
+                미만인 구조적 이탈 문제 발견
+              </li>
+              <li>
+                데이터 시각화를 통해 해당 문제가 특정 시점의 이슈가 아닌, 장기간
+                지속된 특성임을 규명
+              </li>
             </ul>
-          </li>
-          <li>
-            <strong>② 탐색 및 구조적 문제 정의</strong>
-            <ul>
-                <li>AARRR 퍼널 및 코호트 분석을 통한 비즈니스 현황 진단</li>
-                <li>신규 고객 재구매율 3%대의 구조적 이탈 문제 정량적 발견</li>
-                <li>`Seaborn`, `Matplotlib` 활용, 코호트별 유지율 시각화 및 문제의 장기적 특성 규명</li>
-            </ul>
-              <img
-              src="images/retention_heatmap.png"
-              alt="retention_heatmap"
+            <img
+              src="images/cohort_analysis.png"
               class="project-image"
-              />
-              <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 01: 월별 고객 리텐션 히트맵</p>
+              alt="Cohort Analysis: Retention Drop-off"
+            />
+            <p
+              style="
+                font-size: 0.9em;
+                color: #888;
+                margin-top: 10px;
+                text-align: center;
+              "
+            >
+              Figure 01: 월별 고객 리텐션 히트맵
+            </p>
+          </li>
+
+          <li>
+            <strong>단일 가설 검증 및 한계 도출</strong>
+            <ul>
+              <li>
+                제품, 결제, 배송 등 이탈에 영향을 줄 수 있는 주요 가설들을
+                설정하고, 각 변수별 리텐션 분석 수행
+              </li>
+              <li>
+                분석 결과, 모든 그룹에서 리텐션이 유사하게 낮아 특정 단일 요인이
+                이탈의 명확한 원인이라는 가설 기각
+              </li>
+              <li>
+                단일 변수 분석의 한계를 명확히 정의하고, 변수 간 복합적인
+                상호작용을 분석해야 한다는 결론 도출
+              </li>
+            </ul>
           </li>
           <li>
-            <strong>③ 가설 기반 분석 및 검증</strong>
+            <strong>머신러닝 기반 핵심 동인 규명</strong>
             <ul>
-                <li>'부정적 배송 경험'을 이탈의 핵심 원인으로 가설 수립</li>
-                <li>가설 검증을 위한 핵심 파생 변수(`delivery_diff`) 피처 엔지니어링</li>
-                <li>'빠른 배송'이 높은 리텐션으로 이어지지 않는다는 통념과 반대되는 인사이트 도출</li>
-                <li>`SciPy` 활용, 카이제곱 검정을 통해 '지역별 배송 품질 편차' 등 복합 요인의 연관성 검토</li>
+              <li>
+                복합적인 이탈 원인 규명을 위해 XGBoost 재구매 예측 모델 구축
+              </li>
+              <li>
+                SHAP 분석으로 모델의 예측 근거를 해석, 변수 간 상호작용을
+                고려했을 때 `배송 시간`이 가장 강력한 부정적 영향 요인임을 증명
+              </li>
             </ul>
-                <img
-                src="images/distribution.png"
-                alt="distribution"
-                class="project-image"
-                />
-                <p style="font-size: 0.9em; color: #888; margin-top: 10px; text-align: center;">Figure 02: LTV 분포 히스토그램 및 박스플롯</p>
-          </li>
-          <li>
-            <strong>④ 모델링 설계 및 전략화 시도</strong>
-            <ul>
-                <li>단일 변수로 설명되지 않는 이탈 패턴 파악을 위한 `XGBoost` 재구매 예측 모델 설계</li>
-                <li>이탈 위험 고객군 식별 및 '배송 지연 고객 대상 쿠폰 제공' 시나리오 시뮬레이션</li>
-                <li>전략 실행 시, 약 39%의 긍정적 ROI 창출 효과를 정량적으로 예측 및 제시</li>
-            </ul>
+            <img
+              src="images/shap.png"
+              alt="shap"
+              class="project-image"
+              style="max-width: 500px; display: block; margin: 0 auto"
+            />
+            <p
+              style="
+                font-size: 0.9em;
+                color: #888;
+                margin-top: 10px;
+                text-align: center;
+              "
+            >
+              Figure 02: SHAP Summary Plot — 핵심 영향력 분석 시각화
+            </p>
           </li>
         </ul>
 
         <h2>성과 및 비즈니스 임팩트 (Result)</h2>
         <ul>
           <li>
-            고객 이탈의 핵심 동인이 '지역별 배송 경험 편차'임을 데이터 기반으로 규명
+            <strong>1. 데이터 기반의 문제 구조화</strong>
+            <ul>
+              <li>
+                '낮은 리텐션'이라는 모호한 문제를 AARRR, 코호트 분석을 통해
+                '정량화된 퍼널의 구조적 누수'로 재정의함.
+              </li>
+              <li>
+                단기적 대응이 아닌 장기적 관점의 전략 수립 필요성을 데이터로
+                증명함.
+              </li>
+            </ul>
           </li>
           <li>
-            '10% 할인 쿠폰 제공'이라는 구체적 해결책과 예상 ROI(38.8%)를 함께 제시하여, 실행 근거 마련
+            <strong>2. 실질적인 핵심 동인 규명</strong>
+            <ul>
+              <li>
+                단순 분석의 한계를 넘어 머신러닝 모델을 통해, 가격이나 제품이
+                아닌 '특정 지역의 배송 신뢰도 붕괴'가 이탈의 가장 핵심적인
+                원인임을 증명함.
+              </li>
+            </ul>
           </li>
           <li>
-            '선택과 집중'을 통한 리소스 최적화 등 데이터 기반의 전략적 의사결정 방향성 제시
+            <strong>3. 분석과 비즈니스 전략의 연결</strong>
+            <ul>
+              <li>
+                분석 결과를 바탕으로 '배송 경험 개선'이라는 명확한 비즈니스
+                우선순위를 제시함.
+              </li>
+              <li>
+                향후 A/B 테스트 설계 및 ROI 측정이 가능한 구체적인 실행 전략의
+                데이터 기반 근거를 마련함.
+              </li>
+            </ul>
           </li>
         </ul>
 
         <h2>기술 스택 (Tech Stack)</h2>
         <ul>
           <li><strong>언어:</strong> Python</li>
-          <li><strong>데이터 처리/분석:</strong> Pandas, NumPy, SQL (via `sqlite3`)</li>
+          <li>
+            <strong>데이터 처리/분석:</strong> Pandas, NumPy, SQL (via
+            `sqlite3`)
+          </li>
           <li><strong>시각화:</strong> Matplotlib, Seaborn</li>
-          <li><strong>머신러닝:</strong> Scikit-learn (Logistic Regression, RandomForest, StandardScaler, GridSearchCV), XGBoost</li>
+          <li>
+            <strong>머신러닝:</strong> Scikit-learn (Logistic Regression,
+            RandomForest), XGBoost, SHAP
+          </li>
           <li><strong>통계 검증:</strong> SciPy (Chi-squared test)</li>
-          <li><strong>불균형 데이터 처리:</strong> imbalanced-learn (SMOTE)</li>
         </ul>
 
         <h2>보고서 (Report)</h2>
         <p>
           📍 노트북 (nbviewer):
-          <a href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/olist_code.html" class="button" target="_blank">HERE</a><br />
+          <a
+            href="https://nbviewer.org/github/keuntaepark/keuntaepark.github.io/blob/main/olist_code.html"
+            class="button"
+            target="_blank"
+            >HERE</a
+          ><br />
           📌 데이터: Olist E-Commerce Public Dataset
         </p>
       </div>
