@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce LTV Maximization via Data Analysis | Your Name</title>
+    <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        background-color: #000;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+      }
+      header {
+        padding: 20px;
+        background-color: #111;
+        text-align: center;
+      }
+      nav {
+        text-align: center;
+        margin: 20px;
+      }
+      nav a {
+        color: #00ffff;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      nav a:hover {
+        text-decoration: underline;
+      }
+      .lang-toggle {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .lang-toggle button {
+        background-color: #222;
+        color: #00ffff;
+        border: 1px solid #00ffff;
+        padding: 6px 12px;
+        cursor: pointer;
+        margin: 0 5px;
+        border-radius: 4px;
+      }
+      .lang-toggle button.active {
+        background-color: #00ffff;
+        color: #000;
+      }
+      h2 {
+        border-bottom: 1px solid #444;
+        padding-bottom: 5px;
+      }
+      .content {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      a.button {
+        display: inline-block;
+        margin-top: 10px;
+        padding: 8px 16px;
+        background-color: #00ffff;
+        color: #000;
+        border-radius: 4px;
+        text-decoration: none;
+      }
+      a.button:hover {
+        background-color: #00cccc;
+      }
+      .project-image {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        border: 1px solid #444;
+      }
+    </style>
+    <script>
+      function toggleLanguage(lang) {
+        document.querySelectorAll(".lang-en").forEach((el) => {
+          el.style.display = lang === "en" ? "block" : "none";
+        });
+        document.querySelectorAll(".lang-kr").forEach((el) => {
+          el.style.display = lang === "kr" ? "block" : "none";
+        });
+        document
+          .querySelectorAll(".lang-toggle button")
+          .forEach((btn) => btn.classList.remove("active"));
+        document.getElementById("btn-" + lang).classList.add("active");
+      }
+      window.onload = function () {
+        toggleLanguage("kr"); // Default to Korean
+      };
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>E-commerce Data Analysis for LTV Maximization</h1>
+      <nav><a href="index.html">← Back to Portfolio</a></nav>
+      <div class="lang-toggle">
+        <button id="btn-en" onclick="toggleLanguage('en')">ENG</button>
+        <button id="btn-kr" class="active" onclick="toggleLanguage('kr')">
+          KOR
+        </button>
+      </div>
+    </header>
+
+    <div class="content">
+      <div class="lang-en" style="display: none">
+        <h2>Problem</h2>
+        <p>
+          The objective was to analyze customer purchase data to diagnose the
+          root causes of low retention and identify data-driven opportunities to
+          increase Customer Lifetime Value (LTV).
+        </p>
+
+        <h2>Action</h2>
+        <ul>
+          <li>
+            <strong
+              >1. Retention Pattern Identification (Cohort Analysis)</strong
+            >
+            <ul>
+              <li>
+                Conducted cohort analysis using SQL in BigQuery to track monthly
+                retention rates.
+              </li>
+              <li>
+                An initial data anomaly (the Dec 2010 cohort) was identified and
+                excluded from the general trend analysis to ensure accuracy.
+              </li>
+              <li>
+                The analysis consistently revealed a severe ~70% customer churn
+                within the first two months.
+              </li>
+            </ul>
+            <img
+              src="images/cohort_retention_heatmap.png"
+              class="project-image"
+              alt="Cohort Retention Heatmap"
+            />
+          </li>
+          <li>
+            <strong>2. Customer Behavior Analysis (Guest vs. Member)</strong>
+            <ul>
+              <li>
+                To investigate the characteristics of the user base, segmented
+                customers into 'Guest' and 'Member' groups.
+              </li>
+              <li>
+                Analyzed the proportion of transactions and revenue from each
+                group, as well as the Average Order Value (AOV) for guests.
+              </li>
+            </ul>
+            <img
+              src="images/guest_analysis_chart.png"
+              class="project-image"
+              alt="Guest vs. Member Analysis Chart"
+            />
+          </li>
+        </ul>
+
+        <h2>Result</h2>
+        <ul>
+          <li>
+            <strong>1. Quantified the Impact of Early-Stage Churn</strong>
+            <ul>
+              <li>
+                Pinpointed that the most critical churn occurs within the first
+                2 months post-acquisition.
+              </li>
+              <li>
+                Calculated that improving the retention rate by just 10
+                percentage points for the 2011 new customer cohorts could secure
+                over 300 additional long-term customers.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>2. Discovered a High-Value Non-Member Segment</strong>
+            <ul>
+              <li>
+                Discovered that while the overall transaction share of guests
+                decreased, their financial impact remained significant.
+              </li>
+              <li>
+                Specifically, in November, guest transactions accounted for less
+                than 5% of the total transaction volume but contributed to 23%
+                of the total monthly revenue, driven by a remarkably high AOV.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>3. Identified Key Strategic Priorities</strong>
+            <ul>
+              <li>
+                The analyses provided clear, data-backed evidence for two
+                strategic priorities: 1) Improving the new customer onboarding
+                experience to mitigate early churn, and 2) Developing a targeted
+                strategy for high-value non-member customers.
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>Tech Stack</h2>
+        <ul>
+          <li><strong>Database:</strong> Google BigQuery</li>
+          <li>
+            <strong>Analysis:</strong> LTV (Lifetime Value), ROI Analysis,
+            Customer Segmentation, Funnel Analysis, BI
+          </li>
+          <li><strong>Visualization:</strong> Looker Studio, Google Sheets</li>
+        </ul>
+      </div>
+
+      <div class="lang-kr">
+        <h2>문제 정의 (Problem)</h2>
+        <p>
+          고객 구매 데이터를 분석하여 낮은 리텐션의 근본 원인을 진단하고, 고객
+          생애 가치(LTV) 증대 기회를 찾는 것을 목표로 했습니다.
+        </p>
+
+        <h2>나의 기여 (Action)</h2>
+        <ul>
+          <li>
+            <strong>1. 리텐션 패턴 식별 (코호트 분석)</strong>
+            <ul>
+              <li>
+                BigQuery(SQL)를 활용, 첫 구매 월 기준 코호트 분석을 통해 월별
+                재구매율을 추적.
+              </li>
+              <li>
+                초기 데이터 분석 시 발견된 이상치(2010년 12월 코호트)를 식별,
+                전체 경향성 분석에서 제외하여 분석 정확도를 높임.
+              </li>
+              <li>
+                분석 결과, 신규 고객의 약 70%가 첫 2개월 내 이탈하는 일관된
+                패턴을 발견.
+              </li>
+            </ul>
+            <img
+              src="images/cohort_retention_heatmap.png"
+              class="project-image"
+              alt="코호트 리텐션 히트맵"
+            />
+          </li>
+          <li>
+            <strong>2. 고객 행동 분석 (비회원 vs. 회원)</strong>
+            <ul>
+              <li>
+                고객 기반의 특성을 파악하기 위해, `CustomerID` 유무를 기준으로
+                고객을 '비회원'과 '회원' 그룹으로 세분화.
+              </li>
+              <li>
+                각 그룹의 거래 비중, 매출 비중 및 비회원의 주문건당 평균
+                매출(AOV)을 분석.
+              </li>
+            </ul>
+            <img
+              src="images/guest_analysis_chart.png"
+              class="project-image"
+              alt="비회원 데이터 분석 차트"
+            />
+          </li>
+        </ul>
+
+        <h2>성과 및 비즈니스 임팩트 (Result)</h2>
+        <ul>
+          <li>
+            <strong>1. 초기 이탈의 임팩트 정량화</strong>
+            <ul>
+              <li>
+                가장 결정적인 고객 이탈이 첫 구매 후 2개월 내에 집중됨을 특정.
+              </li>
+              <li>
+                2011년 신규 유입 코호트의 초기 리텐션을 10%p 개선 시, 300명
+                이상의 장기 충성 고객을 추가로 확보할 수 있음을 계산.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>2. 고가치 비회원 고객 그룹 발견</strong>
+            <ul>
+              <li>
+                전체 거래에서 비회원의 비중은 감소했으나, 매출 기여도는 여전히
+                높은 것을 확인.
+              </li>
+              <li>
+                특히 11월에는 비회원 거래가 전체의 5% 미만이었으나, 높은 AOV를
+                기반으로 월 매출의 23%에 기여함을 발견.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <strong>3. 핵심 전략 우선순위 도출</strong>
+            <ul>
+              <li>
+                분석을 통해 '신규 고객 온보딩 경험 개선'과 '고가치 비회원 고객
+                타겟 전략 수립'이라는 두 가지 명확한 비즈니스 우선순위를 데이터
+                기반으로 도출.
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <h2>기술 스택(Tech Stack)</h2>
+        <ul>
+          <li><strong>데이터베이스:</strong> Google BigQuery</li>
+          <li>
+            <strong>분석:</strong> LTV(고객생애가치), ROI 분석, 고객 세분화,
+            퍼널 분석, BI
+          </li>
+          <li><strong>시각화:</strong> Looker Studio, Google Sheets</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer>
+      &copy; 2025 Keuntae Park ·
+      <a href="https://github.com/keuntaepark" target="_blank">GitHub</a>
+    </footer>
+  </body>
+</html>
