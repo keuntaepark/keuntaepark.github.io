@@ -136,10 +136,7 @@
       <div class="lang-en">
         <h2>Problem</h2>
         <p>
-          The $2.50 NYC congestion surcharge lacked consistency across time,
-          zones, and trip distance. This led to inefficiencies in fairness
-          (over-concentration in low-income zones) and operational clarity
-          (unclear triggers), creating complex problems from a simple policy.
+          EDA of 3M+ trips revealed the problem's scale: surcharges were applied inconsistently but heavily concentrated (>70%) in Manhattan during weekday business hours. This created fairness issues (impacting specific zones disproportionately) and operational confusion, as the de-facto rules were unclear.
         </p>
 
         <h2>Action</h2>
@@ -147,8 +144,7 @@
           <li>
             Data-Driven Policy Analysis: Built classification models (Logistic
             Regression, RandomForest) to predict surcharge triggers (ROC-AUC
-            0.91) using 3M+ taxi trips; utilized SHAP for interpretable policy
-            insights.
+            0.91) using 3M+ taxi trips &  to first decode the hidden, de-facto rules of the current system, using SHAP to confirm that pickup hour and location were the primary drivers
           </li>
           <li>
             Quantifiable Revenue & Equity Modeling: Developed Ridge Regression
@@ -161,9 +157,7 @@
             equity outcomes to identify optimal strategies.
           </li>
           <li>
-            Reusable Framework Design: Modularized simulation/analysis tools
-            into a reusable framework; enabled rapid adaptation for dynamic
-            pricing, urban logistics, & smart city policy.
+            Reusable Framework Design: Designed and built a modular Python framework containing functions for (1) policy definition, (2) impact simulation, and (3) evaluation of revenue and equity metrics, enabling the rapid testing of diverse urban mobility policies.
           </li>
         </ul>
 
@@ -188,9 +182,7 @@
             data-driven, optimized time/zone pricing.
           </li>
           <li>
-            Enhanced Policy Equity: Significantly reduced surcharge
-            overconcentration in underserved areas, leading to fairer cost
-            distribution.
+            Enhanced Policy Equity: Reduced surcharge applications in the top 3 most-impacted zones by 22%, creating a more equitable distribution of costs across the city.
           </li>
           <li>
             Actionable Operational Insight: Provided interpretable SHAP outputs
@@ -218,15 +210,31 @@
         </div>
 
         <h2>Tech Stack</h2>
-        <p>To address NYC's uniform congestion surcharge, this project designed and simulated an optimal elastic fare system using data analysis and machine learning. By applying various models (classification, regression, clustering) for specific purposes and interpreting them with SHAP, the proposed system was proven to improve both profitability and fairness.</p>
+        <p>
+          To address NYC's uniform congestion surcharge, this project designed
+          and simulated an optimal elastic fare system using data analysis and
+          machine learning. By applying various models (classification,
+          regression, clustering) for specific purposes and interpreting them
+          with SHAP, the proposed system was proven to improve both
+          profitability and fairness.
+        </p>
         <h4>Python</h4>
         <ul>
-            <li><strong>Data Engineering:</strong> <code>pandas</code>, <code>numpy</code></li>
-            <li><strong>Multi-Purpose Modeling:</strong> <code>scikit-learn</code> (for Classification, Regression, Clustering)</li>
-            <li><strong>Model Interpretability (XAI):</strong> <code>shap</code></li>
-            <li><strong>Visualization:</strong> <code>matplotlib</code>, <code>seaborn</code></li>
+          <li>
+            <strong>Data Engineering:</strong> pandas, numpy
+          </li>
+          <li>
+            <strong>Multi-Purpose Modeling:</strong>
+            scikit-learn (for Classification, Regression,
+            Clustering)
+          </li>
+          <li>
+            <strong>Model Interpretability (XAI):</strong>shap
+          </li>
+          <li>
+            <strong>Visualization:</strong> matplotlib, seaborn
+          </li>
         </ul>
-
 
         <h2>Code & Report</h2>
         <p>
@@ -246,10 +254,7 @@
       <div class="lang-kr" style="display: none">
         <h2>문제 정의 (Problem)</h2>
         <p>
-          현행 $2.50 NYC 혼잡 할증은 적용에 일관성이 부족했습니다. 이는 공정성
-          (저소득 지역 할증 과다 집중) 및 운영 효율성 (불분명한 할증 발생 조건)
-          비효율로 이어져, 단순한 정책이 의도치 않은 복잡한 문제를
-          초래했습니다.
+          300만 건의 운행 데이터 EDA 결과, 할증이 주중 업무시간 맨해튼 지역에 70% 이상 편중되어 적용됨을 발견했습니다. 이는 특정 지역에 비용을 편중시키는 공정성 문제와, 명확한 기준 없이 적용되는 운영상의 혼란을 야기했습니다.
         </p>
 
         <h2>나의 기여 (Action)</h2>
@@ -257,7 +262,7 @@
           <li>
             데이터 기반 정책 분석: 300만 건 이상 택시 운행 데이터를 활용, 분류
             모델(로지스틱 회귀, 랜덤 포레스트)로 할증 발생 조건 예측 (ROC-AUC
-            0.91); SHAP 기반 정책 인사이트 제공.
+            0.91); SHAP 분석을 통해 할증의 핵심 조건이 시간과 위치임을 증명.
           </li>
           <li>
             정량적 수익 및 공정성 모델링: Ridge 회귀 모델로 정책 변수 요금 영향
@@ -268,8 +273,7 @@
             설계 & 실행; 수익/공정성 비교로 최적 전략 도출.
           </li>
           <li>
-            재사용 가능한 프레임워크 설계: 시뮬레이션/분석 도구를 모듈화,
-            다이내믹 요금, 도시 물류, 스마트 도시 정책에 신속 적용 가능.
+            재사용 가능한 프레임워크 설계: 다양한 도시 정책의 신속한 테스트를 위해, (1)정책 조건 정의, (2)수익/공정성 영향 시뮬레이션, (3)평가 지표 시각화 기능을 포함한 모듈형 파이썬 프레임워크를 설계 및 구축.
           </li>
         </ul>
 
@@ -293,8 +297,7 @@
             수익 +0.9% 증가 달성.
           </li>
           <li>
-            정책 공정성 향상: 저소득 지역 할증 과다 집중 대폭 감소, 공정한 비용
-            분배 기여.
+            정책 공정성 향상: 시뮬레이션 결과, 가장 할증이 집중되던 상위 3개 지역의 할증 적용 건수를 22% 감소시켜, 도시 전역에 걸쳐 더 공정한 비용 분배 구조를 마련.
           </li>
           <li>
             실무 적용 가능한 운영 인사이트: 해석 가능한 SHAP 결과물로 할증 조건
@@ -320,13 +323,26 @@
         </div>
 
         <h2>기술 스택</h2>
-        <p>뉴욕시 택시의 획일적인 교통 혼잡세 문제를 해결하기 위해, 데이터 분석과 머신러닝을 통해 최적의 탄력 요금제를 설계하고 시뮬레이션했습니다. 분류, 회귀, 클러스터링 등 다양한 모델을 목적에 맞게 적용하고 SHAP으로 모델을 해석하여, 제안된 요금제가 수익성과 공정성을 모두 개선함을 입증했습니다.</p>
+        <p>
+          뉴욕시 택시의 획일적인 교통 혼잡세 문제를 해결하기 위해, 데이터 분석과
+          머신러닝을 통해 최적의 탄력 요금제를 설계하고 시뮬레이션했습니다.
+          분류, 회귀, 클러스터링 등 다양한 모델을 목적에 맞게 적용하고 SHAP으로
+          모델을 해석하여, 제안된 요금제가 수익성과 공정성을 모두 개선함을
+          입증했습니다.
+        </p>
         <h4>Python</h4>
         <ul>
-          <li><strong>데이터 엔지니어링:</strong> <code>pandas</code>, <code>numpy</code></li>
-          <li><strong>복합 모델링:</strong> <code>scikit-learn</code> (분류, 회귀, 클러스터링)</li>
-          <li><strong>모델 해석 (XAI):</strong> <code>shap</code></li>
-          <li><strong>시각화:</strong> <code>matplotlib</code>, <code>seaborn</code></li>
+          <li>
+            <strong>데이터 엔지니어링:</strong> pandas, numpy
+          </li>
+          <li>
+            <strong>복합 모델링:</strong> scikit-learn (분류, 회귀,
+            클러스터링)
+          </li>
+          <li><strong>모델 해석 (XAI):</strong> shap</li>
+          <li>
+            <strong>시각화:</strong> matplotlib, seaborn
+          </li>
         </ul>
 
         <h2>코드 및 보고서</h2>
